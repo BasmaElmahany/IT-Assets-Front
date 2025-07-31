@@ -1,0 +1,31 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var claims = ViewBag.Claims as Dictionary<string, string>;
+}
+
+<h2>Login Successful!</h2>
+
+<p><strong>Token:</strong></p>
+<textarea class="form-control" rows="5">@ViewBag.Token</textarea>
+
+<h3>Token Claims</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Claim Type</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in claims)
+        {
+            <tr>
+                <td>@item.Key</td>
+                <td>@item.Value</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

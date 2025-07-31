@@ -1,0 +1,598 @@
+﻿
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Document Title, Description, and Author -->
+    <title>IT Assets</title>
+    <meta name="description" content="Information Technology Inventory.">
+    <meta name="author" content="BootstrapBrain">
+
+    <!-- Favicon and Touch Icons -->
+    <link rel="icon" type="image/png" sizes="512x512" href="~/layoutAssets/assets/favicon/favicon-512x512.png">
+
+    <!-- Google Fonts Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="~/layoutAssets/assets/css/console-bsb.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <!-- BSB Head -->
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header id="header" class="bg-white border-bottom border-light-subtle sticky-top bsb-tpl-header-sticky">
+        <nav class="navbar navbar-expand-md bsb-navbar-3 bsb-tpl-navbar-sticky" data-bsb-sticky-target="#header">
+            <div class="container">
+                <ul class="navbar-nav">
+                    <li class="nav-item me-3">
+                        <a class="nav-link" href="#!" data-bs-toggle="offcanvas" data-bs-target="#bsbSidebar1" aria-controls="bsbSidebar1">
+                            <i class="bi-filter-left fs-3 lh-1"></i>
+                        </a>
+                    </li>
+                </ul>
+                <a class="navbar-brand" href="index.html">
+                    <img src="~/layoutAssets/assets/img/branding/it-logo.jpg" class="bsb-tpl-logo" alt="It AssetsLogo Logo">
+                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#bsbNavbar" aria-controls="bsbNavbar" aria-label="Toggle Navigation">
+                    <i class="bi bi-three-dots"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="bsbNavbar">
+                    <ul class="navbar-nav bsb-dropdown-menu-responsive ms-auto align-items-center">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle bsb-dropdown-toggle-caret-disable" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="position-relative">
+                                    <i class="bi bi-search"></i>
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-md-end bsb-dropdown-animation bsb-fadeIn">
+                                <form class="row g-1 px-3 py-2 align-items-center">
+                                    <div class="col-8">
+                                        <label class="visually-hidden" for="inputSearchNavbar">Search</label>
+                                        <input type="text" class="form-control" id="inputSearchNavbar">
+                                    </div>
+                                    <div class="col-4">
+                                        <button type="submit" class="btn btn-primary">Search</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle bsb-dropdown-toggle-caret-disable" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="position-relative">
+                                    <i class="bi bi-globe"></i>
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-md-end bsb-dropdown-sm bsb-dropdown-animation bsb-fadeIn">
+                                <div>
+                                    <h6 class="dropdown-header fs-7 text-center">Multilingual</h6>
+                                </div>
+                                <div>
+                                    <hr class="dropdown-divider mb-0">
+                                </div>
+                                <div class="list-group list-group-flush">
+                                    <a href="#!" class="list-group-item list-group-item-action" aria-current="true">
+                                        <div class="row g-0 align-items-center">
+                                            <div class="col-2">
+                                                <img src="~/layoutAssets/assets/img/translation/flag-img-1.svg" class="img-fluid rounded-pill" alt="Arabic">
+                                            </div>
+                                            <div class="col-10">
+                                                <div class="ps-3">
+                                                    <div class="fs-7">Arabic</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#!" class="list-group-item list-group-item-action" aria-current="true">
+                                        <div class="row g-0 align-items-center">
+                                            <div class="col-2">
+                                                <img src="~/layoutAssets/assets/img/translation/flag-img-2.svg" class="img-fluid rounded-pill" alt="Chinese">
+                                            </div>
+                                            <div class="col-10">
+                                                <div class="ps-3">
+                                                    <div class="fs-7">Chinese</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#!" class="list-group-item list-group-item-action active" aria-current="true">
+                                        <div class="row g-0 align-items-center">
+                                            <div class="col-2">
+                                                <img src="~/layoutAssets/assets/img/translation/flag-img-3.svg" class="img-fluid rounded-pill" alt="English">
+                                            </div>
+                                            <div class="col-10">
+                                                <div class="ps-3">
+                                                    <div class="fs-7">English</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#!" class="list-group-item list-group-item-action" aria-current="true">
+                                        <div class="row g-0 align-items-center">
+                                            <div class="col-2">
+                                                <img src="~/layoutAssets/assets/img/translation/flag-img-4.svg" class="img-fluid rounded-pill" alt="French">
+                                            </div>
+                                            <div class="col-10">
+                                                <div class="ps-3">
+                                                    <div class="fs-7">French</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div>
+                                    <hr class="dropdown-divider mt-0">
+                                </div>
+                                <div>
+                                    <a class="dropdown-item fs-7 text-center" href="#!">See All Languages</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle bsb-dropdown-toggle-caret-disable" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="position-relative pt-1">
+                                    <i class="bi bi-chat-left"></i>
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-accent">
+                                        9
+                                        <span class="visually-hidden">New Chats</span>
+                                    </span>
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-md-end bsb-dropdown-animation bsb-fadeIn">
+                                <div>
+                                    <h6 class="dropdown-header fs-7 text-center">9 New Messages</h6>
+                                </div>
+                                <div>
+                                    <hr class="dropdown-divider mb-0">
+                                </div>
+                                <div class="list-group list-group-flush">
+                                    <a href="#!" class="list-group-item list-group-item-action" aria-current="true">
+                                        <div class="row g-0 align-items-center">
+                                            <div class="col-2">
+                                                <img src="~/layoutAssets/assets/img/chat/chat-img-1.jpg" class="img-fluid rounded-circle" alt="Luna John">
+                                            </div>
+                                            <div class="col-10">
+                                                <div class="ps-3">
+                                                    <div class="text-dark">Luna John</div>
+                                                    <div class="text-secondary mt-1 fs-7">Hello, I'm having trouble with my account.</div>
+                                                    <div class="text-secondary mt-1 fs-7">15m ago</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#!" class="list-group-item list-group-item-action">
+                                        <div class="row g-0 align-items-center">
+                                            <div class="col-2">
+                                                <img src="~/layoutAssets/assets/img/chat/chat-img-2.jpg" class="img-fluid rounded-circle" alt="Mark Smith">
+                                            </div>
+                                            <div class="col-10">
+                                                <div class="ps-3">
+                                                    <div class="text-dark">Mark Smith</div>
+                                                    <div class="text-secondary mt-1 fs-7">Hi, I'm not able to change my password.</div>
+                                                    <div class="text-secondary mt-1 fs-7">23m ago</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div>
+                                    <hr class="dropdown-divider mt-0">
+                                </div>
+                                <div>
+                                    <a class="dropdown-item fs-7 text-center" href="#!">See All Messages</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle bsb-dropdown-toggle-caret-disable" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="position-relative pt-1">
+                                    <i class="bi bi-bell"></i>
+                                    <span class="p-1 bg-accent border border-light rounded-circle position-absolute top-0 start-100 translate-middle">
+                                        <span class="visually-hidden">New Notifications</span>
+                                    </span>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-md-end bsb-dropdown-animation bsb-fadeIn">
+                                <li>
+                                    <h6 class="dropdown-header fs-7 text-center">18 Notifications</h6>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="#!">
+                                        <span>
+                                            <i class="bi bi-envelope-fill me-2"></i>
+                                            <span class="fs-7">New Messages</span>
+                                        </span>
+                                        <span class="fs-7 ms-auto text-secondary">5 mins</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="#!">
+                                        <span>
+                                            <i class="bi bi-person-fill me-2"></i>
+                                            <span class="fs-7">Friend Requests</span>
+                                        </span>
+                                        <span class="fs-7 ms-auto text-secondary">17 hours</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="#!">
+                                        <span>
+                                            <i class="bi bi-file-earmark-fill me-2"></i>
+                                            <span class="fs-7">New Reports</span>
+                                        </span>
+                                        <span class="fs-7 ms-auto text-secondary">3 days</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item fs-7 text-center" href="#!">See All Notifications</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle bsb-dropdown-toggle-caret-disable" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="~/layoutAssets/assets/img/profile/profile-img-1.jpg" width="35" height="35" class="img-fluid rounded-circle" alt="Ethan Leo">
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-md-end bsb-dropdown-animation bsb-fadeIn">
+                                <li>
+                                    <h6 class="dropdown-header fs-7 text-center">Welcome, Ethan Leo</h6>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <a href="pages-profile.html" class="dropdown-item" aria-current="true">
+                                        <div class="row g-0 align-items-center">
+                                            <div class="col-3">
+                                                <img src="~/layoutAssets/assets/img/profile/profile-img-1.jpg" width="55" height="55" class="img-fluid rounded-circle" alt="Ethan Leo">
+                                            </div>
+                                            <div class="col-9">
+                                                <div class="ps-3">
+                                                    <div class="text-secondary mt-1 fs-7">Premium Account</div>
+                                                    <div class="text-secondary mt-1 fs-7">leo@example.com</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="pages-profile.html">
+                                        <span>
+                                            <i class="bi bi-person-fill me-2"></i>
+                                            <span class="fs-7">View Profile</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#!">
+                                        <span>
+                                            <i class="bi bi-bell-fill me-2"></i>
+                                            <span class="fs-7">Notifications</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="pages-profile.html">
+                                        <span>
+                                            <i class="bi bi-gear-fill me-2"></i>
+                                            <span class="fs-7">Settings & Privacy</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="pages-faqs.html">
+                                        <span>
+                                            <i class="bi bi-question-circle-fill me-2"></i>
+                                            <span class="fs-7">Help Center</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <a class="dropdown-item text-center" href="auth-logout.html">
+                                        <span>
+                                            <span class="fs-7">Log Out</span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="py-3 py-md-4 py-xl-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="h4">IT Assets Dashboard</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb m-0 fs-7">
+                            <li class="breadcrumb-item">
+                                <a class="link-primary text-decoration-none" asp-action="Index" asp-controller="Home">Home</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page"> <a class="link-primary text-decoration-none" asp-action="Index" asp-controller="Brand">Brands</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"> <a class="link-primary text-decoration-none" asp-action="Index" asp-controller="Category">Categories</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"> <a class="link-primary text-decoration-none" asp-action="Index" asp-controller="Office">Offices</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"> <a class="link-primary text-decoration-none" asp-action="Index" asp-controller="Supplier">Suppliers</a></li>
+
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <!-- Main -->
+    <main id="main" role="main" class="pb-3">
+      
+            @RenderBody()
+    
+
+      
+       
+
+    </main>
+
+    <!-- Aside -->
+    <aside class="bsb-sidebar-1 offcanvas offcanvas-start" tabindex="-1" id="bsbSidebar1" aria-labelledby="bsbSidebarLabel1">
+        <div class="offcanvas-header">
+            <a class="sidebar-brand" href="index.html">
+                <img src="~/layoutAssets/assets/img/branding/it-logo.jpg" id="bsbSidebarLabel1" class="bsb-tpl-logo" alt="BootstrapBrain Logo">
+            </a>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body pt-0">
+            <hr class="sidebar-divider mb-3">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link p-3 bg-light rounded active" data-bs-toggle="collapse" href="#dashboardExamples" role="button" aria-expanded="true" aria-controls="dashboardExamples">
+                        <div class="nav-link-icon text-primary">
+                            <i class="bi bi-grid"></i>
+                        </div>
+                        <span class="nav-link-text fw-bold">Dashboards</span>
+                    </a>
+                    <div class="collapse show" id="dashboardExamples">
+                        <ul class="nav flex-column ms-4">
+                            <li class="nav-item">
+                                <a class="nav-link link-primary active" aria-current="page" href="index.html">
+                                    <div class="nav-link-icon text-primary-emphasis">
+                                        <i class="bi bi-arrow-right-short"></i>
+                                    </div>
+                                    <span class="nav-link-text">Home</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item mt-3">
+                    <h6 class="py-1 text-secondary text-uppercase fs-7">Contents</h6>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link p-3" data-bs-toggle="collapse" href="#componentExamples" role="button" aria-expanded="false" aria-controls="componentExamples">
+                        <div class="nav-link-icon text-primary">
+                            <i class="bi bi-menu-button-wide-fill"></i>
+                        </div>
+                        <span class="nav-link-text fw-bold">Device</span>
+                    </a>
+                    <div class="collapse" id="componentExamples">
+                        <ul class="nav flex-column ms-4">
+                            <li class="nav-item">
+                                <a class="nav-link link-secondary" aria-current="page" href="components-accordion.html">
+                                    <div class="nav-link-icon text-primary-emphasis">
+                                        <i class="bi bi-arrow-right-short"></i>
+                                    </div>
+                                    <span class="nav-link-text">Categories</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link link-secondary" aria-current="page" href="components-alerts.html">
+                                    <div class="nav-link-icon text-primary-emphasis">
+                                        <i class="bi bi-arrow-right-short"></i>
+                                    </div>
+                                    <span class="nav-link-text">Brand</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link link-secondary" aria-current="page" href="components-buttons.html">
+                                    <div class="nav-link-icon text-primary-emphasis">
+                                        <i class="bi bi-arrow-right-short"></i>
+                                    </div>
+                                    <span class="nav-link-text">Supplier</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link link-secondary" aria-current="page" href="components-card.html">
+                                    <div class="nav-link-icon text-primary-emphasis">
+                                        <i class="bi bi-arrow-right-short"></i>
+                                    </div>
+                                    <span class="nav-link-text">Devices</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link p-3" data-bs-toggle="collapse" href="#formExamples" role="button" aria-expanded="false" aria-controls="formExamples">
+                        <div class="nav-link-icon text-primary">
+                            <i class="bi bi-ui-radios"></i>
+                        </div>
+                        <span class="nav-link-text fw-bold">Device Requests</span>
+                    </a>
+                    <div class="collapse" id="formExamples">
+                        <ul class="nav flex-column ms-4">
+                            <li class="nav-item">
+                                <a class="nav-link link-secondary" aria-current="page" href="forms-layout.html">
+                                    <div class="nav-link-icon text-primary-emphasis">
+                                        <i class="bi bi-arrow-right-short"></i>
+                                    </div>
+                                    <span class="nav-link-text">Requests</span>
+                                </a>
+                            </li>
+                          
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link p-3" data-bs-toggle="collapse" href="#iconExamples" role="button" aria-expanded="false" aria-controls="iconExamples">
+                        <div class="nav-link-icon text-primary">
+                            <i class="bi bi-flower2"></i>
+                        </div>
+                        <span class="nav-link-text fw-bold">Device Assignment</span>
+                    </a>
+                    <div class="collapse" id="iconExamples">
+                        <ul class="nav flex-column ms-4">
+                            <li class="nav-item">
+                                <a class="nav-link link-secondary" aria-current="page" href="bootstrap-icons.html">
+                                    <div class="nav-link-icon text-primary-emphasis">
+                                        <i class="bi bi-arrow-right-short"></i>
+                                    </div>
+                                    <span class="nav-link-text">Employee Assignment</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link link-secondary" aria-current="page" href="bootstrap-icons.html">
+                                    <div class="nav-link-icon text-primary-emphasis">
+                                        <i class="bi bi-arrow-right-short"></i>
+                                    </div>
+                                    <span class="nav-link-text">Office Assignment</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link link-secondary" aria-current="page" href="bootstrap-icons.html">
+                                    <div class="nav-link-icon text-primary-emphasis">
+                                        <i class="bi bi-arrow-right-short"></i>
+                                    </div>
+                                    <span class="nav-link-text">Device Transfer</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link p-3" data-bs-toggle="collapse" href="#tableExamples" role="button" aria-expanded="false" aria-controls="tableExamples">
+                        <div class="nav-link-icon text-primary">
+                            <i class="bi bi-layout-text-window-reverse"></i>
+                        </div>
+                        <span class="nav-link-text fw-bold">Device Maintainance Schedule</span>
+                    </a>
+                    <div class="collapse" id="tableExamples">
+                        <ul class="nav flex-column ms-4">
+                            <li class="nav-item">
+                                <a class="nav-link link-secondary" aria-current="page" href="tables-basic.html">
+                                    <div class="nav-link-icon text-primary-emphasis">
+                                        <i class="bi bi-arrow-right-short"></i>
+                                    </div>
+                                    <span class="nav-link-text">Maintainance Schedule</span>
+                                </a>
+                            </li>
+                    
+                        </ul>
+                    </div>
+                </li>
+               
+            </ul>
+            <hr class="sidebar-divider my-4">
+            <div class="bg-light rounded-3 position-relative px-4 pt-5 pb-4 mt-7">
+                <div class="bsb-w-80 bsb-h-80 d-flex align-items-center justify-content-center text-bg-primary border border-5 border-white rounded-circle position-absolute top-0 start-50 translate-middle">
+                    <i class="bi bi-rocket-takeoff lh-1 fs-3"></i>
+                </div>
+                <div class="text-center">
+                    <h3 class="h5">IT Asstes Dashboard</h3>
+                   
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Footer -->
+    <footer class="footer py-3 border-top border-light-subtle">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="py-3">
+                        Built by <a href="https://bootstrapbrain.com/" class="link-secondary text-decoration-none">BootstrapBrain</a> with <span class="text-accent">&#9829;</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    @RenderSection("Scripts", required: false)
+
+    <div aria-live="polite" aria-atomic="true" class="position-fixed bottom-0 end-0 p-3" style="z-index: 1100;">
+        <div class="toast-container">
+         
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        $(document).ready(function () {
+        @if (TempData["Success"] != null)
+        {
+            <text>toastr.success("@TempData["Success"]");</text>
+        }
+        @if (TempData["Error"] != null)
+        {
+            <text>toastr.error("@TempData["Error"]");</text>
+        }
+        });
+    </script>
+
+    <script src="https://unpkg.com/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world-merc.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@@fullcalendar/bootstrap5@6.1.9/index.global.min.js"></script>
+
+    <script src="~/layoutAssets/assets/controller/console-bsb.js"></script>
+    <script src="~/layoutAssets/assets/controller/chart-1.js"></script>
+    <script src="~/layoutAssets/assets/controller/chart-3.js"></script>
+    <script src="~/layoutAssets/assets/controller/chart-4.js"></script>
+    <script src="~/layoutAssets/assets/controller/map-2.js"></script>
+    <script src="~/layoutAssets/assets/controller/calendar-1.js"></script>
+
+ 
+ 
+  
+</body>
+
+</html>
