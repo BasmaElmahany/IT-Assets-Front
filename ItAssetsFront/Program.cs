@@ -1,6 +1,8 @@
 using ItAssetsFront.Services.AuthService;
 using ItAssetsFront.Services.BrandService;
 using ItAssetsFront.Services.CategoryService;
+using ItAssetsFront.Services.DeviceService;
+using ItAssetsFront.Services.EmployeeService;
 using ItAssetsFront.Services.officeService;
 using ItAssetsFront.Services.SupplierService;
 
@@ -19,6 +21,9 @@ namespace ItAssetsFront
             builder.Services.AddHttpClient<LoginService>();
             builder.Services.AddHttpClient<officeService>();
             builder.Services.AddHttpClient<SupplierService>();
+            builder.Services.AddHttpClient<EmployeeService>();
+            builder.Services.AddHttpClient<DeviceService>();
+
             builder.Services.AddSession();
         
             var app = builder.Build();

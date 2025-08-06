@@ -1,0 +1,127 @@
+﻿@model ItAssetsFront.Models.DeviceModels.EditDevice
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="pb-3 pb-md-4 pb-xl-5 bg-light">
+    <div class="container">
+        <div class="row gy-3 gy-md-4 justify-content-center">
+            <div class="col-12 col-lg-6">
+                <div class="card widget-card border-0 shadow rounded-4">
+                    <div class="card-header bg-white border-0 text-center py-4">
+                        <h4 class="fw-bold mb-0 text-primary">✏️ Edit Device</h4>
+                    </div>
+                    <div class="card-body px-4 py-4">
+                        @using (Html.BeginForm("Edit", "Device", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.HiddenFor(model => model.id) <!-- ensure Id is preserved -->
+                            @Html.HiddenFor(model => model.ExistingPhotoUrl)
+                            <div class="mb-4">
+                                @Html.LabelFor(model => model.Name, new { @class = "form-label fw-semibold" })
+                                @Html.TextBoxFor(model => model.Name, new
+                                    {
+                                        @class = "form-control rounded-pill px-4 py-2 shadow-sm",
+                                        placeholder = "Enter Device name"
+                                    })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+
+                            <div class="mb-4">
+                                @Html.LabelFor(model => model.SerialNumber, new { @class = "form-label fw-semibold" })
+                                @Html.TextBoxFor(model => model.SerialNumber, new
+                                    {
+                                        @class = "form-control rounded-pill px-4 py-2 shadow-sm",
+                                        placeholder = "Enter Device SerialNumber"
+                                    })
+                                @Html.ValidationMessageFor(model => model.SerialNumber, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+
+                            <div class="mb-4">
+                                @Html.LabelFor(model => model.Photo, new { @class = "form-label fw-semibold" })
+                                <input type="file" name="Photo" class="form-control rounded-pill px-4 py-2 shadow-sm" />
+                                @Html.ValidationMessage("Photo", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+
+                            <div class="mb-4">
+                                @Html.LabelFor(model => model.Status, new { @class = "form-label fw-semibold" })
+                                @Html.TextAreaFor(model => model.Status, new
+                                    {
+                                        @class = "form-control rounded px-4 py-2 shadow-sm",
+                                        placeholder = "Enter Device Status",
+                                        rows = 4
+                                    })
+                                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+
+                            <div class="mb-4">
+                                @Html.LabelFor(model => model.BrandId, new { @class = "form-label fw-semibold" })
+                                @Html.DropDownListFor(model => model.BrandId,
+                                         new SelectList(ViewBag.Brands, "id", "name", Model.BrandId),
+                                         "-- Select Brand --",
+                                         new { @class = "form-control rounded-pill px-4 py-2 shadow-sm" })
+                                @Html.ValidationMessageFor(model => model.BrandId, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+
+                            <div class="mb-4">
+                                @Html.LabelFor(model => model.CategoryID, new { @class = "form-label fw-semibold" })
+                                @Html.DropDownListFor(model => model.CategoryID,
+                                         new SelectList(ViewBag.Categories, "id", "name", Model.CategoryID),
+                                         "-- Select Category --",
+                                         new { @class = "form-control rounded-pill px-4 py-2 shadow-sm" })
+                                @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+
+                            <div class="mb-4">
+                                @Html.LabelFor(model => model.SupplierID, new { @class = "form-label fw-semibold" })
+                                @Html.DropDownListFor(model => model.SupplierID,
+                                         new SelectList(ViewBag.Suppliers, "id", "name", Model.SupplierID),
+                                         "-- Select Supplier (optional) --",
+                                         new { @class = "form-control rounded-pill px-4 py-2 shadow-sm" })
+                                @Html.ValidationMessageFor(model => model.SupplierID, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+
+                            <div class="mb-4 form-check">
+                                @Html.CheckBoxFor(model => model.IsFaulty, new { @class = "form-check-input", id = "IsFaultyCheckbox" })
+                                @Html.Label("IsFaultyCheckbox", "Is Faulty", new { @class = "form-check-label fw-semibold" })
+                                @Html.ValidationMessageFor(model => model.IsFaulty, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+
+                            <div class="mb-4 form-check">
+                                @Html.CheckBoxFor(model => model.IsAvailable, new { @class = "form-check-input", id = "IsAvailableCheckbox" })
+                                @Html.Label("IsAvailableCheckbox", "Is Available", new { @class = "form-check-label fw-semibold" })
+                                @Html.ValidationMessageFor(model => model.IsAvailable, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+
+                            <div class="mb-4">
+                                @Html.LabelFor(model => model.Qty, new { @class = "form-label fw-semibold" })
+                                @Html.TextBoxFor(model => model.Qty, new
+                                    {
+                                        @class = "form-control rounded-pill px-4 py-2 shadow-sm",
+                                        placeholder = "Enter Quantity",
+                                        type = "number",
+                                        min = "0"
+                                    })
+                                @Html.ValidationMessageFor(model => model.Qty, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-success rounded-pill px-5 py-2 me-2 shadow-sm">
+                                    <i class="bi bi-check-circle me-1"></i> Save
+                                </button>
+                                <a asp-action="Index" class="btn btn-outline-secondary rounded-pill px-5 py-2 shadow-sm">
+                                    <i class="bi bi-x-circle me-1"></i> Cancel
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

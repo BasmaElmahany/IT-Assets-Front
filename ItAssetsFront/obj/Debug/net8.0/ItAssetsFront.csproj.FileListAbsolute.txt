@@ -238,3 +238,4 @@ D:\ItAssetsFront\ItAssetsFront\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.W
 D:\ItAssetsFront\ItAssetsFront\obj\Debug\net8.0\ItAssetsFront.MvcApplicationPartsAssemblyInfo.cs
 D:\ItAssetsFront\ItAssetsFront\bin\Debug\net8.0\X.PagedList.dll
 D:\ItAssetsFront\ItAssetsFront\bin\Debug\net8.0\X.PagedList.Mvc.Core.dll
+D:\ItAssetsFront\ItAssetsFront\obj\Debug\net8.0\ItAssetsFront.sourcelink.json
