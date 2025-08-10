@@ -15,9 +15,9 @@ namespace ItAssetsFront.Models.AssignDevice
 
         public string deviceStatus { get; set; }
 
-        public DateOnly returnDate { get; set; }
+        public DateOnly ? returnDate { get; set; }
 
-        public string returnStatus { get; set; }
+        public string? returnStatus { get; set; }
 
         public int qty { get; set; }
 

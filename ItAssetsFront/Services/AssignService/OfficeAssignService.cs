@@ -1,44 +1,44 @@
 ﻿using ItAssetsFront.Models.AssignDevice;
-using ItAssetsFront.Models.BrandModels;
+using ItAssetsFront.Models.AssignOffice;
 
 namespace ItAssetsFront.Services.AssignService
 {
-    public class AssignService
+    public class OfficeAssignService
     {
         private readonly HttpClient _httpClient;
-        private readonly string _baseUrl = "http://localhost:41335/api/EmployeeDeviceAssign";
-        public AssignService(HttpClient httpClient)
+        private readonly string _baseUrl = "http://localhost:41335/api/OfficeDeviceAssign";
+        public OfficeAssignService(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
 
         // Get all brands
-        public async Task<List<GetAllAssigned>> GetAllDevicesAsync()
+        public async Task<List<getAllOfficeAssigned>> GetAllDevicesAsync()
         {
-            var result = await _httpClient.GetFromJsonAsync<List<GetAllAssigned>>($"{_baseUrl}/GetAll");
-            return result ?? new List<GetAllAssigned>();
+            var result = await _httpClient.GetFromJsonAsync<List<getAllOfficeAssigned>>($"{_baseUrl}/GetAll");
+            return result ?? new List<getAllOfficeAssigned>();
         }
 
-     
+
 
         // Add new brand
-        public async Task<Assign?> AddDeviceAsync(Assign deviceAss)
+        public async Task<OfficeAssign?> AddDeviceAsync(OfficeAssign deviceAss)
         {
             var payload = new
             {
                 deviceID = deviceAss.deviceID,
-                employeeID = deviceAss.employeeID,
-                assignDate = deviceAss.assignDate.ToString("yyyy-MM-dd"), 
+                OfficeID = deviceAss.OfficeID,
+                assignDate = deviceAss.assignDate.ToString("yyyy-MM-dd"),
                 deviceStatus = deviceAss.deviceStatus,
                 qty = deviceAss.qty
             };
 
-            var response = await _httpClient.PostAsJsonAsync($"{_baseUrl}/EmpDeviceAssignment", deviceAss);
+            var response = await _httpClient.PostAsJsonAsync($"{_baseUrl}/OffDeviceAssignment", deviceAss);
             var json = await response.Content.ReadAsStringAsync();
             Console.WriteLine(json);
             if (response.IsSuccessStatusCode)
             {
-                var result = await response.Content.ReadFromJsonAsync<ApiResponse<Assign>>();
+                var result = await response.Content.ReadFromJsonAsync<ApiResponse<OfficeAssign>>();
                 return result?.data;
             }
 
@@ -46,7 +46,7 @@ namespace ItAssetsFront.Services.AssignService
         }
 
         // Update brand
-        public async Task<Return?> ReturnDeviceAsync(Return dev)
+        public async Task<ReturndevOff?> ReturnDeviceAsync(ReturndevOff dev)
         {
             var payload = new
             {
@@ -60,7 +60,7 @@ namespace ItAssetsFront.Services.AssignService
 
             if (response.IsSuccessStatusCode)
             {
-                var result = await response.Content.ReadFromJsonAsync<ApiResponse<Return>>();
+                var result = await response.Content.ReadFromJsonAsync<ApiResponse<ReturndevOff>>();
                 return result?.data;
             }
 

@@ -1,13 +1,10 @@
-﻿namespace ItAssetsFront.Models.AssignDevice
+﻿namespace ItAssetsFront.Models.AssignOffice
 {
-    public class Return
-    { 
+    public class ReturndevOff
+    {
         public Guid id { get; set; }
         public Guid deviceID { get; set; }
-
-        public DateOnly returnDate {  get; set; }
-
+        public DateOnly returnDate { get; set; }
         public string returnStatus { get; set; }
-
     }
 }

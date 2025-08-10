@@ -52,6 +52,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/ItAssetsFront/ItAssetsFront/Views/DeviceAssign/Assign.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV2aWNlQXNzaWduXEFzc2lnbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ItAssetsFront/ItAssetsFront/Views/DeviceAssign/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV2aWNlQXNzaWduXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ItAssetsFront/ItAssetsFront/Views/DeviceAssign/Return.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV2aWNlQXNzaWduXFJldHVybi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/ItAssetsFront/ItAssetsFront/Views/Device/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV2aWNlXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -90,6 +102,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/ItAssetsFront/ItAssetsFront/Views/Login/TokenInfo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cVG9rZW5JbmZvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ItAssetsFront/ItAssetsFront/Views/OfficeDesign/Assign.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmaWNlRGVzaWduXEFzc2lnbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ItAssetsFront/ItAssetsFront/Views/OfficeDesign/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmaWNlRGVzaWduXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ItAssetsFront/ItAssetsFront/Views/OfficeDesign/Return.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmaWNlRGVzaWduXFJldHVybi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/ItAssetsFront/ItAssetsFront/Views/Office/Create.cshtml]

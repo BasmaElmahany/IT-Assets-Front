@@ -1,0 +1,88 @@
+﻿@model ItAssetsFront.Models.AssignOffice.OfficeAssign
+
+@{
+    ViewData["Title"] = "Assign Device";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="pb-3 pb-md-4 pb-xl-5 bg-light">
+    <div class="container">
+        <div class="row gy-3 gy-md-4 justify-content-center">
+            <div class="col-12 col-lg-6">
+                <div class="card widget-card border-0 shadow rounded-4">
+                    <div class="card-header bg-white border-0 text-center py-4">
+                        <h4 class="fw-bold mb-0 text-primary">📦 Assign Device to Office</h4>
+                    </div>
+                    <div class="card-body px-4 py-4">
+                        @using (Html.BeginForm("Assign", "DeviceAssign", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="mb-4">
+                                @Html.LabelFor(model => model.deviceID, "Select Device", new { @class = "form-label fw-semibold" })
+                                @Html.DropDownListFor(model => model.deviceID,
+                                         new SelectList(ViewBag.Devices, "id", "name"),
+                                         "-- Select Device --",
+                                         new { @class = "form-control rounded-pill px-4 py-2 shadow-sm" })
+                                @Html.ValidationMessageFor(model => model.deviceID, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+
+                            <div class="mb-4">
+                                @Html.LabelFor(model => model.OfficeID, "Select Employee", new { @class = "form-label fw-semibold" })
+                                @Html.DropDownListFor(model => model.OfficeID,
+                                         new SelectList(ViewBag.Offices, "id", "name"),
+                                         "-- Select Employee --",
+                                         new { @class = "form-control rounded-pill px-4 py-2 shadow-sm" })
+                                @Html.ValidationMessageFor(model => model.OfficeID, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+
+                            <div class="mb-4">
+                                @Html.LabelFor(model => model.assignDate, "Assign Date", new { @class = "form-label fw-semibold" })
+                                @Html.TextBoxFor(model => model.assignDate, "{0:yyyy-MM-dd}", new
+                                    {
+                                        type = "date",
+                                        @class = "form-control rounded-pill px-4 py-2 shadow-sm"
+                                    })
+                                @Html.ValidationMessageFor(model => model.assignDate, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+
+                            <div class="mb-4">
+                                @Html.LabelFor(model => model.deviceStatus, "Device Status", new { @class = "form-label fw-semibold" })
+                                @Html.TextAreaFor(model => model.deviceStatus, new
+                                    {
+                                        @class = "form-control rounded px-4 py-2 shadow-sm",
+                                        placeholder = "Enter any assignment notes",
+                                        rows = 3
+                                    })
+                                @Html.ValidationMessageFor(model => model.deviceStatus, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+                            <div class="mb-4">
+                                @Html.LabelFor(model => model.qty, "Quantity", new { @class = "form-label fw-semibold" })
+                                @Html.TextBoxFor(model => model.qty, new
+                                    {
+                                        type = "number",
+                                        min = "1",
+                                        value = "1",
+                                        @class = "form-control rounded-pill px-4 py-2 shadow-sm"
+                                    })
+                                @Html.ValidationMessageFor(model => model.qty, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-success rounded-pill px-5 py-2 me-2 shadow-sm">
+                                    <i class="bi bi-check-circle me-1"></i> Assign
+                                </button>
+                                <a asp-action="Index" class="btn btn-outline-secondary rounded-pill px-5 py-2 shadow-sm">
+                                    <i class="bi bi-x-circle me-1"></i> Cancel
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

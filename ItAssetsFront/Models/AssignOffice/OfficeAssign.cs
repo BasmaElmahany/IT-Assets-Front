@@ -1,14 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ItAssetsFront.Models.AssignDevice
+namespace ItAssetsFront.Models.AssignOffice
 {
-    public class Assign
+    public class OfficeAssign
     {
         [Required]
         public Guid deviceID { get; set; }
 
         [Required]
-        public Guid employeeID { get; set; }
+        public Guid OfficeID { get; set; }
 
         [Required]
         public DateOnly assignDate { get; set; }
