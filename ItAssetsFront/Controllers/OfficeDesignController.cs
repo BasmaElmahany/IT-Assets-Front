@@ -1,6 +1,8 @@
 ﻿using ItAssetsFront.Models.AssignDevice;
+using ItAssetsFront.Models.AssignOffice;
 using ItAssetsFront.Services.AssignService;
 using ItAssetsFront.Services.DeviceService;
+using ItAssetsFront.Services.officeService;
 using Microsoft.AspNetCore.Mvc;
 using X.PagedList.Extensions;
 
@@ -10,10 +12,10 @@ namespace ItAssetsFront.Controllers
     {
 
         private readonly DeviceService _Devser;
-        private readonly OfficeAssignService _office;
-        private readonly AssignService _ser;
+        private readonly officeService _office;
+        private readonly OfficeAssignService _ser;
 
-        public OfficeDesignController(DeviceService Devser, OfficeAssignService office, AssignService ser)
+        public OfficeDesignController(DeviceService Devser, officeService office, OfficeAssignService ser)
         {
             _ser = ser;
             _office = office;
@@ -32,19 +34,19 @@ namespace ItAssetsFront.Controllers
         public async Task<IActionResult> Assign()
         {
             ViewBag.Devices = await _Devser.GetAllDevicesAsync();
-            ViewBag.Offices = await _office.GetAllDevicesAsync();
+            ViewBag.Offices = await _office.GetAllOfficeAsync();
             return View();
         }
 
         // Create - POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Assign(Assign model)
+        public async Task<IActionResult> Assign(OfficeAssign model)
         {
             if (!ModelState.IsValid)
             {
                 ViewBag.Devices = await _Devser.GetAllDevicesAsync();
-                ViewBag.Offices = await _office.GetAllDevicesAsync();
+                ViewBag.Offices = await _office.GetAllOfficeAsync();
                 return View(model);
             }
 
@@ -57,7 +59,7 @@ namespace ItAssetsFront.Controllers
 
             TempData["Error"] = "Failed to Assign device.";
             ViewBag.Devices = await _Devser.GetAllDevicesAsync();
-            ViewBag.Offices = await _office.GetAllDevicesAsync();
+            ViewBag.Offices = await _office.GetAllOfficeAsync();
             return View(model);
         }
 
@@ -73,7 +75,7 @@ namespace ItAssetsFront.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            var model = new Return
+            var model = new ReturndevOff
             {
                 id = assignedDevice.id,
                 deviceID = assignedDevice.deviceID,
@@ -85,7 +87,7 @@ namespace ItAssetsFront.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Return(Return model)
+        public async Task<IActionResult> Return(ReturndevOff model)
         {
             if (!ModelState.IsValid)
             {

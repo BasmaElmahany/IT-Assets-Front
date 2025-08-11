@@ -1,8 +1,11 @@
-﻿using ItAssetsFront.Models.DeviceModels;
+﻿using ItAssetsFront.Models.AssignDevice;
+using ItAssetsFront.Models.BrandModels;
+using ItAssetsFront.Models.DeviceModels;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Drawing2D;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -14,7 +17,7 @@ namespace ItAssetsFront.Services.DeviceService
     {
         private readonly HttpClient _httpClient;
         private readonly string _baseUrl = "http://localhost:41335/api/Device";
-
+       
         public DeviceService(HttpClient httpClient)
         {
             _httpClient = httpClient;
@@ -111,8 +114,7 @@ namespace ItAssetsFront.Services.DeviceService
             throw new NotImplementedException();
         }
 
-
-
+      
 
 
 
@@ -132,5 +134,8 @@ namespace ItAssetsFront.Services.DeviceService
 
             return formFile;
         }
+
+
+
     }
 }

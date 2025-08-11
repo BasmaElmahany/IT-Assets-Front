@@ -1,0 +1,61 @@
+﻿@model ItAssetsFront.Models.AssignDevice.DeviceTransfer
+@{
+    ViewData["Title"] = "Transfer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="pb-3 pb-md-4 pb-xl-5 bg-light">
+    <div class="container">
+        <div class="row gy-3 gy-md-4 justify-content-center">
+            <div class="col-12 col-lg-6">
+                <div class="card widget-card border-0 shadow rounded-4">
+                    <div class="card-header bg-white border-0 text-center py-4">
+                        <h4 class="fw-bold mb-0 text-primary">🔄 Transfer Device</h4>
+                    </div>
+                    <div class="card-body px-4 py-4">
+                        @using (Html.BeginForm("Transfer", "DeviceAssign", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            @Html.HiddenFor(model => model.oldEmpId)
+                            @Html.HiddenFor(model => model.deviceID)
+
+                            <div class="mb-4">
+                                @Html.LabelFor(model => model.newEmpId, "Select Employee", new { @class = "form-label fw-semibold" })
+                                @Html.DropDownListFor(model => model.newEmpId,
+                                         new SelectList(ViewBag.Employees, "id", "name"),
+                                         "-- Select Employee --",
+                                         new { @class = "form-control rounded-pill px-4 py-2 shadow-sm" })
+                                @Html.ValidationMessageFor(model => model.newEmpId, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+
+                            <div class="mb-4">
+                                @Html.LabelFor(model => model.dateOnly, "Transfer Date", new { @class = "form-label fw-semibold" })
+                                @Html.TextBoxFor(model => model.dateOnly, "{0:yyyy-MM-dd}", new
+                                    {
+                                        type = "date",
+                                        @class = "form-control rounded-pill px-4 py-2 shadow-sm"
+                                    })
+                                @Html.ValidationMessageFor(model => model.dateOnly, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-success rounded-pill px-5 py-2 me-2 shadow-sm">
+                                    <i class="bi bi-arrow-return-left me-1"></i> Transfer
+                                </button>
+                                <a asp-action="Index" class="btn btn-outline-secondary rounded-pill px-5 py-2 shadow-sm">
+                                    <i class="bi bi-x-circle me-1"></i> Cancel
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
+

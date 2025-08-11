@@ -59,15 +59,44 @@
                                                 <td>@item.returnStatus</td>
                                                 <td>@item.qty</td>
                                                 <td class="text-center">
-                                                    <a asp-controller="DeviceAssign"
-                                                       asp-action="Return"
-                                                       asp-route-id="@item.id"
-                                                       class="btn btn-link text-success p-0 me-2"
-                                                       title="Return Device">
-                                                        <i class='bx bx-log-out fs-5'></i>
-                                                    </a>
-                                                    <button class="btn btn-link text-danger p-0" data-bs-toggle="modal"
-                                                            data-bs-target="#deleteConfirmModal" data-device-id="@item.id">
+                                                    @if (!string.IsNullOrWhiteSpace(item.returnStatus) && item.returnDate.HasValue)
+                                                    {
+                                                        <!-- Disabled Return -->
+                                                        <button class="btn btn-link text-secondary p-0 me-2" title="Already Returned" disabled>
+                                                            <i class='bx bx-log-out fs-5'></i>
+                                                        </button>
+
+                                                        <!-- Disabled Transfer -->
+                                                        <button class="btn btn-link text-secondary p-0 me-2" title="Already Returned" disabled>
+                                                            <i class='bx bx-transfer fs-5'></i>
+                                                        </button>
+                                                    }
+                                                    else
+                                                    {
+                                                        <!-- Active Return -->
+                                                        <a asp-controller="DeviceAssign"
+                                                           asp-action="Return"
+                                                           asp-route-id="@item.id"
+                                                           class="btn btn-link text-success p-0 me-2"
+                                                           title="Return Device">
+                                                            <i class='bx bx-log-out fs-5'></i>
+                                                        </a>
+
+                                                        <!-- Active Transfer -->
+                                                        <a asp-controller="DeviceAssign"
+                                                           asp-action="Transfer"
+                                                           asp-route-employeeId="@item.employeeID"
+                                                           asp-route-deviceId="@item.deviceID"
+                                                           class="btn btn-link text-warning p-0 me-2"
+                                                           title="Transfer Device">
+                                                            <i class='bx bx-transfer fs-5'></i>
+                                                        </a>
+                                                    }
+
+                                                    <button class="btn btn-link text-danger p-0"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#deleteConfirmModal"
+                                                            data-device-id="@item.id">
                                                         <i class='bx bx-trash fs-5'></i>
                                                     </button>
                                                 </td>

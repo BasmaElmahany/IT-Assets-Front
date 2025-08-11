@@ -107,7 +107,38 @@ namespace ItAssetsFront.Controllers
             return View(model);
         }
 
+        public async Task<IActionResult> Transfer(Guid employeeId, Guid deviceId)
+        {
+            ViewBag.Employees = await _employee.GetAllEmployeesAsync();
+            var model = new DeviceTransfer
+            {
+                oldEmpId = employeeId,
+                deviceID = deviceId,
+                dateOnly = DateOnly.FromDateTime(DateTime.Now)
+            };
 
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Transfer(DeviceTransfer model)
+        {
+            if (!ModelState.IsValid) { ViewBag.Employees = await _employee.GetAllEmployeesAsync(); }
+            var result = await _ser.transferDeviceAsync(model);
+            if (result != null)
+            {
+                TempData["Success"] = "Device returned successfully.";
+                return RedirectToAction(nameof(Index));
+            }
+
+            TempData["Error"] = "Failed to return device.";
+            return View(model);
+        }
+               
+
+
+         
+        
         public async Task<IActionResult> Delete(Guid id)
         {
 

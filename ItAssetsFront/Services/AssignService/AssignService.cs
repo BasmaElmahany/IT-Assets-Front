@@ -1,5 +1,8 @@
 ﻿using ItAssetsFront.Models.AssignDevice;
 using ItAssetsFront.Models.BrandModels;
+using ItAssetsFront.Models.DeviceModels;
+using System;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace ItAssetsFront.Services.AssignService
 {
@@ -7,6 +10,7 @@ namespace ItAssetsFront.Services.AssignService
     {
         private readonly HttpClient _httpClient;
         private readonly string _baseUrl = "http://localhost:41335/api/EmployeeDeviceAssign";
+        private readonly string _baseUrl2 = "http://localhost:41335/api/DeviceTransfer";
         public AssignService(HttpClient httpClient)
         {
             _httpClient = httpClient;
@@ -66,7 +70,25 @@ namespace ItAssetsFront.Services.AssignService
 
             return null;
         }
+        public async Task<DeviceTransfer?> transferDeviceAsync(DeviceTransfer model)
+        {
+            var Payload = new
+            {
+                oldEmpId = model.oldEmpId,
+                newEmpId = model.newEmpId,
+                deviceID = model.deviceID,
+                dateOnly = model.dateOnly.ToString("yyyy-MM-dd"),
+            };
+            var response = await _httpClient.PostAsJsonAsync($"{_baseUrl2}/PostDeviceTransfer", Payload);
 
+            if (response.IsSuccessStatusCode)
+            {
+                var result = await response.Content.ReadFromJsonAsync<ApiResponse<DeviceTransfer>>();
+                return result?.data;
+            }
+
+            return null;
+        }
         // Delete brand
         public async Task<string?> DeleteAssignAsync(Guid id)
         {
@@ -80,6 +102,7 @@ namespace ItAssetsFront.Services.AssignService
 
             return null;
         }
+     
 
         private class ApiResponse<T>
         {
