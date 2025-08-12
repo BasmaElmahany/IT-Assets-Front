@@ -1,0 +1,91 @@
+﻿@model ItAssetsFront.Models.DeviceRequest.EditRequest
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="pb-3 pb-md-4 pb-xl-5 bg-light">
+    <div class="container">
+        <div class="row gy-3 gy-md-4 justify-content-center">
+            <div class="col-12 col-lg-6">
+                <div class="card widget-card border-0 shadow rounded-4">
+                    <div class="card-header bg-white border-0 text-center py-4">
+                        <h4 class="fw-bold mb-0 text-warning">✏️ Edit Request Data</h4>
+                    </div>
+                    <div class="card-body px-4 py-4">
+                        @using (Html.BeginForm("Edit", "Request", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.HiddenFor(model => model.id)
+
+                            <div class="mb-4">
+                                @Html.LabelFor(model => model.deviceName, new { @class = "form-label fw-semibold" })
+                                @Html.TextAreaFor(model => model.deviceName, new
+                                    {
+                                        @class = "form-control rounded-pill px-4 py-2 shadow-sm",
+                                        placeholder = "Enter Device name"
+                                    })
+                                @Html.ValidationMessageFor(model => model.deviceName, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+
+                            <div class="mb-4">
+                                @Html.LabelFor(model => model.deviceCount, new { @class = "form-label fw-semibold" })
+                                @Html.TextBoxFor(model => model.deviceCount, new
+                                    {
+                                        @class = "form-control rounded-pill px-4 py-2 shadow-sm",
+                                        placeholder = "Enter Device Count"
+                                    })
+                                @Html.ValidationMessageFor(model => model.deviceCount, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+
+                            <div class="mb-4">
+                                @Html.LabelFor(model => model.categoryID, "Select Category", new { @class = "form-label fw-semibold" })
+                                @Html.DropDownListFor(model => model.categoryID,
+                                         new SelectList(ViewBag.Categories, "id", "name"),
+                                         "-- Select Category --",
+                                         new { @class = "form-control rounded-pill px-4 py-2 shadow-sm" })
+                                @Html.ValidationMessageFor(model => model.categoryID, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+
+                            <div class="mb-4">
+                                @Html.LabelFor(model => model.officeId, "For Office", new { @class = "form-label fw-semibold" })
+                                @Html.DropDownListFor(model => model.officeId,
+                                         new SelectList(ViewBag.Offices, "id", "name"),
+                                         "-- Select Office --",
+                                         new { @class = "form-control rounded-pill px-4 py-2 shadow-sm" })
+                                @Html.ValidationMessageFor(model => model.officeId, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+
+                            <div class="mb-4">
+                                @Html.LabelFor(model => model.date, "Date", new { @class = "form-label fw-semibold" })
+                                @Html.TextBoxFor(model => model.date, "{0:yyyy-MM-dd}", new
+                                    {
+                                        type = "date",
+                                        @class = "form-control rounded-pill px-4 py-2 shadow-sm"
+                                    })
+                                @Html.ValidationMessageFor(model => model.date, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary rounded-pill px-5 py-2 me-2 shadow-sm">
+                                    <i class="bi bi-save2 me-1"></i> Update
+                                </button>
+                                <a asp-action="Index" class="btn btn-outline-secondary rounded-pill px-5 py-2 shadow-sm">
+                                    <i class="bi bi-x-circle me-1"></i> Cancel
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

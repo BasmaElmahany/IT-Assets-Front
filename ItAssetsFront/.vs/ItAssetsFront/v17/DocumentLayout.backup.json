@@ -3,44 +3,56 @@
   "WorkspaceRootPath": "D:\\ItAssetsFront\\ItAssetsFront\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|d:\\itassetsfront\\itassetsfront\\views\\officedesign\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|solutionrelative:views\\officedesign\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|d:\\itassetsfront\\itassetsfront\\views\\devicemaintainance\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|solutionrelative:views\\devicemaintainance\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|d:\\itassetsfront\\itassetsfront\\controllers\\officedesigncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|solutionrelative:controllers\\officedesigncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|d:\\itassetsfront\\itassetsfront\\controllers\\devicemaintainancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|solutionrelative:controllers\\devicemaintainancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|d:\\itassetsfront\\itassetsfront\\views\\officedesign\\return.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|solutionrelative:views\\officedesign\\return.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|d:\\itassetsfront\\itassetsfront\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|d:\\itassetsfront\\itassetsfront\\views\\deviceassign\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|solutionrelative:views\\deviceassign\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|d:\\itassetsfront\\itassetsfront\\views\\devicemaintainance\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|solutionrelative:views\\devicemaintainance\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|d:\\itassetsfront\\itassetsfront\\controllers\\deviceassigncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|solutionrelative:controllers\\deviceassigncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|d:\\itassetsfront\\itassetsfront\\models\\devicemodels\\device.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|solutionrelative:models\\devicemodels\\device.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|d:\\itassetsfront\\itassetsfront\\views\\deviceassign\\transfer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|solutionrelative:views\\deviceassign\\transfer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|d:\\itassetsfront\\itassetsfront\\views\\device\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|solutionrelative:views\\device\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|d:\\itassetsfront\\itassetsfront\\services\\assignservice\\assignservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|solutionrelative:services\\assignservice\\assignservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|d:\\itassetsfront\\itassetsfront\\views\\request\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|solutionrelative:views\\request\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|d:\\itassetsfront\\itassetsfront\\views\\deviceassign\\assign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|solutionrelative:views\\deviceassign\\assign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|d:\\itassetsfront\\itassetsfront\\models\\devicemaintainance\\updatedevicemaintainance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|solutionrelative:models\\devicemaintainance\\updatedevicemaintainance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|d:\\itassetsfront\\itassetsfront\\views\\deviceassign\\return.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|solutionrelative:views\\deviceassign\\return.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|d:\\itassetsfront\\itassetsfront\\services\\devicemaintainanceservice\\maintainancerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|solutionrelative:services\\devicemaintainanceservice\\maintainancerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|d:\\itassetsfront\\itassetsfront\\models\\assigndevice\\devicetransfer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|solutionrelative:models\\assigndevice\\devicetransfer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|d:\\itassetsfront\\itassetsfront\\models\\devicemaintainance\\postdevicemaintainance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|solutionrelative:models\\devicemaintainance\\postdevicemaintainance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|d:\\itassetsfront\\itassetsfront\\controllers\\requestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|solutionrelative:controllers\\requestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|d:\\itassetsfront\\itassetsfront\\controllers\\devicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|solutionrelative:controllers\\devicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|d:\\itassetsfront\\itassetsfront\\models\\devicemaintainance\\devicemaintance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F6D5254-B316-4AC0-8364-12F960FBF938}|ItAssetsFront.csproj|solutionrelative:models\\devicemaintainance\\devicemaintance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,138 +62,175 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Return.cshtml",
-              "DocumentMoniker": "D:\\ItAssetsFront\\ItAssetsFront\\Views\\DeviceAssign\\Return.cshtml",
-              "RelativeDocumentMoniker": "Views\\DeviceAssign\\Return.cshtml",
-              "ToolTip": "D:\\ItAssetsFront\\ItAssetsFront\\Views\\DeviceAssign\\Return.cshtml",
-              "RelativeToolTip": "Views\\DeviceAssign\\Return.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAB8AAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-11T07:39:15.75Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Assign.cshtml",
-              "DocumentMoniker": "D:\\ItAssetsFront\\ItAssetsFront\\Views\\DeviceAssign\\Assign.cshtml",
-              "RelativeDocumentMoniker": "Views\\DeviceAssign\\Assign.cshtml",
-              "ToolTip": "D:\\ItAssetsFront\\ItAssetsFront\\Views\\DeviceAssign\\Assign.cshtml",
-              "RelativeToolTip": "Views\\DeviceAssign\\Assign.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACQAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-11T07:40:18.571Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Return.cshtml",
-              "DocumentMoniker": "D:\\ItAssetsFront\\ItAssetsFront\\Views\\OfficeDesign\\Return.cshtml",
-              "RelativeDocumentMoniker": "Views\\OfficeDesign\\Return.cshtml",
-              "ToolTip": "D:\\ItAssetsFront\\ItAssetsFront\\Views\\OfficeDesign\\Return.cshtml",
-              "RelativeToolTip": "Views\\OfficeDesign\\Return.cshtml",
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\ItAssetsFront\\ItAssetsFront\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\ItAssetsFront\\ItAssetsFront\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAgwB8AAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T11:03:30.65Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Device.cs",
+              "DocumentMoniker": "D:\\ItAssetsFront\\ItAssetsFront\\Models\\DeviceModels\\Device.cs",
+              "RelativeDocumentMoniker": "Models\\DeviceModels\\Device.cs",
+              "ToolTip": "D:\\ItAssetsFront\\ItAssetsFront\\Models\\DeviceModels\\Device.cs",
+              "RelativeToolTip": "Models\\DeviceModels\\Device.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-11T07:56:15.687Z",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T10:56:28.658Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\ItAssetsFront\\ItAssetsFront\\Views\\OfficeDesign\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\OfficeDesign\\Index.cshtml",
-              "ToolTip": "D:\\ItAssetsFront\\ItAssetsFront\\Views\\OfficeDesign\\Index.cshtml",
-              "RelativeToolTip": "Views\\OfficeDesign\\Index.cshtml",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAAAEcAAABXAAAAAAAAAA==",
+              "DocumentMoniker": "D:\\ItAssetsFront\\ItAssetsFront\\Views\\DeviceMaintainance\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\DeviceMaintainance\\Index.cshtml",
+              "ToolTip": "D:\\ItAssetsFront\\ItAssetsFront\\Views\\DeviceMaintainance\\Index.cshtml",
+              "RelativeToolTip": "Views\\DeviceMaintainance\\Index.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACQAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-11T07:55:07.121Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "OfficeDesignController.cs",
-              "DocumentMoniker": "D:\\ItAssetsFront\\ItAssetsFront\\Controllers\\OfficeDesignController.cs",
-              "RelativeDocumentMoniker": "Controllers\\OfficeDesignController.cs",
-              "ToolTip": "D:\\ItAssetsFront\\ItAssetsFront\\Controllers\\OfficeDesignController.cs",
-              "RelativeToolTip": "Controllers\\OfficeDesignController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T07:44:01.588Z",
+              "WhenOpened": "2025-08-12T10:49:19.288Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\ItAssetsFront\\ItAssetsFront\\Views\\DeviceAssign\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\DeviceAssign\\Index.cshtml",
-              "ToolTip": "D:\\ItAssetsFront\\ItAssetsFront\\Views\\DeviceAssign\\Index.cshtml",
-              "RelativeToolTip": "Views\\DeviceAssign\\Index.cshtml",
-              "ViewState": "AgIAADgAAAAAAAAAAAAuwF0AAAA1AAAAAAAAAA==",
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\ItAssetsFront\\ItAssetsFront\\Views\\DeviceMaintainance\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\DeviceMaintainance\\Create.cshtml",
+              "ToolTip": "D:\\ItAssetsFront\\ItAssetsFront\\Views\\DeviceMaintainance\\Create.cshtml",
+              "RelativeToolTip": "Views\\DeviceMaintainance\\Create.cshtml",
+              "ViewState": "AgIAACAAAAAAAAAAAAAwwDgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-11T07:41:39.235Z",
+              "WhenOpened": "2025-08-12T10:53:38.902Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Transfer.cshtml",
-              "DocumentMoniker": "D:\\ItAssetsFront\\ItAssetsFront\\Views\\DeviceAssign\\Transfer.cshtml",
-              "RelativeDocumentMoniker": "Views\\DeviceAssign\\Transfer.cshtml",
-              "ToolTip": "D:\\ItAssetsFront\\ItAssetsFront\\Views\\DeviceAssign\\Transfer.cshtml",
-              "RelativeToolTip": "Views\\DeviceAssign\\Transfer.cshtml",
-              "ViewState": "AgIAABYAAAAAAAAAAAAAAD0AAAAAAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\ItAssetsFront\\ItAssetsFront\\Views\\Device\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Device\\Index.cshtml",
+              "ToolTip": "D:\\ItAssetsFront\\ItAssetsFront\\Views\\Device\\Index.cshtml",
+              "RelativeToolTip": "Views\\Device\\Index.cshtml",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-11T07:38:56.997Z",
+              "WhenOpened": "2025-08-12T10:51:57.904Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "AssignService.cs",
-              "DocumentMoniker": "D:\\ItAssetsFront\\ItAssetsFront\\Services\\AssignService\\AssignService.cs",
-              "RelativeDocumentMoniker": "Services\\AssignService\\AssignService.cs",
-              "ToolTip": "D:\\ItAssetsFront\\ItAssetsFront\\Services\\AssignService\\AssignService.cs",
-              "RelativeToolTip": "Services\\AssignService\\AssignService.cs",
-              "ViewState": "AgIAAEkAAAAAAAAAAAAcwFoAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T07:32:06.005Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\ItAssetsFront\\ItAssetsFront\\Views\\Request\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Request\\Index.cshtml",
+              "ToolTip": "D:\\ItAssetsFront\\ItAssetsFront\\Views\\Request\\Index.cshtml",
+              "RelativeToolTip": "Views\\Request\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-12T10:49:23.096Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DeviceAssignController.cs",
-              "DocumentMoniker": "D:\\ItAssetsFront\\ItAssetsFront\\Controllers\\DeviceAssignController.cs",
-              "RelativeDocumentMoniker": "Controllers\\DeviceAssignController.cs",
-              "ToolTip": "D:\\ItAssetsFront\\ItAssetsFront\\Controllers\\DeviceAssignController.cs",
-              "RelativeToolTip": "Controllers\\DeviceAssignController.cs",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAmwHgAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 11,
+              "Title": "DeviceController.cs",
+              "DocumentMoniker": "D:\\ItAssetsFront\\ItAssetsFront\\Controllers\\DeviceController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DeviceController.cs",
+              "ToolTip": "D:\\ItAssetsFront\\ItAssetsFront\\Controllers\\DeviceController.cs",
+              "RelativeToolTip": "Controllers\\DeviceController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T07:25:39.809Z",
+              "WhenOpened": "2025-08-12T10:12:30.281Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "RequestController.cs",
+              "DocumentMoniker": "D:\\ItAssetsFront\\ItAssetsFront\\Controllers\\RequestController.cs",
+              "RelativeDocumentMoniker": "Controllers\\RequestController.cs",
+              "ToolTip": "D:\\ItAssetsFront\\ItAssetsFront\\Controllers\\RequestController.cs",
+              "RelativeToolTip": "Controllers\\RequestController.cs",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAmwHwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T10:43:42.617Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DeviceMaintainanceController.cs",
+              "DocumentMoniker": "D:\\ItAssetsFront\\ItAssetsFront\\Controllers\\DeviceMaintainanceController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DeviceMaintainanceController.cs",
+              "ToolTip": "D:\\ItAssetsFront\\ItAssetsFront\\Controllers\\DeviceMaintainanceController.cs",
+              "RelativeToolTip": "Controllers\\DeviceMaintainanceController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T10:42:36.076Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UpdateDeviceMaintainance.cs",
+              "DocumentMoniker": "D:\\ItAssetsFront\\ItAssetsFront\\Models\\DeviceMaintainance\\UpdateDeviceMaintainance.cs",
+              "RelativeDocumentMoniker": "Models\\DeviceMaintainance\\UpdateDeviceMaintainance.cs",
+              "ToolTip": "D:\\ItAssetsFront\\ItAssetsFront\\Models\\DeviceMaintainance\\UpdateDeviceMaintainance.cs",
+              "RelativeToolTip": "Models\\DeviceMaintainance\\UpdateDeviceMaintainance.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T10:39:21.735Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MaintainanceRequest.cs",
+              "DocumentMoniker": "D:\\ItAssetsFront\\ItAssetsFront\\Services\\DeviceMaintainanceService\\MaintainanceRequest.cs",
+              "RelativeDocumentMoniker": "Services\\DeviceMaintainanceService\\MaintainanceRequest.cs",
+              "ToolTip": "D:\\ItAssetsFront\\ItAssetsFront\\Services\\DeviceMaintainanceService\\MaintainanceRequest.cs",
+              "RelativeToolTip": "Services\\DeviceMaintainanceService\\MaintainanceRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T10:32:02.283Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "DeviceTransfer.cs",
-              "DocumentMoniker": "D:\\ItAssetsFront\\ItAssetsFront\\Models\\AssignDevice\\DeviceTransfer.cs",
-              "RelativeDocumentMoniker": "Models\\AssignDevice\\DeviceTransfer.cs",
-              "ToolTip": "D:\\ItAssetsFront\\ItAssetsFront\\Models\\AssignDevice\\DeviceTransfer.cs",
-              "RelativeToolTip": "Models\\AssignDevice\\DeviceTransfer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAgAAAAAAAAAA==",
+              "Title": "PostDeviceMaintainance.cs",
+              "DocumentMoniker": "D:\\ItAssetsFront\\ItAssetsFront\\Models\\DeviceMaintainance\\PostDeviceMaintainance.cs",
+              "RelativeDocumentMoniker": "Models\\DeviceMaintainance\\PostDeviceMaintainance.cs",
+              "ToolTip": "D:\\ItAssetsFront\\ItAssetsFront\\Models\\DeviceMaintainance\\PostDeviceMaintainance.cs",
+              "RelativeToolTip": "Models\\DeviceMaintainance\\PostDeviceMaintainance.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T07:14:27.278Z",
+              "WhenOpened": "2025-08-12T10:16:58.047Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DeviceMaintance.cs",
+              "DocumentMoniker": "D:\\ItAssetsFront\\ItAssetsFront\\Models\\DeviceMaintainance\\DeviceMaintance.cs",
+              "RelativeDocumentMoniker": "Models\\DeviceMaintainance\\DeviceMaintance.cs",
+              "ToolTip": "D:\\ItAssetsFront\\ItAssetsFront\\Models\\DeviceMaintainance\\DeviceMaintance.cs",
+              "RelativeToolTip": "Models\\DeviceMaintainance\\DeviceMaintance.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T10:14:23.355Z",
               "EditorCaption": ""
             }
           ]

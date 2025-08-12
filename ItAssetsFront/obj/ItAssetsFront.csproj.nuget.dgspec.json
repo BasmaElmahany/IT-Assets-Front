@@ -70,6 +70,10 @@
             "X.PagedList.Mvc.Core": {
               "target": "Package",
               "version": "[10.5.7, )"
+            },
+            "ZXing.Net": {
+              "target": "Package",
+              "version": "[0.16.10, )"
             }
           },
           "imports": [

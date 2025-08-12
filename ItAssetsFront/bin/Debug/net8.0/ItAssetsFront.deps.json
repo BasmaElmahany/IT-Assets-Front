@@ -12,7 +12,8 @@
           "Newtonsoft.Json": "13.0.3",
           "System.IdentityModel.Tokens.Jwt": "8.7.0",
           "X.PagedList": "10.5.7",
-          "X.PagedList.Mvc.Core": "10.5.7"
+          "X.PagedList.Mvc.Core": "10.5.7",
+          "ZXing.Net": "0.16.10"
         },
         "runtime": {
           "ItAssetsFront.dll": {}
@@ -1573,6 +1574,14 @@
             "fileVersion": "10.5.7.0"
           }
         }
+      },
+      "ZXing.Net/0.16.10": {
+        "runtime": {
+          "lib/net8.0/zxing.dll": {
+            "assemblyVersion": "0.16.10.0",
+            "fileVersion": "0.16.10.0"
+          }
+        }
       }
     }
   },
@@ -2456,6 +2465,13 @@
       "sha512": "sha512-YuQEz9Y2AC8oaYk6yBISRxSpKuUEYLwoDpjimump8O+v4B2vZcigWQ6nEYE9blwmKLV0xGLy0S2zlbicvKCyPg==",
       "path": "x.pagedlist.mvc.core/10.5.7",
       "hashPath": "x.pagedlist.mvc.core.10.5.7.nupkg.sha512"
+    },
+    "ZXing.Net/0.16.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9avtcn21T7Ndcl8PQ1LHR7/wEoCruX1QKKHvO6zBPTsDW9IdvR5vKOmd618AY+DtDWZz8NaFDTkpbZdgaF4l4w==",
+      "path": "zxing.net/0.16.10",
+      "hashPath": "zxing.net.0.16.10.nupkg.sha512"
     }
   }
 }

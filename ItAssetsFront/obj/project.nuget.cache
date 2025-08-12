@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "sTq8PZRZIFU=",
+  "dgSpecHash": "I5JrL9Lh3MM=",
   "success": true,
   "projectFilePath": "D:\\ItAssetsFront\\ItAssetsFront\\ItAssetsFront.csproj",
   "expectedPackageFiles": [
@@ -128,7 +128,8 @@
     "C:\\Users\\basma.khalaf\\.nuget\\packages\\system.threading.tasks.dataflow\\7.0.0\\system.threading.tasks.dataflow.7.0.0.nupkg.sha512",
     "C:\\Users\\basma.khalaf\\.nuget\\packages\\system.windows.extensions\\7.0.0\\system.windows.extensions.7.0.0.nupkg.sha512",
     "C:\\Users\\basma.khalaf\\.nuget\\packages\\x.pagedlist\\10.5.7\\x.pagedlist.10.5.7.nupkg.sha512",
-    "C:\\Users\\basma.khalaf\\.nuget\\packages\\x.pagedlist.mvc.core\\10.5.7\\x.pagedlist.mvc.core.10.5.7.nupkg.sha512"
+    "C:\\Users\\basma.khalaf\\.nuget\\packages\\x.pagedlist.mvc.core\\10.5.7\\x.pagedlist.mvc.core.10.5.7.nupkg.sha512",
+    "C:\\Users\\basma.khalaf\\.nuget\\packages\\zxing.net\\0.16.10\\zxing.net.0.16.10.nupkg.sha512"
   ],
   "logs": []
 }

@@ -239,3 +239,4 @@ D:\ItAssetsFront\ItAssetsFront\obj\Debug\net8.0\refint\ItAssetsFront.dll
 D:\ItAssetsFront\ItAssetsFront\obj\Debug\net8.0\ItAssetsFront.pdb
 D:\ItAssetsFront\ItAssetsFront\obj\Debug\net8.0\ItAssetsFront.genruntimeconfig.cache
 D:\ItAssetsFront\ItAssetsFront\obj\Debug\net8.0\ref\ItAssetsFront.dll
+D:\ItAssetsFront\ItAssetsFront\bin\Debug\net8.0\zxing.dll
