@@ -14,6 +14,9 @@ namespace ItAssetsFront.Models.DeviceModels
         public string serialNumber { get; set; }
 
         public string status { get; set; }
+        public string Spex { get; set; }
+
+        public int Warranty { get; set; }
 
         public Guid brandId { get; set; }
 

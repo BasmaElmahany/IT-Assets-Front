@@ -19,6 +19,10 @@ namespace ItAssetsFront.Models.DeviceModels
         [Required(ErrorMessage = "Status is required")]
         [Display(Name = "Device Status")]
         public string Status { get; set; }
+        [Display(Name = "Device Spex")]
+        public string Spex { get; set; }
+        [Display(Name = "Device Warranty")]
+        public int Warranty { get; set; }
 
         [Required(ErrorMessage = "Brand ID is required")]
         [Display(Name = "Brand")]

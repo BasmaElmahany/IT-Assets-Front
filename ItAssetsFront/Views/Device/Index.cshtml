@@ -2,199 +2,397 @@
 @using X.PagedList.Mvc.Core
 @model X.PagedList.IPagedList<ItAssetsFront.Models.DeviceModels.Device>
 
-
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Devices";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+
+<style>
+    /* ===== Filter Card ===== */
+    .filter-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 1rem 1.5rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 3px 8px rgba(0,0,0,.05);
+    }
+
+        .filter-card label {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .filter-card .form-control,
+        .filter-card .form-select {
+            border-radius: 8px;
+            box-shadow: none;
+        }
+
+    .btn-gradient {
+        background: linear-gradient(135deg, #1cc88a, #4e73df);
+        border: none;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: 0.3s;
+    }
+
+        .btn-gradient:hover {
+            opacity: 0.9;
+        }
+
+    /* ===== Table Styling ===== */
+    .custom-table thead {
+        background: linear-gradient(45deg, #0d6efd, #6610f2);
+        color: white;
+        font-size: 0.95rem;
+        position: sticky;
+        top: 0;
+        z-index: 2;
+    }
+
+    .custom-table tbody tr:hover {
+        background-color: #f0f8ff !important;
+        transition: background 0.3s;
+    }
+
+    .custom-table th, .custom-table td {
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    /* ===== Pagination ===== */
+    .pagination {
+        margin-top: 1rem;
+        gap: 0.3rem;
+    }
+
+        .pagination .page-link {
+            border-radius: 50% !important;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 24px;
+            font-weight: 600;
+        }
+
+            .pagination .page-link:hover {
+                background: linear-gradient(135deg, #4e73df, #1cc88a);
+                color: #fff !important;
+            }
+
+        .pagination .active .page-link {
+            background: linear-gradient(135deg, #1cc88a, #4e73df);
+            color: #fff !important;
+            border: none;
+        }
+
+    /* ===== Modals ===== */
+    .modal-content {
+        border-radius: 16px;
+        box-shadow: 0 5px 15px rgba(0,0,0,.2);
+    }
+
+    .modal-header i {
+        margin-right: 0.5rem;
+    }
+
+    .modal-body {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 1rem;
+    }
+</style>
 
 
 <section class="pb-3 pb-md-4 pb-xl-5 bg-light">
     <div class="container">
         <div class="row gy-3 gy-md-4">
-            <div class="col-12 col-lg-12 col-xl-12">
-                <div class="card widget-card border-light shadow-sm h-100">
-                    <div class="card-body p-4">
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h5 class="card-title widget-card-title m-0"> Devices</h5>
-                            <a asp-action="Create" class="btn btn-primary btn-sm">
-                                <i class="bx bx-plus me-1"></i> Add Device
-                            </a>
-                        </div>
+            <div class="col-12">
+                <div class="card widget-card shadow-lg border-0 rounded-3 overflow-hidden">
 
-                        <div class="mb-3">
-                            <input type="text" class="form-control" id="brandSearchInput" placeholder="Search office..." onkeyup="filterBrands()" />
-                        </div>
+                    <!-- Header -->
+                    <div class="card-header text-white d-flex justify-content-between align-items-center py-3 px-4 shadow-sm"
+                         style="background: linear-gradient(135deg, #4e73df, #1cc88a);">
+                        <h5 class="mb-0 fw-bold">
+                            <i class="bi bi-laptop me-2 fs-4"></i> Devices
+                        </h5>
+                        <a asp-action="Create" class="btn btn-light btn-sm fw-semibold shadow-sm rounded-pill">
+                            <i class="bi bi-plus-circle text-success me-1"></i> Add Device
+                        </a>
+                    </div>
 
-                        <div class="table-responsive">
-                            <table class="table table-borderless bsb-table-xl text-nowrap align-middle m-0" id="brandsTable">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th> Image</th>
-                                        <th>Name</th>
-                                        <th>Serial Number</th>
-                                        <th>Status</th>
-                                        <th>Brand</th>
-                                        <th>Category</th>
-                                        <th>Supplier</th>
-                                        <th>IsFaulty</th>
-                                        <th>IsAvailable</th>
-                                         <th>QTY</th>
-                                        <th>Barcode</th>
+                    <!-- Filters -->
+                    <div class="filter-card">
+                        <form method="get" asp-action="Index" class="row g-3 align-items-end">
+                            <!-- Search -->
+                            <div class="col-md-3">
+                                <label>Search</label>
+                                <input type="text" name="search" value="@ViewBag.Search" id="brandSearchInput"
+                                       class="form-control" placeholder="🔍 Search Devices..." onkeyup="filterDevices()" />
+                            </div>
 
-                                        <th class="text-center">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @if (Model != null && Model.Any())
+                            <!-- Category -->
+                            <div class="col-md-3">
+                                <label>Category</label>
+                                <select class="form-select" name="categoryId">
+                                    <option value="">All Categories</option>
+                                    @foreach (var cat in (List<ItAssetsFront.Models.CategoryModels.getAllCategories>)ViewBag.Categories)
                                     {
-                                        int index = (Model.PageNumber - 1) * Model.PageSize + 1;
-                                        foreach (var dev in Model)
+                                        <option value="@cat.id"
+                                                selected="@(ViewBag.SelectedCategory != null && ViewBag.SelectedCategory.Equals(cat.id) ? "selected" : null)">
+                                            @cat.name
+                                        </option>
+                                    }
+                                </select>
+                            </div>
+
+                            <!-- Brand -->
+                            <div class="col-md-3">
+                                <label>Brand</label>
+                                <select class="form-select" name="brandId">
+                                    <option value="">All Brands</option>
+                                    @foreach (var b in (List<ItAssetsFront.Models.BrandModels.getAllBrands>)ViewBag.Brands)
+                                    {
+                                        <option value="@b.id"
+                                                selected="@(ViewBag.SelectedBrand != null && ViewBag.SelectedBrand.Equals(b.id) ? "selected" : null)">
+                                            @b.name
+                                        </option>
+                                    }
+                                </select>
+                            </div>
+
+                            <!-- Buttons -->
+                            <div class="col-md-3 d-flex gap-2">
+                                <button type="submit" class="btn btn-gradient flex-fill">
+                                    <i class="bi bi-funnel"></i> Filter
+                                </button>
+                                <a asp-action="Index" class="btn btn-outline-secondary flex-fill">
+                                    <i class="bi bi-arrow-repeat"></i> Reset
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Table -->
+                    <!-- Table Frame -->
+                    <div class="card shadow-sm border-0 rounded-3 mt-3">
+                        <div class="card-header bg-gradient text-white fw-bold"
+                             style="background: linear-gradient(135deg, #4e73df, #1cc88a);">
+                            <i class="bi bi-table me-2"></i> Device List
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover table-bordered custom-table text-nowrap align-middle mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Image</th>
+                                            <th>Name</th>
+                                            <th>Serial Number</th>
+                                            <th>Status</th>
+                                            <th>Spex</th>
+                                            <th>Warranty</th>
+                                            <th>Brand</th>
+                                            <th>Category</th>
+                                            <th>QTY</th>
+                                            <th class="text-center">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if (Model != null && Model.Any())
+                                        {
+                                            int index = (Model.PageNumber - 1) * Model.PageSize + 1;
+                                            foreach (var dev in Model)
+                                            {
+                                                <tr>
+                                                    <td>@index</td>
+                                                    <td>
+                                                        <img src="@($"http://localhost:41335{dev.photoUrl}")" width="60" class="rounded shadow-sm" />
+                                                    </td>
+                                                    <td>@dev.name</td>
+                                                    <td>@dev.serialNumber</td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-info rounded-pill"
+                                                                data-bs-toggle="modal" data-bs-target="#statusModal"
+                                                                data-status="@dev.status">
+                                                            <i class="bi bi-activity"></i> Status
+                                                        </button>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary rounded-pill"
+                                                                data-bs-toggle="modal" data-bs-target="#spexModal"
+                                                                data-spex="@dev.Spex">
+                                                            <i class="bi bi-card-list"></i> Spex
+                                                        </button>
+                                                    </td>
+                                                    <td>@dev.Warranty</td>
+                                                    <td>@dev.brand?.name</td>
+                                                    <td>@dev.category?.name</td>
+                                                    <td>@dev.qty</td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-center gap-2">
+                                                            <!-- Edit -->
+                                                            <a asp-action="Edit" asp-route-id="@dev.id" class="btn btn-sm btn-warning rounded-pill px-3" title="Edit">
+                                                                <i class="bi bi-pencil-square"></i>
+                                                            </a>
+                                                            <!-- Barcode -->
+                                                            <button class="btn btn-sm btn-primary rounded-pill px-3"
+                                                                    data-bs-toggle="modal" data-bs-target="#barcodeModal"
+                                                                    data-barcode="@dev.id" title="Barcode">
+                                                                <i class="bi bi-upc-scan"></i>
+                                                            </button>
+                                                            <!-- Delete -->
+                                                            <button class="btn btn-sm btn-danger rounded-pill px-3"
+                                                                    data-bs-toggle="modal" data-bs-target="#deleteConfirmModal"
+                                                                    data-device-id="@dev.id" title="Delete">
+                                                                <i class="bi bi-trash"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                index++;
+                                            }
+                                        }
+                                        else
                                         {
                                             <tr>
-                                                <td>@index</td>
-                                                <td>
-                                                    <img src="@($"http://localhost:41335{dev.photoUrl}")" width="80" alt="No Image Found"/>
-                                                </td>
-
-                                                <td class="brand-name">
-                                                    <h6 class="mb-1">@dev.name</h6>
-                                                </td>
-                                                <td class="brand-name">
-                                                    <h6 class="mb-1">@dev.serialNumber</h6>
-                                                </td>
-                                                <td class="brand-name">
-                                                    <h6 class="mb-1">@dev.status</h6>
-                                                </td>
-                                                <td class="brand-name">
-                                                    <h6 class="mb-1">@dev.brand.name</h6>
-                                                </td>
-                                                <td class="brand-name">
-                                                    <h6 class="mb-1">@dev.category.name</h6>
-                                                </td>
-                                                <td class="brand-name">
-                                                    <h6 class="mb-1">@dev.supplier.name</h6>
-                                                </td>
-                                                <td class="brand-name">
-                                                    <h6 class="mb-1">@dev.isFaulty</h6>
-                                                </td>
-                                                <td class="brand-name">
-                                                    <h6 class="mb-1">@dev.isAvailable</h6>
-                                                </td>
-                                                <td class="brand-name">
-                                                    <h6 class="mb-1">@dev.qty</h6>
-                                                </td>
-                                                <td>
-                                                    <svg class="barcode"
-                                                         jsbarcode-format="CODE128"
-                                                         jsbarcode-value="@dev.id"
-                                                         jsbarcode-textmargin="2"
-                                                         jsbarcode-height="40">
-                                                    </svg>
-                                                </td>
-
-                                              
-                                                <td class="text-center">
-                                                    <a asp-action="Edit" asp-route-id="@dev.id" class="text-warning me-3" title="Edit">
-                                                        <i class='bx bx-edit-alt fs-5'></i>
-                                                    </a>
-                                                    <button class="btn btn-link text-danger p-0" data-bs-toggle="modal"
-                                                            data-bs-target="#deleteConfirmModal" data-brand-id="@dev.id">
-                                                        <i class='bx bx-trash fs-5'></i>
-                                                    </button>
-
-                                                </td>
+                                                <td colspan="11" class="text-center text-muted">No devices found.</td>
                                             </tr>
-                                            index++;
                                         }
-                                    }
-                                    else
-                                    {
-                                        <tr>
-                                            <td colspan="3" class="text-center text-muted">No Suppliers found.</td>
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
-                            <!-- Delete Confirmation Modal -->
-                            <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <form id="deleteForm" method="post">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="deleteConfirmLabel">Confirm Deletion</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Are you sure you want to delete this Device?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                <button type="submit" class="btn btn-danger">Yes, Delete</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-center mt-3">
-                                @Html.PagedListPager(
-                                         Model,
-                                         page => Url.Action("Index", new { page }),
-                                         new PagedListRenderOptions
-                                {
-                                    LiElementClasses = new[] { "page-item" },
-                                    PageClasses = new[] { "page-link" },
-                                    UlElementClasses = new[] { "pagination" },
-                                    DisplayLinkToFirstPage = PagedListDisplayMode.Always,
-                                    DisplayLinkToLastPage = PagedListDisplayMode.Always,
-                                    DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
-                                    DisplayLinkToNextPage = PagedListDisplayMode.Always
-                                }
-                                         )
-
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Pagination -->
+                    <div class="d-flex justify-content-center mt-3">
+                        @Html.PagedListPager(
+                                 Model,
+                                 page => Url.Action("Index", new { page, search = ViewBag.Search, categoryId = ViewBag.CategoryId, brandId = ViewBag.BrandId }),
+                                 new PagedListRenderOptions
+                        {
+                            LiElementClasses = new[] { "page-item" },
+                            PageClasses = new[] { "page-link rounded-pill shadow-sm border-0" },
+                            UlElementClasses = new[] { "pagination pagination-sm" },
+                            DisplayLinkToFirstPage = PagedListDisplayMode.Always,
+                            DisplayLinkToLastPage = PagedListDisplayMode.Always,
+                            DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+                            DisplayLinkToNextPage = PagedListDisplayMode.Always
+                        }
+                                 )
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-@section Scripts {
-    <script>
-        function filterBrands() {
-            const input = document.getElementById("brandSearchInput");
-            const filter = input.value.toLowerCase();
-            const rows = document.querySelectorAll("#brandsTable tbody tr");
 
-            rows.forEach(row => {
-                const brandNameCell = row.querySelector(".brand-name");
-                const brandText = brandNameCell?.innerText.toLowerCase() || "";
-                row.style.display = brandText.includes(filter) ? "" : "none";
-            });
-        }
-    </script>
-    <script>
-        const deleteConfirmModal = document.getElementById('deleteConfirmModal');
-        deleteConfirmModal.addEventListener('show.bs.modal', function (event) {
-            const button = event.relatedTarget;
-            const brandId = button.getAttribute('data-brand-id');
-            const form = deleteConfirmModal.querySelector('#deleteForm');
-            form.action = `/Device/Delete/${brandId}`;
-        });
-    </script>
-  
+<!-- Status Modal -->
+<div class="modal fade" id="statusModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-info text-white">
+                <h5 class="modal-title"><i class="bi bi-activity"></i> Device Status</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body"><p id="statusText"></p></div>
+        </div>
+    </div>
+</div>
+
+<!-- Spex Modal -->
+<div class="modal fade" id="spexModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title"><i class="bi bi-card-list"></i> Device Spex</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body"><pre id="spexText" class="bg-light p-3 rounded"></pre></div>
+        </div>
+    </div>
+</div>
+
+<!-- Barcode Modal -->
+<div class="modal fade" id="barcodeModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Device Barcode</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center"><svg id="barcodeCanvas"></svg></div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title"><i class="bi bi-trash"></i> Confirm Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body"><p>Are you sure you want to delete this device?</p></div>
+            <div class="modal-footer">
+                <form method="post" asp-action="Delete" id="deleteForm">
+                    <input type="hidden" name="id" id="deleteDeviceId" />
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            JsBarcode(".barcode").init();
+        function filterDevices() {
+            const input = document.getElementById("brandSearchInput");
+            const filter = input.value.toLowerCase();
+            const rows = document.querySelectorAll(".custom-table tbody tr");
+
+            rows.forEach(row => {
+                const cellsText = row.innerText.toLowerCase();
+                row.style.display = cellsText.includes(filter) ? "" : "none";
+            });
+        }
+
+        // Barcode
+        const barcodeModal = document.getElementById('barcodeModal');
+        barcodeModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            const code = button.getAttribute('data-barcode');
+            JsBarcode("#barcodeCanvas", code, {
+                format: "CODE128",
+                lineColor: "#0d6efd",
+                width: 1,
+                height: 80,
+                displayValue: true
+            });
+        });
+
+        // Status
+        const statusModal = document.getElementById('statusModal');
+        statusModal.addEventListener('show.bs.modal', function (event) {
+            document.getElementById('statusText').textContent =
+                event.relatedTarget.getAttribute('data-status');
+        });
+
+        // Spex
+        const spexModal = document.getElementById('spexModal');
+        spexModal.addEventListener('show.bs.modal', function (event) {
+            document.getElementById('spexText').textContent =
+                event.relatedTarget.getAttribute('data-spex');
         });
     </script>
-
-
-
-
 }
-

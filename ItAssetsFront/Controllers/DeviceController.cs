@@ -23,14 +23,42 @@ namespace ItAssetsFront.Controllers
             _supplierService = supplierService;
 
         }
-        public async Task<IActionResult> Index(int? page)
+        public async Task<IActionResult> Index(int? page, Guid? brandId, Guid? categoryId, string search)
         {
             int pageSize = 5;
             int pageNumber = page ?? 1;
+
+            // Get all devices
             var devices = await _ser.GetAllDevicesAsync();
-            var pageddevices = devices.ToPagedList(pageNumber, pageSize);
-            return View(pageddevices);
+
+            // 🔍 Filtering
+            if (brandId.HasValue && brandId.Value != Guid.Empty)
+                devices = devices.Where(d => d.brand.id == brandId.Value).ToList();
+
+            if (categoryId.HasValue && categoryId.Value != Guid.Empty)
+                devices = devices.Where(d => d.category.id == categoryId.Value).ToList();
+
+            if (!string.IsNullOrEmpty(search))
+                devices = devices
+                    .Where(d => d.name.Contains(search, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+
+            // 📑 Pagination
+            var pagedDevices = devices.ToPagedList(pageNumber, pageSize);
+
+            // Dropdown data
+            ViewBag.Brands = await _brandService.GetAllBrandsAsync();
+            ViewBag.Categories = await _categoryService.GetAllCategoryAsync();
+
+            // Keep filter values for view
+            ViewBag.SelectedBrand = brandId;
+            ViewBag.SelectedCategory = categoryId;
+            ViewBag.Search = search;
+
+            return View(pagedDevices);
         }
+
+
         public async Task<IActionResult> CreateAsync()
         {
 

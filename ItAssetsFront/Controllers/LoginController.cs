@@ -48,8 +48,7 @@ namespace ItAssetsFront.Controllers
             HttpContext.Session.SetString("UserClaims", JsonSerializer.Serialize(claims));
             ViewBag.Token = token;
             ViewBag.Claims = claims;
-
-            return View("TokenInfo");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

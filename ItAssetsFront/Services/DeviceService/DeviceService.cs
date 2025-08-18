@@ -38,6 +38,8 @@ namespace ItAssetsFront.Services.DeviceService
             formData.Add(new StringContent(model.Name), nameof(model.Name));
             formData.Add(new StringContent(model.SerialNumber), nameof(model.SerialNumber));
             formData.Add(new StringContent(model.Status), nameof(model.Status));
+            formData.Add(new StringContent(model.Spex), nameof(model.Spex));
+            formData.Add(new StringContent(model.Warranty.ToString()), nameof(model.Warranty));
             formData.Add(new StringContent(model.BrandId.ToString()), nameof(model.BrandId));
             formData.Add(new StringContent(model.CategoryID.ToString()), nameof(model.CategoryID));
             formData.Add(new StringContent(model.SupplierID.ToString()), nameof(model.SupplierID));
@@ -81,6 +83,8 @@ namespace ItAssetsFront.Services.DeviceService
             formData.Add(new StringContent(model.Name), nameof(model.Name));
             formData.Add(new StringContent(model.SerialNumber), nameof(model.SerialNumber));
             formData.Add(new StringContent(model.Status), nameof(model.Status));
+            formData.Add(new StringContent(model.Spex), nameof(model.Spex));
+            formData.Add(new StringContent(model.Warranty.ToString()), nameof(model.Warranty));
             formData.Add(new StringContent(model.BrandId.ToString()), nameof(model.BrandId));
             formData.Add(new StringContent(model.CategoryID.ToString()), nameof(model.CategoryID));
             formData.Add(new StringContent(model.SupplierID.ToString()), nameof(model.SupplierID));

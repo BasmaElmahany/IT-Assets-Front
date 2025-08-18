@@ -54,6 +54,16 @@
                                     })
                                 @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger small mt-1 d-block" })
                             </div>
+                            <div class="mb-4">
+                                @Html.LabelFor(model => model.Spex, new { @class = "form-label fw-semibold" })
+                                @Html.TextAreaFor(model => model.Spex, new
+                                    {
+                                        @class = "form-control rounded px-4 py-2 shadow-sm",
+                                        placeholder = "Enter Device Spex",
+                                        rows = 4
+                                    })
+                                @Html.ValidationMessageFor(model => model.Spex, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
 
                             <div class="mb-4">
                                 @Html.LabelFor(model => model.BrandId, new { @class = "form-label fw-semibold" })
@@ -104,6 +114,17 @@
                                         min = "0"
                                     })
                                 @Html.ValidationMessageFor(model => model.Qty, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+                            <div class="mb-4">
+                                @Html.LabelFor(model => model.Warranty, new { @class = "form-label fw-semibold" })
+                                @Html.TextBoxFor(model => model.Warranty, new
+                                    {
+                                        @class = "form-control rounded-pill px-4 py-2 shadow-sm",
+                                        placeholder = "Enter Warranty",
+                                        type = "number",
+                                        min = "0"
+                                    })
+                                @Html.ValidationMessageFor(model => model.Warranty, "", new { @class = "text-danger small mt-1 d-block" })
                             </div>
 
                             <div class="d-flex justify-content-center">

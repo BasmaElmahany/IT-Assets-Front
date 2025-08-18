@@ -345,8 +345,9 @@
                             </li>
                             <li class="breadcrumb-item active" aria-current="page"> <a class="link-primary text-decoration-none" asp-action="Index" asp-controller="Brand">Brands</a></li>
                             <li class="breadcrumb-item active" aria-current="page"> <a class="link-primary text-decoration-none" asp-action="Index" asp-controller="Category">Categories</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"> <a class="link-primary text-decoration-none" asp-action="Index" asp-controller="Office">Offices</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"> <a class="link-primary text-decoration-none" asp-action="Index" asp-controller="Office">Deparments</a></li>
                             <li class="breadcrumb-item active" aria-current="page"> <a class="link-primary text-decoration-none" asp-action="Index" asp-controller="Supplier">Suppliers</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"> <a class="link-primary text-decoration-none" asp-action="Index" asp-controller="Employee">Employees</a></li>
                             <li class="breadcrumb-item active" aria-current="page"> <a class="link-primary text-decoration-none" asp-action="Index" asp-controller="Device">Devices</a></li>
 
                         </ol>
@@ -411,7 +412,7 @@
                     <div class="collapse" id="componentExamples">
                         <ul class="nav flex-column ms-4">
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" aria-current="page" href="components-accordion.html">
+                                <a class="nav-link link-secondary" aria-current="page" asp-action="Index" asp-controller="Category">
                                     <div class="nav-link-icon text-primary-emphasis">
                                         <i class="bi bi-arrow-right-short"></i>
                                     </div>
@@ -419,7 +420,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" aria-current="page" href="components-alerts.html">
+                                <a class="nav-link link-secondary" aria-current="page" asp-action="Index" asp-controller="Brand">
                                     <div class="nav-link-icon text-primary-emphasis">
                                         <i class="bi bi-arrow-right-short"></i>
                                     </div>
@@ -427,7 +428,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" aria-current="page" href="components-buttons.html">
+                                <a class="nav-link link-secondary" aria-current="page" asp-action="Index" asp-controller="Supplier">
                                     <div class="nav-link-icon text-primary-emphasis">
                                         <i class="bi bi-arrow-right-short"></i>
                                     </div>
@@ -435,7 +436,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" aria-current="page" href="components-card.html">
+                                <a class="nav-link link-secondary" aria-current="page" asp-action="Index" asp-controller="Device">
                                     <div class="nav-link-icon text-primary-emphasis">
                                         <i class="bi bi-arrow-right-short"></i>
                                     </div>
@@ -455,7 +456,7 @@
                     <div class="collapse" id="formExamples">
                         <ul class="nav flex-column ms-4">
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" aria-current="page" href="forms-layout.html">
+                                <a class="nav-link link-secondary" aria-current="page" asp-action="Index" asp-controller="Request">
                                     <div class="nav-link-icon text-primary-emphasis">
                                         <i class="bi bi-arrow-right-short"></i>
                                     </div>
@@ -476,7 +477,7 @@
                     <div class="collapse" id="iconExamples">
                         <ul class="nav flex-column ms-4">
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" aria-current="page" href="bootstrap-icons.html">
+                                <a class="nav-link link-secondary" aria-current="page" asp-action="Index" asp-controller="DeviceAssign">
                                     <div class="nav-link-icon text-primary-emphasis">
                                         <i class="bi bi-arrow-right-short"></i>
                                     </div>
@@ -485,7 +486,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" aria-current="page" href="bootstrap-icons.html">
+                                <a class="nav-link link-secondary" aria-current="page" asp-action="Index" asp-controller="OfficeDesign">
                                     <div class="nav-link-icon text-primary-emphasis">
                                         <i class="bi bi-arrow-right-short"></i>
                                     </div>
@@ -493,7 +494,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" aria-current="page" href="bootstrap-icons.html">
+                                <a class="nav-link link-secondary" aria-current="page" asp-action="Index" asp-controller="Transfer">
                                     <div class="nav-link-icon text-primary-emphasis">
                                         <i class="bi bi-arrow-right-short"></i>
                                     </div>
@@ -513,7 +514,7 @@
                     <div class="collapse" id="tableExamples">
                         <ul class="nav flex-column ms-4">
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" aria-current="page" href="tables-basic.html">
+                                <a class="nav-link link-secondary" aria-current="page" asp-action="Index" asp-controller="DeviceMaintainance">
                                     <div class="nav-link-icon text-primary-emphasis">
                                         <i class="bi bi-arrow-right-short"></i>
                                     </div>
@@ -540,17 +541,22 @@
     </aside>
 
     <!-- Footer -->
-    <footer class="footer py-3 border-top border-light-subtle">
+    <footer class="footer py-3 border-top border-light-subtle bg-light fixed-bottom">
         <div class="container">
             <div class="row">
-                <div class="col">
-                    <div class="py-3">
-                        Built by <a href="https://bootstrapbrain.com/" class="link-secondary text-decoration-none">BootstrapBrain</a> with <span class="text-accent">&#9829;</span>
+                <div class="col text-center">
+                    <div class="py-2">
+                      
+                        <a class="link-secondary text-decoration-none">
+                            IT Assets Management
+                        </a>
+                       
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+
 
 
 
