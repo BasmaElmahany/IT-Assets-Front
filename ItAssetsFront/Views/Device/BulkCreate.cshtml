@@ -1,0 +1,147 @@
+﻿@model ItAssetsFront.Models.DeviceModels.BulkDeviceRequest
+
+@{
+    ViewData["Title"] = "Bulk Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="pb-3 pb-md-4 pb-xl-5 bg-light">
+    <div class="container">
+        <div class="row gy-3 gy-md-4 justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="card widget-card border-0 shadow rounded-4">
+                    <div class="card-header bg-white border-0 text-center py-4">
+                        <h4 class="fw-bold mb-0 text-primary">✨ Bulk Create Devices</h4>
+                        <small class="text-muted">Choose brand, category, supplier once — then add multiple devices with different specs.</small>
+                    </div>
+                    <div class="card-body px-4 py-4">
+                        @using (Html.BeginForm("BulkCreate", "Device", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <!-- Shared Dropdowns -->
+                            <div class="mb-4">
+                                @Html.LabelFor(m => m.BrandId, new { @class = "form-label fw-semibold" })
+                                @Html.DropDownListFor(m => m.BrandId,
+                                         new SelectList(ViewBag.Brands, "id", "name"),
+                                         "-- Select Brand --",
+                                         new { @class = "form-control rounded-pill px-4 py-2 shadow-sm" })
+                                @Html.ValidationMessageFor(m => m.BrandId, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+
+                            <div class="mb-4">
+                                @Html.LabelFor(m => m.CategoryID, new { @class = "form-label fw-semibold" })
+                                @Html.DropDownListFor(m => m.CategoryID,
+                                         new SelectList(ViewBag.Categories, "id", "name"),
+                                         "-- Select Category --",
+                                         new { @class = "form-control rounded-pill px-4 py-2 shadow-sm" })
+                                @Html.ValidationMessageFor(m => m.CategoryID, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+
+
+                            <div class="mb-4">
+                                @Html.LabelFor(model => model.SupplierID, new { @class = "form-label fw-semibold" })
+                                @Html.DropDownListFor(model => model.SupplierID,
+                                         new SelectList(ViewBag.Suppliers, "id", "name"),
+                                         "-- Select Supplier (optional) --",
+                                         new
+                                         {
+                                             @class = "form-control rounded-pill px-4 py-2 shadow-sm"
+                                         })
+                                @Html.ValidationMessageFor(model => model.SupplierID, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+
+                            <hr />
+
+                            <!-- Devices Container -->
+                            <h5 class="fw-bold text-secondary mb-3">Devices</h5>
+                            <div id="devices-container"></div>
+
+                            <div class="d-flex justify-content-center mb-4">
+                                <button type="button" id="add-device" class="btn btn-outline-primary rounded-pill px-4 py-2 shadow-sm">
+                                    <i class="bi bi-plus-circle me-1"></i> Add Device
+                                </button>
+                            </div>
+
+                            <!-- Submit -->
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-success rounded-pill px-5 py-2 me-2 shadow-sm">
+                                    <i class="bi bi-check-circle me-1"></i> Save All
+                                </button>
+                                <a asp-action="Index" class="btn btn-outline-secondary rounded-pill px-5 py-2 shadow-sm">
+                                    <i class="bi bi-x-circle me-1"></i> Cancel
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+
+    <script>
+        let index = 0;
+
+        document.getElementById("add-device").addEventListener("click", function () {
+            let container = document.getElementById("devices-container");
+            container.insertAdjacentHTML("beforeend", `
+                <div class="card border shadow-sm rounded-3 p-3 mb-3">
+                    <h6 class="fw-bold text-primary">Device #${index + 1}</h6>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Name</label>
+                        <input type="text" name="Devices[${index}].Name" class="form-control rounded-pill px-4 py-2 shadow-sm" placeholder="Enter Device name" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Serial Number</label>
+                        <input type="text" name="Devices[${index}].SerialNumber" class="form-control rounded-pill px-4 py-2 shadow-sm" placeholder="Enter Serial Number" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Photo</label>
+                        <input type="file" name="Devices[${index}].Photo" class="form-control rounded-pill px-4 py-2 shadow-sm" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Status</label>
+                        <textarea name="Devices[${index}].Status" class="form-control rounded px-4 py-2 shadow-sm" rows="2" placeholder="Enter Status" required></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Spex</label>
+                        <textarea name="Devices[${index}].Spex" class="form-control rounded px-4 py-2 shadow-sm" rows="2" placeholder="Enter Specs"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Warranty</label>
+                        <input type="number" name="Devices[${index}].Warranty" class="form-control rounded-pill px-4 py-2 shadow-sm" min="0" placeholder="Enter Warranty" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Quantity</label>
+                        <input type="number" name="Devices[${index}].Qty" class="form-control rounded-pill px-4 py-2 shadow-sm" min="0" placeholder="Enter Quantity" required />
+                    </div>
+
+                    <div class="form-check mb-2">
+                        <input type="hidden" name="Devices[${index}].IsAvailable" value="false" />
+                        <input type="checkbox" name="Devices[${index}].IsAvailable" class="form-check-input" id="available-${index}" value="true" />
+                        <label for="available-${index}" class="form-check-label fw-semibold">Is Available</label>
+                    </div>
+
+                    <div class="form-check mb-2">
+                        <input type="hidden" name="Devices[${index}].IsFaulty" value="false" />
+                        <input type="checkbox" name="Devices[${index}].IsFaulty" class="form-check-input" id="faulty-${index}" value="true" />
+                        <label for="faulty-${index}" class="form-check-label fw-semibold">Is Faulty</label>
+                    </div>
+                </div>
+            `);
+
+            index++;
+        });
+    </script>
+}

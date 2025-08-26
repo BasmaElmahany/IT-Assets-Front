@@ -119,9 +119,13 @@
                         <h5 class="mb-0 fw-bold">
                             <i class="bi bi-laptop me-2 fs-4"></i> Devices
                         </h5>
+                        <a asp-action="BulkCreate" class="btn btn-light btn-sm fw-semibold shadow-sm rounded-pill">
+                            <i class="bi bi-plus-circle text-success me-1"></i> Bulk Insertion
+                        </a>
                         <a asp-action="Create" class="btn btn-light btn-sm fw-semibold shadow-sm rounded-pill">
                             <i class="bi bi-plus-circle text-success me-1"></i> Add Device
                         </a>
+
                     </div>
 
                     <!-- Filters -->
@@ -193,7 +197,7 @@
                                             <th>Name</th>
                                             <th>Serial Number</th>
                                             <th>Status</th>
-                                            <th>Spex</th>
+                                            <th>Specs</th>
                                             <th>Warranty</th>
                                             <th>Brand</th>
                                             <th>Category</th>
@@ -225,7 +229,7 @@
                                                         <button class="btn btn-sm btn-outline-primary rounded-pill"
                                                                 data-bs-toggle="modal" data-bs-target="#spexModal"
                                                                 data-spex="@dev.Spex">
-                                                            <i class="bi bi-card-list"></i> Spex
+                                                            <i class="bi bi-card-list"></i> Specs
                                                         </button>
                                                     </td>
                                                     <td>@dev.Warranty</td>
@@ -311,7 +315,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title"><i class="bi bi-card-list"></i> Device Spex</h5>
+                <h5 class="modal-title"><i class="bi bi-card-list"></i> Device Specs</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body"><pre id="spexText" class="bg-light p-3 rounded"></pre></div>
@@ -379,6 +383,14 @@
                 height: 80,
                 displayValue: true
             });
+        });
+
+          const deleteConfirmModal = document.getElementById('deleteConfirmModal');
+        deleteConfirmModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            const DevId = button.getAttribute('data-device-id');
+            const form = deleteConfirmModal.querySelector('#deleteForm');
+            form.action = `/Device/Delete/${DevId}`;
         });
 
         // Status

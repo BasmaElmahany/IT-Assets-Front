@@ -7,38 +7,135 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+
+<style>
+    /* ===== Filter Card ===== */
+    .filter-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 1rem 1.5rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 3px 8px rgba(0,0,0,.05);
+    }
+
+        .filter-card label {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .filter-card .form-control {
+            border-radius: 8px;
+            box-shadow: none;
+        }
+
+    /* ===== Table ===== */
+    .custom-table thead {
+        background: linear-gradient(45deg, #4e73df, #1cc88a);
+        color: white;
+        font-size: 0.95rem;
+        position: sticky;
+        top: 0;
+        z-index: 2;
+    }
+
+    .custom-table tbody tr:hover {
+        background-color: #f0f8ff !important;
+        transition: background 0.3s;
+    }
+
+    .custom-table th, .custom-table td {
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    /* ===== Pagination ===== */
+    .pagination {
+        margin-top: 1rem;
+        gap: 0.3rem;
+    }
+
+        .pagination .page-link {
+            border-radius: 50% !important;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 24px;
+            font-weight: 600;
+        }
+
+            .pagination .page-link:hover {
+                background: linear-gradient(135deg, #4e73df, #1cc88a);
+                color: #fff !important;
+            }
+
+        .pagination .active .page-link {
+            background: linear-gradient(135deg, #1cc88a, #4e73df);
+            color: #fff !important;
+            border: none;
+        }
+
+    /* ===== Modals ===== */
+    .modal-content {
+        border-radius: 16px;
+        box-shadow: 0 5px 15px rgba(0,0,0,.2);
+    }
+
+    .modal-body span {
+        word-break: break-word; /* Break long words */
+        white-space: normal; /* Allow wrapping */
+    }
+</style>
+
 <section class="pb-4 bg-light">
     <div class="container">
         <div class="row gy-3">
             <div class="col-12">
-                <div class="card shadow-sm border-0 rounded-3">
-                    <div class="card-body p-4">
-                        <!-- Header -->
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h4 class="fw-bold text-primary m-0">
-                                <i class="bx bx-laptop me-2"></i> Assigned Devices
-                            </h4>
-                            <a asp-action="Assign" class="btn btn-gradient btn-sm shadow-sm">
-                                <i class="bx bx-plus-circle me-1"></i> Assign Device
-                            </a>
-                        </div>
+                <div class="card shadow-lg border-0 rounded-3 overflow-hidden">
 
-                        <!-- Search -->
-                        <div class="input-group mb-3">
-                            <span class="input-group-text bg-white border-end-0">
-                                <i class="bx bx-search text-muted"></i>
-                            </span>
-                            <input type="text"
-                                   class="form-control border-start-0"
-                                   id="deviceSearchInput"
-                                   placeholder="Search devices..."
-                                   onkeyup="filterDevices()" />
-                        </div>
+                    <!-- Header -->
+                    <div class="card-header text-white d-flex justify-content-between align-items-center py-3 px-4 shadow-sm"
+                         style="background: linear-gradient(135deg, #4e73df, #1cc88a);">
+                        <h5 class="mb-0 fw-bold">
+                            <i class="bi bi-laptop me-2"></i> Assigned Devices
+                        </h5>
+                        <a asp-action="Assign" class="btn btn-light btn-sm fw-semibold shadow-sm rounded-pill">
+                            <i class="bi bi-plus-circle text-success me-1"></i> Assign Device
+                        </a>
+                    </div>
 
-                        <!-- Table -->
+                    <!-- Filters -->
+                    <div class="filter-card">
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <label>Search</label>
+                                <input type="text" id="deviceSearchInput" class="form-control"
+                                       placeholder="🔍 Search by device or employee..." onkeyup="filterDevices()" />
+                            </div>
+                            <div class="col-md-3">
+                                <label>Status</label>
+                                <select id="statusFilter" class="form-control" onchange="filterDevices()">
+                                    <option value="">-- All --</option>
+                                    <option value="Active">Active</option>
+                                    <option value="Inactive">Inactive</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label>Return Status</label>
+                                <select id="returnFilter" class="form-control" onchange="filterDevices()">
+                                    <option value="">-- All --</option>
+                                    <option value="Returned">Returned</option>
+                                    <option value="Pending">Pending</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Table -->
+                    <div class="card-body p-0">
                         <div class="table-responsive">
-                            <table class="table table-hover align-middle" id="devicesTable">
-                                <thead class="table-light">
+                            <table class="table table-striped table-hover table-bordered custom-table text-nowrap align-middle mb-0" id="devicesTable">
+                                <thead>
                                     <tr>
                                         <th>#</th>
                                         <th>Device</th>
@@ -60,50 +157,60 @@
                                             <tr>
                                                 <td>@index</td>
                                                 <td class="device-name fw-semibold">
-                                                    <i class="bx bx-chip text-primary me-1"></i> @item.device?.name
+                                                    <i class="bi bi-cpu text-primary me-1"></i> @item.device?.name
                                                 </td>
-                                                <td><i class="bx bx-user-circle text-secondary me-1"></i> @item.employee?.name</td>
+                                                <td><i class="bi bi-person-circle text-secondary me-1"></i> @item.employee?.name</td>
                                                 <td>@item.assignDate.ToString("yyyy-MM-dd")</td>
                                                 <td>
-                                                    <span class="badge bg-@(item.deviceStatus == "Active" ? "success" : "secondary") rounded-pill px-3 py-2">
-                                                        @item.deviceStatus
-                                                    </span>
+                                                    <button class="btn btn-sm @(item.deviceStatus == "Active" ? "btn-success" : "btn-secondary") rounded-pill px-3"
+                                                            data-bs-toggle="modal" data-bs-target="#statusModal"
+                                                            data-status="@item.deviceStatus" data-device="@item.device?.name">
+                                                        <i class="bi bi-activity"></i> Status
+                                                    </button>
                                                 </td>
                                                 <td>@item.returnDate?.ToString("yyyy-MM-dd")</td>
                                                 <td>
-                                                    <span class="badge bg-@(item.returnStatus == "Returned" ? "info" : "warning") rounded-pill px-3 py-2">
-                                                        @item.returnStatus
-                                                    </span>
+                                                    <button class="btn btn-sm @(item.returnStatus == "Returned" ? "btn-info" : "btn-warning") rounded-pill px-3"
+                                                            data-bs-toggle="modal" data-bs-target="#returnModal"
+                                                            data-return="@item.returnStatus" data-why="@item.WhyReturn" data-device="@item.device?.name">
+                                                        <i class="bi bi-activity"></i> Status
+                                                    </button>
                                                 </td>
                                                 <td>@item.qty</td>
                                                 <td class="text-center">
                                                     @if (!string.IsNullOrWhiteSpace(item.returnStatus) && item.returnDate.HasValue)
                                                     {
+                                                        <!-- Already Returned -->
                                                         <button class="btn btn-sm btn-outline-secondary rounded-circle me-2"
                                                                 title="Already Returned" disabled>
-                                                            <i class="bx bx-log-out"></i>
+                                                            <i class="bi bi-box-arrow-in-left"></i>
                                                         </button>
-                                                        <button class="btn btn-sm btn-outline-secondary rounded-circle me-2"
-                                                                title="Already Returned" disabled>
-                                                            <i class="bx bx-transfer"></i>
+
+                                                        <!-- Transfer Disabled -->
+                                                        <button class="btn btn-sm btn-outline-warning rounded-circle me-2"
+                                                                title="Cannot Transfer (Already Returned)" disabled>
+                                                            <i class="bi bi-arrow-left-right"></i>
                                                         </button>
                                                     }
                                                     else
                                                     {
+                                                        <!-- Return Active -->
                                                         <a asp-controller="DeviceAssign"
                                                            asp-action="Return"
                                                            asp-route-id="@item.id"
                                                            class="btn btn-sm btn-outline-success rounded-circle me-2"
                                                            title="Return Device">
-                                                            <i class="bx bx-log-out"></i>
+                                                            <i class="bi bi-box-arrow-in-left"></i>
                                                         </a>
+
+                                                        <!-- Transfer Active -->
                                                         <a asp-controller="DeviceAssign"
                                                            asp-action="Transfer"
                                                            asp-route-employeeId="@item.employeeID"
                                                            asp-route-deviceId="@item.deviceID"
                                                            class="btn btn-sm btn-outline-warning rounded-circle me-2"
                                                            title="Transfer Device">
-                                                            <i class="bx bx-transfer"></i>
+                                                            <i class="bi bi-arrow-left-right"></i>
                                                         </a>
                                                     }
 
@@ -112,7 +219,7 @@
                                                             data-bs-target="#deleteConfirmModal"
                                                             data-device-id="@item.id"
                                                             title="Delete">
-                                                        <i class="bx bx-trash"></i>
+                                                        <i class="bi bi-trash"></i>
                                                     </button>
                                                 </td>
                                             </tr>
@@ -123,60 +230,32 @@
                                     {
                                         <tr>
                                             <td colspan="9" class="text-center text-muted py-4">
-                                                <i class="bx bx-info-circle fs-3 d-block mb-2"></i>
+                                                <i class="bi bi-info-circle fs-3 d-block mb-2"></i>
                                                 No assigned devices found.
                                             </td>
                                         </tr>
                                     }
                                 </tbody>
                             </table>
-
-                            <!-- Delete Confirmation Modal -->
-                            <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content border-0 shadow">
-                                        <form id="deleteForm" method="post">
-                                            <div class="modal-header bg-danger text-white">
-                                                <h5 class="modal-title d-flex align-items-center">
-                                                    <i class="bx bx-error-circle me-2"></i> Confirm Deletion
-                                                </h5>
-                                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body text-center py-4">
-                                                <i class="bx bx-trash fs-1 text-danger mb-3"></i>
-                                                <p class="mb-0">Are you sure you want to delete this assignment?</p>
-                                            </div>
-                                            <div class="modal-footer border-0">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                                    Cancel
-                                                </button>
-                                                <button type="submit" class="btn btn-danger">
-                                                    Yes, Delete
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Pagination -->
-                            <div class="d-flex justify-content-center mt-4">
-                                @Html.PagedListPager(
-                                         Model,
-                                         page => Url.Action("Index", new { page }),
-                                         new PagedListRenderOptions
-                                {
-                                    LiElementClasses = new[] { "page-item" },
-                                    PageClasses = new[] { "page-link" },
-                                    UlElementClasses = new[] { "pagination pagination-sm" },
-                                    DisplayLinkToFirstPage = PagedListDisplayMode.Always,
-                                    DisplayLinkToLastPage = PagedListDisplayMode.Always,
-                                    DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
-                                    DisplayLinkToNextPage = PagedListDisplayMode.Always
-                                }
-                                         )
-                            </div>
                         </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="d-flex justify-content-center mt-3">
+                        @Html.PagedListPager(
+                                 Model,
+                                 page => Url.Action("Index", new { page }),
+                                 new PagedListRenderOptions
+                        {
+                            LiElementClasses = new[] { "page-item" },
+                            PageClasses = new[] { "page-link rounded-pill shadow-sm border-0" },
+                            UlElementClasses = new[] { "pagination pagination-sm" },
+                            DisplayLinkToFirstPage = PagedListDisplayMode.Always,
+                            DisplayLinkToLastPage = PagedListDisplayMode.Always,
+                            DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+                            DisplayLinkToNextPage = PagedListDisplayMode.Always
+                        }
+                                 )
                     </div>
                 </div>
             </div>
@@ -184,26 +263,102 @@
     </div>
 </section>
 
+<!-- Status Modal -->
+<div class="modal fade" id="statusModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title"><i class="bi bi-info-circle"></i> Device Status</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-break">
+                <p><strong>Device:</strong> <span id="statusDevice" class="text-break"></span></p>
+                <p><strong>Status:</strong> <span id="statusText" class="text-break"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Return Modal -->
+<div class="modal fade" id="returnModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-info text-white">
+                <h5 class="modal-title"><i class="bi bi-arrow-return-left"></i> Return Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-break">
+                <p><strong>Device:</strong> <span id="returnDevice" class="text-break"></span></p>
+                <p><strong>Status:</strong> <span id="returnText" class="text-break"></span></p>
+                <p><strong>Reason:</strong> <span id="returnReason" class="text-break"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form id="deleteForm" method="post">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title"><i class="bi bi-trash"></i> Confirm Delete</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p>Are you sure you want to delete this assignment?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 @section Scripts {
     <script>
         function filterDevices() {
-            const input = document.getElementById("deviceSearchInput");
-            const filter = input.value.toLowerCase();
+            const search = document.getElementById("deviceSearchInput").value.toLowerCase();
+            const status = document.getElementById("statusFilter").value.toLowerCase();
+            const returnStatus = document.getElementById("returnFilter").value.toLowerCase();
             const rows = document.querySelectorAll("#devicesTable tbody tr");
 
             rows.forEach(row => {
-                const deviceNameCell = row.querySelector(".device-name");
-                const deviceText = deviceNameCell?.innerText.toLowerCase() || "";
-                row.style.display = deviceText.includes(filter) ? "" : "none";
+                const text = row.innerText.toLowerCase();
+                const matchSearch = !search || text.includes(search);
+                const matchStatus = !status || row.innerHTML.toLowerCase().includes(status);
+                const matchReturn = !returnStatus || row.innerHTML.toLowerCase().includes(returnStatus);
+
+                row.style.display = (matchSearch && matchStatus && matchReturn) ? "" : "none";
             });
         }
 
+        // Status modal
+        const statusModal = document.getElementById('statusModal');
+        statusModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            document.getElementById('statusDevice').innerText = button.getAttribute('data-device');
+            document.getElementById('statusText').innerText = button.getAttribute('data-status');
+        });
+
+        // Return modal
+        const returnModal = document.getElementById('returnModal');
+        returnModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            document.getElementById('returnDevice').innerText = button.getAttribute('data-device');
+            document.getElementById('returnText').innerText = button.getAttribute('data-return');
+            document.getElementById('returnReason').innerText = button.getAttribute('data-why') || "N/A";
+        });
+
+        // Delete modal
         const deleteConfirmModal = document.getElementById('deleteConfirmModal');
         deleteConfirmModal.addEventListener('show.bs.modal', function (event) {
             const button = event.relatedTarget;
             const deviceId = button.getAttribute('data-device-id');
-            const form = deleteConfirmModal.querySelector('#deleteForm');
-            form.action = `/DeviceAssign/Delete/${deviceId}`;
+            document.getElementById('deleteForm').action = `/DeviceAssign/Delete/${deviceId}`;
         });
     </script>
 }

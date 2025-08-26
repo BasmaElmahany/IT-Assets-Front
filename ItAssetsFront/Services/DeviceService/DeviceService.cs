@@ -118,9 +118,30 @@ namespace ItAssetsFront.Services.DeviceService
             throw new NotImplementedException();
         }
 
-      
 
 
+
+        public async Task<bool> CreateBulkDevicesAsync(BulkDeviceRequest model)
+        {
+            if (model.Devices == null || model.Devices.Count == 0)
+                return false;
+
+            bool allSuccess = true;
+
+            foreach (var device in model.Devices)
+            {
+                // Assign shared properties
+                device.BrandId = model.BrandId;
+                device.CategoryID = model.CategoryID;
+                device.SupplierID = model.SupplierID;
+
+                var success = await CreateDeviceAsync(device);
+                if (!success)
+                    allSuccess = false;
+            }
+
+            return allSuccess;
+        }
 
 
 

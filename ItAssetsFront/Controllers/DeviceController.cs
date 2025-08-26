@@ -95,6 +95,51 @@ namespace ItAssetsFront.Controllers
             return View(model);
         }
 
+
+
+
+
+
+        public async Task<IActionResult> BulkCreate()
+        {
+            ViewBag.Brands = await _brandService.GetAllBrandsAsync();
+            ViewBag.Categories = await _categoryService.GetAllCategoryAsync();
+            ViewBag.Suppliers = await _supplierService.GetAllSupplierAsync();
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> BulkCreate(BulkDeviceRequest model)
+        {
+            if (!ModelState.IsValid || model.Devices == null || model.Devices.Count == 0)
+            {
+                TempData["Error"] = "You must provide at least one device.";
+                ViewBag.Brands = await _brandService.GetAllBrandsAsync();
+                ViewBag.Categories = await _categoryService.GetAllCategoryAsync();
+                ViewBag.Suppliers = await _supplierService.GetAllSupplierAsync();
+                return View(model);
+            }
+
+            var success = await _ser.CreateBulkDevicesAsync(model);
+
+            if (success)
+            {
+                TempData["Success"] = "All devices created successfully.";
+                return RedirectToAction(nameof(Index));
+            }
+
+            TempData["Error"] = "Some devices failed to create.";
+            ViewBag.Brands = await _brandService.GetAllBrandsAsync();
+            ViewBag.Categories = await _categoryService.GetAllCategoryAsync();
+            ViewBag.Suppliers = await _supplierService.GetAllSupplierAsync();
+            return View(model);
+        }
+
+
+
+
+
         // Edit - GET
         public async Task<IActionResult> Edit(Guid id)
         {

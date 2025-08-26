@@ -57,7 +57,8 @@ namespace ItAssetsFront.Services.AssignService
                 id = dev.id,
                 deviceID = dev.deviceID,
                 returnDate = dev.returnDate.ToString("yyyy-MM-dd"),
-                returnStatus = dev.returnStatus
+                returnStatus = dev.returnStatus,
+                WhyReturn = dev.WhyReturn
             };
             await _httpClient.PutAsJsonAsync($"{_baseUrl}/ReturnDevice", payload);
             var response = await _httpClient.PutAsJsonAsync($"{_baseUrl}/ReturnDevice", dev);

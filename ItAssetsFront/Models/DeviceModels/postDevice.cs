@@ -19,7 +19,7 @@ namespace ItAssetsFront.Models.DeviceModels
         [Required(ErrorMessage = "Status is required")]
         [Display(Name = "Device Status")]
         public string Status { get; set; }
-        [Display(Name = "Device Spex")]
+        [Display(Name = "Device Specs")]
         public string Spex { get; set; }
         [Display(Name = "Device Warranty")]
         public int Warranty { get; set; }
@@ -32,7 +32,7 @@ namespace ItAssetsFront.Models.DeviceModels
         [Display(Name = "Category")]
         public Guid CategoryID { get; set; }
 
-        [Required(ErrorMessage = "Supplier ID is required")]
+
         [Display(Name = "Supplier")]
         public Guid? SupplierID { get; set; }
 
