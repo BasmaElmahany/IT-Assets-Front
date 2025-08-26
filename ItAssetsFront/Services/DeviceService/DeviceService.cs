@@ -45,7 +45,7 @@ namespace ItAssetsFront.Services.DeviceService
             formData.Add(new StringContent(model.SupplierID.ToString()), nameof(model.SupplierID));
             formData.Add(new StringContent(model.IsFaulty.ToString()), nameof(model.IsFaulty));
             formData.Add(new StringContent(model.IsAvailable.ToString()), nameof(model.IsAvailable));
-            formData.Add(new StringContent(model.Qty.ToString()), nameof(model.Qty));
+            formData.Add(new StringContent(model.price.ToString()), nameof(model.price));
 
 
 
@@ -90,7 +90,7 @@ namespace ItAssetsFront.Services.DeviceService
             formData.Add(new StringContent(model.SupplierID.ToString()), nameof(model.SupplierID));
             formData.Add(new StringContent(model.IsFaulty.ToString()), nameof(model.IsFaulty));
             formData.Add(new StringContent(model.IsAvailable.ToString()), nameof(model.IsAvailable));
-            formData.Add(new StringContent(model.Qty.ToString()), nameof(model.Qty));
+            formData.Add(new StringContent(model.price.ToString()), nameof(model.price));
 
             if (model.Photo != null)
             {

@@ -4,7 +4,61 @@
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
 
+    /* ✅ Match Bootstrap form-control look */
+    .select2-container .select2-selection--single {
+        height: calc(2.25rem + 2px);
+        border-radius: 50rem !important; /* rounded-pill */
+        padding: 0.375rem 1rem;
+        box-shadow: 0 .125rem .25rem rgba(0,0,0,.075); /* shadow-sm */
+        border: 1px solid #ced4da;
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+    }
+
+    /* ✅ Fix text alignment inside */
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        line-height: 1.5rem;
+        color: #495057;
+        font-size: 0.95rem;
+        padding-left: 0;
+    }
+
+    /* ✅ Fix the arrow */
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        height: 100%;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    /* ✅ Dropdown menu */
+    .select2-dropdown {
+        border-radius: 0.75rem;
+        border: 1px solid #ced4da;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+        padding: 0.25rem;
+    }
+
+    /* ✅ Search box inside dropdown */
+    .select2-search--dropdown .select2-search__field {
+        border-radius: 50rem;
+        border: 1px solid #ced4da;
+        padding: 0.375rem 0.75rem;
+        font-size: 0.9rem;
+        outline: none;
+    }
+
+    /* ✅ Highlighted option */
+    .select2-results__option--highlighted {
+        background-color: #0d6efd !important; /* Bootstrap primary */
+        color: white !important;
+        border-radius: 0.5rem;
+    }
+
+</style>
 <section class="pb-3 pb-md-4 pb-xl-5 bg-light">
     <div class="container">
         <div class="row gy-3 gy-md-4 justify-content-center">
@@ -42,7 +96,7 @@
                             <div class="mb-4">
                                 @Html.LabelFor(model => model.Photo, new { @class = "form-label fw-semibold" })
                                 <input type="file" name="Photo" class="form-control rounded-pill px-4 py-2 shadow-sm" />
-                                @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger small mt-1 d-block" })
+                                @*    @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger small mt-1 d-block" })*@
                             </div>
 
 
@@ -69,25 +123,25 @@
                             </div>
 
                             <div class="mb-4">
-                                @Html.LabelFor(model => model.BrandId, new { @class = "form-label fw-semibold" })
+                                @Html.LabelFor(model => model.BrandId, new { @class = "form-label fw-semibold " })
                                 @Html.DropDownListFor(model => model.BrandId,
                                          new SelectList(ViewBag.Brands, "id", "name"),
-                                         "-- Select Brand --",
+                                         "-- Select Model --",
                                          new
                                          {
-                                             @class = "form-control rounded-pill px-4 py-2 shadow-sm"
+                                             @class = "form-control rounded-pill px-4 py-2 shadow-sm model-select"
                                          })
                                 @Html.ValidationMessageFor(model => model.BrandId, "", new { @class = "text-danger small mt-1 d-block" })
                             </div>
 
                             <div class="mb-4">
-                                @Html.LabelFor(model => model.CategoryID, new { @class = "form-label fw-semibold" })
+                                @Html.LabelFor(model => model.CategoryID, new { @class = "form-label fw-semibold " })
                                 @Html.DropDownListFor(model => model.CategoryID,
                                          new SelectList(ViewBag.Categories, "id", "name"),
                                          "-- Select Category --",
                                          new
                                          {
-                                             @class = "form-control rounded-pill px-4 py-2 shadow-sm"
+                                             @class = "form-control rounded-pill px-4 py-2 shadow-sm category-select"
                                          })
                                 @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger small mt-1 d-block" })
                             </div>
@@ -99,7 +153,7 @@
                                          "-- Select Supplier (optional) --",
                                          new
                                          {
-                                             @class = "form-control rounded-pill px-4 py-2 shadow-sm"
+                                             @class = "form-control rounded-pill px-4 py-2 shadow-sm supplier-select"
                                          })
                                 @Html.ValidationMessageFor(model => model.SupplierID, "", new { @class = "text-danger small mt-1 d-block" })
                             </div>
@@ -120,15 +174,15 @@
 
 
                             <div class="mb-4">
-                                @Html.LabelFor(model => model.Qty, new { @class = "form-label fw-semibold" })
-                                @Html.TextBoxFor(model => model.Qty, new
+                                @Html.LabelFor(model => model.price, new { @class = "form-label fw-semibold" })
+                                @Html.TextBoxFor(model => model.price, new
                                     {
                                         @class = "form-control rounded-pill px-4 py-2 shadow-sm",
-                                        placeholder = "Enter Quantity",
+                                        placeholder = "Enter price",
                                         type = "number",
                                         min = "0"
                                     })
-                                @Html.ValidationMessageFor(model => model.Qty, "", new { @class = "text-danger small mt-1 d-block" })
+                                @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger small mt-1 d-block" })
                             </div>
 
                             <div class="mb-4">
@@ -163,6 +217,36 @@
 
 @section Scripts {
     @await Html.PartialAsync("_ValidationScriptsPartial")
+    <script>
+        $(function () {
+            $('.model-select').select2({
+                placeholder: "-- Select Model --",
+                allowClear: true,
+                width: '100%'
+            });
+        });
+    </script>
+
+    <script>
+        $(function () {
+            $('.category-select').select2({
+                placeholder: "-- Select Category --",
+                allowClear: true,
+                width: '100%'
+            });
+        });
+    </script>
+
+    <script>
+        $(function () {
+                    $('.supplier-select').select2({
+                placeholder: "-- Select Supplier--",
+                allowClear: true,
+                width: '100%'
+            });
+        });
+    </script>
+
 }
 
 

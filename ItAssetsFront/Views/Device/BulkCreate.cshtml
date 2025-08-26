@@ -19,49 +19,61 @@
                         {
                             @Html.AntiForgeryToken()
 
-                            <!-- Shared Dropdowns -->
+                            <!-- Shared Fields -->
                             <div class="mb-4">
-                                @Html.LabelFor(m => m.BrandId, new { @class = "form-label fw-semibold" })
-                                @Html.DropDownListFor(m => m.BrandId,
-                                         new SelectList(ViewBag.Brands, "id", "name"),
-                                         "-- Select Brand --",
-                                         new { @class = "form-control rounded-pill px-4 py-2 shadow-sm" })
-                                @Html.ValidationMessageFor(m => m.BrandId, "", new { @class = "text-danger small mt-1 d-block" })
+                                <label class="form-label fw-semibold">Device Name</label>
+                                <input type="text" name="Name" class="form-control rounded-pill px-4 py-2 shadow-sm" placeholder="Enter Device name" required />
                             </div>
 
                             <div class="mb-4">
-                                @Html.LabelFor(m => m.CategoryID, new { @class = "form-label fw-semibold" })
-                                @Html.DropDownListFor(m => m.CategoryID,
-                                         new SelectList(ViewBag.Categories, "id", "name"),
-                                         "-- Select Category --",
-                                         new { @class = "form-control rounded-pill px-4 py-2 shadow-sm" })
-                                @Html.ValidationMessageFor(m => m.CategoryID, "", new { @class = "text-danger small mt-1 d-block" })
+                                <label class="form-label fw-semibold">Photo</label>
+                                <input type="file" name="Photo" class="form-control rounded-pill px-4 py-2 shadow-sm" />
                             </div>
 
+                            <div class="mb-4">
+                                <label class="form-label fw-semibold">Status</label>
+                                <textarea name="Status" class="form-control rounded px-4 py-2 shadow-sm" rows="2" placeholder="Enter Status"></textarea>
+                            </div>
 
                             <div class="mb-4">
-                                @Html.LabelFor(model => model.SupplierID, new { @class = "form-label fw-semibold" })
-                                @Html.DropDownListFor(model => model.SupplierID,
-                                         new SelectList(ViewBag.Suppliers, "id", "name"),
-                                         "-- Select Supplier (optional) --",
-                                         new
-                                         {
-                                             @class = "form-control rounded-pill px-4 py-2 shadow-sm"
-                                         })
-                                @Html.ValidationMessageFor(model => model.SupplierID, "", new { @class = "text-danger small mt-1 d-block" })
+                                <label class="form-label fw-semibold">Specs</label>
+                                <textarea name="Spex" class="form-control rounded px-4 py-2 shadow-sm" rows="2" placeholder="Enter Specs"></textarea>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label fw-semibold">Warranty</label>
+                                <input type="number" name="Warranty" class="form-control rounded-pill px-4 py-2 shadow-sm" min="0" placeholder="Enter Warranty" />
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label fw-semibold">Price</label>
+                                <input type="number" name="Price" class="form-control rounded-pill px-4 py-2 shadow-sm" min="0" placeholder="Enter Price" />
+                            </div>
+
+                            <div class="form-check mb-2">
+                                <input type="hidden" name="IsAvailable" value="true" />
+                                <input type="checkbox" name="IsAvailable" class="form-check-input" id="isAvailable" value="true" checked />
+                                <label for="isAvailable" class="form-check-label fw-semibold">Is Available</label>
+                            </div>
+
+                            <div class="form-check mb-2">
+                                <input type="hidden" name="IsFaulty" value="false" />
+                                <input type="checkbox" name="IsFaulty" class="form-check-input" id="isFaulty" value="true" />
+                                <label for="isFaulty" class="form-check-label fw-semibold">Is Faulty</label>
                             </div>
 
                             <hr />
 
                             <!-- Devices Container -->
-                            <h5 class="fw-bold text-secondary mb-3">Devices</h5>
+                            <h5 class="fw-bold text-secondary mb-3">Serial Numbers</h5>
                             <div id="devices-container"></div>
 
                             <div class="d-flex justify-content-center mb-4">
                                 <button type="button" id="add-device" class="btn btn-outline-primary rounded-pill px-4 py-2 shadow-sm">
-                                    <i class="bi bi-plus-circle me-1"></i> Add Device
+                                    <i class="bi bi-plus-circle me-1"></i> Add Serial Number
                                 </button>
                             </div>
+
 
                             <!-- Submit -->
                             <div class="d-flex justify-content-center">
@@ -84,7 +96,7 @@
     @await Html.PartialAsync("_ValidationScriptsPartial")
 
     <script>
-        let index = 0;
+              let index = 0;
 
         document.getElementById("add-device").addEventListener("click", function () {
             let container = document.getElementById("devices-container");
@@ -93,54 +105,11 @@
                     <h6 class="fw-bold text-primary">Device #${index + 1}</h6>
 
                     <div class="mb-3">
-                        <label class="form-label fw-semibold">Name</label>
-                        <input type="text" name="Devices[${index}].Name" class="form-control rounded-pill px-4 py-2 shadow-sm" placeholder="Enter Device name" required />
-                    </div>
-
-                    <div class="mb-3">
                         <label class="form-label fw-semibold">Serial Number</label>
                         <input type="text" name="Devices[${index}].SerialNumber" class="form-control rounded-pill px-4 py-2 shadow-sm" placeholder="Enter Serial Number" required />
                     </div>
-
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">Photo</label>
-                        <input type="file" name="Devices[${index}].Photo" class="form-control rounded-pill px-4 py-2 shadow-sm" />
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">Status</label>
-                        <textarea name="Devices[${index}].Status" class="form-control rounded px-4 py-2 shadow-sm" rows="2" placeholder="Enter Status" required></textarea>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">Spex</label>
-                        <textarea name="Devices[${index}].Spex" class="form-control rounded px-4 py-2 shadow-sm" rows="2" placeholder="Enter Specs"></textarea>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">Warranty</label>
-                        <input type="number" name="Devices[${index}].Warranty" class="form-control rounded-pill px-4 py-2 shadow-sm" min="0" placeholder="Enter Warranty" />
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">Quantity</label>
-                        <input type="number" name="Devices[${index}].Qty" class="form-control rounded-pill px-4 py-2 shadow-sm" min="0" placeholder="Enter Quantity" required />
-                    </div>
-
-                    <div class="form-check mb-2">
-                        <input type="hidden" name="Devices[${index}].IsAvailable" value="false" />
-                        <input type="checkbox" name="Devices[${index}].IsAvailable" class="form-check-input" id="available-${index}" value="true" />
-                        <label for="available-${index}" class="form-check-label fw-semibold">Is Available</label>
-                    </div>
-
-                    <div class="form-check mb-2">
-                        <input type="hidden" name="Devices[${index}].IsFaulty" value="false" />
-                        <input type="checkbox" name="Devices[${index}].IsFaulty" class="form-check-input" id="faulty-${index}" value="true" />
-                        <label for="faulty-${index}" class="form-check-label fw-semibold">Is Faulty</label>
-                    </div>
                 </div>
             `);
-
             index++;
         });
     </script>

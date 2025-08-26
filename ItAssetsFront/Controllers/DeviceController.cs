@@ -166,7 +166,7 @@ namespace ItAssetsFront.Controllers
                 SupplierID = device.supplier.id,
                 IsFaulty = device.isFaulty,
                 IsAvailable = device.isAvailable,
-                Qty = device.qty
+                price= device.price
             };
 
             return View(model);

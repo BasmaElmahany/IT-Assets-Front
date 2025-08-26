@@ -30,7 +30,7 @@ namespace ItAssetsFront.Services.AssignService
                 OfficeID = deviceAss.OfficeID,
                 assignDate = deviceAss.assignDate.ToString("yyyy-MM-dd"),
                 deviceStatus = deviceAss.deviceStatus,
-                qty = deviceAss.qty
+              //  qty = deviceAss.qty
             };
 
             var response = await _httpClient.PostAsJsonAsync($"{_baseUrl}/OffDeviceAssignment", deviceAss);

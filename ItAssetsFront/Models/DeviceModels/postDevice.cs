@@ -14,7 +14,7 @@ namespace ItAssetsFront.Models.DeviceModels
         public string SerialNumber { get; set; }
 
         [Display(Name = "Device Photo")]
-        public IFormFile Photo { get; set; }
+        public IFormFile? Photo { get; set; }
 
         [Required(ErrorMessage = "Status is required")]
         [Display(Name = "Device Status")]
@@ -43,7 +43,7 @@ namespace ItAssetsFront.Models.DeviceModels
         public bool IsAvailable { get; set; }
 
         [Range(0, int.MaxValue, ErrorMessage = "Quantity must be 0 or greater")]
-        [Display(Name = "Quantity")]
-        public int Qty { get; set; }
+        [Display(Name = "Price ")]
+        public double price { get; set; }
     }
 }

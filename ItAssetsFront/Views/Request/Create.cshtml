@@ -22,7 +22,7 @@
                                 @Html.DropDownListFor(model => model.categoryID,
                                          new SelectList(ViewBag.Categories, "id", "name"),
                                          "-- Select Category --",
-                                         new { @class = "form-control rounded-pill px-4 py-2 shadow-sm" })
+                                         new { @class = "form-control rounded-pill px-4 py-2 shadow-sm cat-select" })
                                 @Html.ValidationMessageFor(model => model.categoryID, "", new { @class = "text-danger small mt-1 d-block" })
                             </div>
 
@@ -31,7 +31,7 @@
                                 @Html.DropDownListFor(model => model.officeId,
                                          new SelectList(ViewBag.Offices, "id", "name"),
                                          "-- Select Office --",
-                                         new { @class = "form-control rounded-pill px-4 py-2 shadow-sm" })
+                                         new { @class = "form-control rounded-pill px-4 py-2 shadow-sm off-select" })
                                 @Html.ValidationMessageFor(model => model.officeId, "", new { @class = "text-danger small mt-1 d-block" })
                             </div>
 
@@ -84,6 +84,27 @@
 
 @section Scripts {
     @await Html.PartialAsync("_ValidationScriptsPartial")
+    <script>
+        $(function () {
+            $('.cat-select').select2({
+                placeholder: "-- Select Category --",
+                allowClear: true,
+                width: '100%'
+            });
+        });
+    </script>
+
+    <script>
+        $(function () {
+            $('.off-select').select2({
+                placeholder: "-- Select Office --",
+                allowClear: true,
+                width: '100%'
+            });
+        });
+    </script>
+
+
 }
 
 

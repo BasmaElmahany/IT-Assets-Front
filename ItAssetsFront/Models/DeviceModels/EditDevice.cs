@@ -45,6 +45,6 @@ namespace ItAssetsFront.Models.DeviceModels
 
         [Range(0, int.MaxValue, ErrorMessage = "Quantity must be 0 or greater")]
         [Display(Name = "Quantity")]
-        public int Qty { get; set; }
+        public double price { get; set; }
     }
 }

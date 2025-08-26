@@ -57,7 +57,9 @@
                                                 <td>@item.deviceStatus</td>
                                                 <td>@item.returnDate?.ToString("yyyy-MM-dd")</td>
                                                 <td>@item.returnStatus</td>
-                                                <td>@item.qty</td>
+                                                @*
+                                                <td>@item.qty</td> 
+                                                *@
                                                 <td class="text-center">
                                                     @if (!string.IsNullOrWhiteSpace(item.returnStatus) && item.returnDate.HasValue)
                                                     {

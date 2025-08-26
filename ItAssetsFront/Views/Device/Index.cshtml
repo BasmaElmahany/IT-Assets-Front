@@ -201,7 +201,7 @@
                                             <th>Warranty</th>
                                             <th>Brand</th>
                                             <th>Category</th>
-                                            <th>QTY</th>
+                                            <th>Price</th>
                                             <th class="text-center">Actions</th>
                                         </tr>
                                     </thead>
@@ -214,7 +214,7 @@
                                                 <tr>
                                                     <td>@index</td>
                                                     <td>
-                                                        <img src="@($"http://localhost:41335{dev.photoUrl}")" width="60" class="rounded shadow-sm" />
+                                                        <img src="@($"http://localhost:41335{dev.photoUrl}")" width="60" class="rounded shadow-sm" alt="device image" />
                                                     </td>
                                                     <td>@dev.name</td>
                                                     <td>@dev.serialNumber</td>
@@ -235,7 +235,7 @@
                                                     <td>@dev.Warranty</td>
                                                     <td>@dev.brand?.name</td>
                                                     <td>@dev.category?.name</td>
-                                                    <td>@dev.qty</td>
+                                                    <td>@dev.price</td>
                                                     <td>
                                                         <div class="d-flex justify-content-center gap-2">
                                                             <!-- Edit -->

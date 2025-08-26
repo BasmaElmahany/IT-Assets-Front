@@ -19,7 +19,7 @@ namespace ItAssetsFront.Models.AssignOffice
 
         public string? returnStatus { get; set; }
 
-        public int qty { get; set; }
+    /*    public int qty { get; set; }*/
 
         public Device device { get; set; }
 

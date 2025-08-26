@@ -34,7 +34,7 @@ namespace ItAssetsFront.Services.AssignService
                 employeeID = deviceAss.employeeID,
                 assignDate = deviceAss.assignDate.ToString("yyyy-MM-dd"), 
                 deviceStatus = deviceAss.deviceStatus,
-                qty = deviceAss.qty
+               // qty = deviceAss.qty
             };
 
             var response = await _httpClient.PostAsJsonAsync($"{_baseUrl}/EmpDeviceAssignment", deviceAss);

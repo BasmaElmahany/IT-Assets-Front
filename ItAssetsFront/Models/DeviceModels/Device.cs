@@ -1,4 +1,4 @@
-﻿using ItAssetsFront.Models.BrandModels;
+﻿             using ItAssetsFront.Models.BrandModels;
 using ItAssetsFront.Models.CategoryModels;
 using ItAssetsFront.Models.SupplierModels;
 
@@ -8,7 +8,7 @@ namespace ItAssetsFront.Models.DeviceModels
     {
        public Guid id { get; set; }
 
-        public string photoUrl { get; set; }
+        public string? photoUrl { get; set; }
 
         public string  name { get; set; }
         public string serialNumber { get; set; }
@@ -34,6 +34,6 @@ namespace ItAssetsFront.Models.DeviceModels
 
         public bool isAvailable { get; set; }
 
-        public int qty { get; set; }
+        public double price { get; set; }
     }
 }
