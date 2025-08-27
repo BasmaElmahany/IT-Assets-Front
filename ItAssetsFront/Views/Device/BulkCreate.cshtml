@@ -24,6 +24,41 @@
                                 <label class="form-label fw-semibold">Device Name</label>
                                 <input type="text" name="Name" class="form-control rounded-pill px-4 py-2 shadow-sm" placeholder="Enter Device name" required />
                             </div>
+                            <div class="mb-4">
+                                @Html.LabelFor(model => model.BrandId, new { @class = "form-label fw-semibold " })
+                                @Html.DropDownListFor(model => model.BrandId,
+                                         new SelectList(ViewBag.Brands, "id", "name"),
+                                         "-- Select Model --",
+                                         new
+                                         {
+                                             @class = "form-control rounded-pill px-4 py-2 shadow-sm model-select"
+                                         })
+                                @Html.ValidationMessageFor(model => model.BrandId, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+
+                            <div class="mb-4">
+                                @Html.LabelFor(model => model.CategoryID, new { @class = "form-label fw-semibold " })
+                                @Html.DropDownListFor(model => model.CategoryID,
+                                         new SelectList(ViewBag.Categories, "id", "name"),
+                                         "-- Select Category --",
+                                         new
+                                         {
+                                             @class = "form-control rounded-pill px-4 py-2 shadow-sm category-select"
+                                         })
+                                @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+
+                            <div class="mb-4">
+                                @Html.LabelFor(model => model.SupplierID, new { @class = "form-label fw-semibold" })
+                                @Html.DropDownListFor(model => model.SupplierID,
+                                         new SelectList(ViewBag.Suppliers, "id", "name"),
+                                         "-- Select Supplier (optional) --",
+                                         new
+                                         {
+                                             @class = "form-control rounded-pill px-4 py-2 shadow-sm supplier-select"
+                                         })
+                                @Html.ValidationMessageFor(model => model.SupplierID, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
 
                             <div class="mb-4">
                                 <label class="form-label fw-semibold">Photo</label>

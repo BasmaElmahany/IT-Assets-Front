@@ -4,34 +4,28 @@ namespace ItAssetsFront.Models.DeviceModels
 {
     public class BulkDeviceRequest
     {
-        [Required(ErrorMessage = "Brand is required")]
+
+        [Required]
         public Guid BrandId { get; set; }
 
-        [Required(ErrorMessage = "Category is required")]
+        [Required]
         public Guid CategoryID { get; set; }
 
         public Guid? SupplierID { get; set; }
 
-        // Shared fields
         [Required]
         public string Name { get; set; }
 
         public string Spex { get; set; }
-
         public string Status { get; set; }
-
         public IFormFile? Photo { get; set; }
-
-        public int? Warranty { get; set; }
-
-        public decimal? Price { get; set; }
-
+        public int Warranty { get; set; }
+        public double Price { get; set; }
         public bool IsFaulty { get; set; } = false;
-
         public bool IsAvailable { get; set; } = true;
 
-        // Only Serial Numbers will be different
+        // ✅ Only serial numbers differ
         [Required]
-        public List<postDevice> Devices { get; set; } = new List<postDevice>();
+        public List<DeviceSerialRequest> Devices { get; set; } = new();
     }
 }

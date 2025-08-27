@@ -113,12 +113,6 @@ namespace ItAssetsFront.Services.DeviceService
             return response.IsSuccessStatusCode;
         }
 
-        internal async Task GetAllCategoryAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-
 
 
         public async Task<bool> CreateBulkDevicesAsync(BulkDeviceRequest model)
@@ -128,12 +122,25 @@ namespace ItAssetsFront.Services.DeviceService
 
             bool allSuccess = true;
 
-            foreach (var device in model.Devices)
+            foreach (var d in model.Devices)
             {
-                // Assign shared properties
-                device.BrandId = model.BrandId;
-                device.CategoryID = model.CategoryID;
-                device.SupplierID = model.SupplierID;
+                var device = new postDevice
+                {
+                    Name = model.Name,
+                    SerialNumber = d.SerialNumber,
+                    BrandId = model.BrandId,
+                    CategoryID = model.CategoryID,
+                    SupplierID = model.SupplierID,
+                    Status = model.Status,
+                    Spex = model.Spex,
+                    Warranty = model.Warranty,
+                    price = model.Price,
+                    IsAvailable = model.IsAvailable,
+                    IsFaulty = model.IsFaulty,
+                    Photo = model.Photo
+                };
+
+
 
                 var success = await CreateDeviceAsync(device);
                 if (!success)
