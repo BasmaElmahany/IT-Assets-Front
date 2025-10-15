@@ -6,7 +6,7 @@ namespace ItAssetsFront.Services.DeviceRequestService
     public class RequestService
     {
         private readonly HttpClient _httpClient;
-        private readonly string _baseUrl = "http://localhost:41335/api/DeviceRequests";
+        private readonly string _baseUrl = "http://shusha.minya.gov.eg:85/api/DeviceRequests";
 
 
         public RequestService(HttpClient httpClient)

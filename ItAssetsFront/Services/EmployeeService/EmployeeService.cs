@@ -7,7 +7,7 @@ namespace ItAssetsFront.Services.EmployeeService
     {
 
         private readonly HttpClient _httpClient;
-        private readonly string _baseUrl = "http://localhost:41335/api/Employee";
+        private readonly string _baseUrl = "http://shusha.minya.gov.eg:85/api/Employee";
 
         public EmployeeService(HttpClient httpClient)
         {

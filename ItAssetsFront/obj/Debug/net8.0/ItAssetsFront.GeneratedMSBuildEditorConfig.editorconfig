@@ -17,177 +17,181 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ItAssetsFront
 build_property.RootNamespace = ItAssetsFront
-build_property.ProjectDir = D:\ItAssetsFront\ItAssetsFront\
+build_property.ProjectDir = D:\projects\ItAssetsFront\ItAssetsFront\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\ItAssetsFront\ItAssetsFront
+build_property.MSBuildProjectDirectory = D:\projects\ItAssetsFront\ItAssetsFront
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Brand/Create.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Brand/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Brand/Edit.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Brand/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Brand/Index.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Brand/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Category/Create.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Category/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Category/Edit.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Category/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Category/Index.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Category/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/DeviceAssign/Assign.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/DeviceAssign/Assign.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV2aWNlQXNzaWduXEFzc2lnbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/DeviceAssign/Index.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/DeviceAssign/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV2aWNlQXNzaWduXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/DeviceAssign/Return.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/DeviceAssign/Return.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV2aWNlQXNzaWduXFJldHVybi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/DeviceAssign/Transfer.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/DeviceAssign/Transfer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV2aWNlQXNzaWduXFRyYW5zZmVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/DeviceMaintainance/Create.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/DeviceMaintainance/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV2aWNlTWFpbnRhaW5hbmNlXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/DeviceMaintainance/Edit.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/DeviceMaintainance/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV2aWNlTWFpbnRhaW5hbmNlXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/DeviceMaintainance/Index.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/DeviceMaintainance/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV2aWNlTWFpbnRhaW5hbmNlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Device/BulkCreate.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Device/BulkCreate.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV2aWNlXEJ1bGtDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Device/Create.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Device/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV2aWNlXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Device/Edit.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Device/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV2aWNlXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Device/Index.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Device/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV2aWNlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Employee/Create.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Employee/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Employee/Edit.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Employee/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Employee/Index.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Employee/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Home/Index.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Home/Privacy.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Login/Index.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Login/TokenInfo.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Login/TokenInfo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cVG9rZW5JbmZvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/OfficeDesign/Assign.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/OfficeDesign/Assign.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmaWNlRGVzaWduXEFzc2lnbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/OfficeDesign/Index.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/OfficeDesign/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmaWNlRGVzaWduXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/OfficeDesign/Return.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/OfficeDesign/Return.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmaWNlRGVzaWduXFJldHVybi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Office/Create.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Office/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmaWNlXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Office/Edit.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Office/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmaWNlXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Office/Index.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Office/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmaWNlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Request/Create.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Request/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Request/Edit.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Request/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Request/Index.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Request/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Shared/Error.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Supplier/Create.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Supplier/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Supplier/Edit.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Supplier/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Supplier/Index.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Supplier/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/_ViewImports.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Transfer/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNmZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/_ViewStart.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ItAssetsFront/ItAssetsFront/Views/Shared/_Layout.cshtml]
+[D:/projects/ItAssetsFront/ItAssetsFront/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-e87rq8rth7

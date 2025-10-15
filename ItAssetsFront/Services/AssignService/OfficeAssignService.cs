@@ -6,7 +6,7 @@ namespace ItAssetsFront.Services.AssignService
     public class OfficeAssignService
     {
         private readonly HttpClient _httpClient;
-        private readonly string _baseUrl = "http://localhost:41335/api/OfficeDeviceAssign";
+        private readonly string _baseUrl = "http://shusha.minya.gov.eg:85/api/OfficeDeviceAssign";
         public OfficeAssignService(HttpClient httpClient)
         {
             _httpClient = httpClient;

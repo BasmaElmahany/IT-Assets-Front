@@ -5,7 +5,7 @@ namespace ItAssetsFront.Services.BrandService
     public class brandService
     {
         private readonly HttpClient _httpClient;
-        private readonly string _baseUrl = "http://localhost:41335/api/Brand";
+        private readonly string _baseUrl = "http://shusha.minya.gov.eg:85/api/Brand";
 
         public brandService(HttpClient httpClient)
         {

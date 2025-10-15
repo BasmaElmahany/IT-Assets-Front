@@ -6,7 +6,7 @@ namespace ItAssetsFront.Services.officeService
     public class officeService
     {
         private readonly HttpClient _httpClient;
-        private readonly string _baseUrl = "http://localhost:41335/api/Office";
+        private readonly string _baseUrl = "http://shusha.minya.gov.eg:85/api/Office";
 
         public officeService(HttpClient httpClient)
         {

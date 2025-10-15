@@ -3,6 +3,8 @@ using ItAssetsFront.Models.BrandModels;
 using ItAssetsFront.Models.DeviceModels;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
+using OfficeOpenXml.Style;
+using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.Drawing.Drawing2D;
@@ -16,7 +18,7 @@ namespace ItAssetsFront.Services.DeviceService
     public class DeviceService
     {
         private readonly HttpClient _httpClient;
-        private readonly string _baseUrl = "http://localhost:41335/api/Device";
+        private readonly string _baseUrl = "http://shusha.minya.gov.eg:85/api/Device";
        
         public DeviceService(HttpClient httpClient)
         {
@@ -167,6 +169,71 @@ namespace ItAssetsFront.Services.DeviceService
             return formFile;
         }
 
+
+        /// <summary>
+        /// Export all devices to Excel
+        /// </summary>
+        public async Task<byte[]> ExportDevicesToExcelAsync()
+        {
+            var devices = await GetAllDevicesAsync(); // Reuse your API call
+            if (devices == null || !devices.Any())
+                return null;
+
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+            using (var package = new ExcelPackage())
+            {
+                var worksheet = package.Workbook.Worksheets.Add("Devices");
+
+                // Right-to-left layout
+                worksheet.View.RightToLeft = true;
+
+                // Headers
+           
+                worksheet.Cells[1, 2].Value = "اسم الجهاز";
+                worksheet.Cells[1, 3].Value = "الرقم التسلسلي";
+                worksheet.Cells[1, 4].Value = "الماركة";
+                worksheet.Cells[1, 5].Value = "الفئة";
+                worksheet.Cells[1, 6].Value = "المورد";
+                worksheet.Cells[1, 7].Value = "الحالة";
+                worksheet.Cells[1, 8].Value = "مواصفات";
+                worksheet.Cells[1, 9].Value = "الضمان";
+                worksheet.Cells[1, 10].Value = "السعر";
+                worksheet.Cells[1, 11].Value = "متاح؟";
+                worksheet.Cells[1, 12].Value = "به عطل؟";
+
+                // Style headers
+                using (var range = worksheet.Cells[1, 1, 1, 12])
+                {
+                    range.Style.Font.Bold = true;
+                    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                }
+
+                // Fill rows
+                int row = 2;
+                foreach (var d in devices)
+                {
+                    
+                    worksheet.Cells[row, 2].Value = d.name;
+                    worksheet.Cells[row, 3].Value = d.serialNumber;
+                    worksheet.Cells[row, 4].Value = d.brand.name ?? "N/A";
+                    worksheet.Cells[row, 5].Value = d.category.name ?? "N/A";
+                    worksheet.Cells[row, 6].Value = d.supplier.name ?? "N/A";
+                    worksheet.Cells[row, 7].Value = d.status;
+                    worksheet.Cells[row, 8].Value = d.Spex;
+                    worksheet.Cells[row, 9].Value = d.Warranty;
+                    worksheet.Cells[row, 10].Value = d.price;
+                    worksheet.Cells[row, 11].Value = d.isAvailable ? "نعم" : "لا";
+                    worksheet.Cells[row, 12].Value = d.isFaulty ? "نعم" : "لا";
+                    row++;
+                }
+
+                // Auto-fit
+                worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
+
+                return package.GetAsByteArray();
+            }
+        }
 
 
     }

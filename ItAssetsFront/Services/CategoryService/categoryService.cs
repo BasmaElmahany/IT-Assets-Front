@@ -6,7 +6,7 @@ namespace ItAssetsFront.Services.CategoryService
     public class categoryService
     {
         private readonly HttpClient _httpClient;
-        private readonly string _baseUrl = "http://localhost:41335/api/Category";
+        private readonly string _baseUrl = "http://shusha.minya.gov.eg:85/api/Category";
 
         public categoryService(HttpClient httpClient)
         {

@@ -1,6 +1,4 @@
-﻿
-
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 
 <head>
@@ -8,15 +6,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Document Title, Description, and Author -->
-    <title>IT Assets</title>
-    <meta name="description" content="Information Technology Inventory.">
-    <meta name="author" content="BootstrapBrain">
+    <!-- Document Title -->
+    <title>IT Assets Storage Management</title>
+    <meta name="description" content="Professional IT Asset Storage Management Dashboard">
+    <meta name="author" content="IT Assets Team">
 
-    <!-- Favicon and Touch Icons -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="512x512" href="~/layoutAssets/assets/favicon/favicon-512x512.png">
 
-    <!-- Google Fonts Files -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -28,543 +26,1500 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-   
+    <!-- Professional Storage Dashboard Styles -->
+    <link rel="stylesheet" href="~/layoutAssets/assets/css/storage-dashboard-professional.css">
+    <style>
+        /* ========================================
+           PROFESSIONAL STORAGE DASHBOARD
+           Modern, Sophisticated Design System
+           ======================================== */
 
-    <!-- BSB Head -->
+        /* ========================================
+           COLOR SYSTEM - Professional Palette
+           ======================================== */
+
+        :root {
+            /* Primary - Deep Navy Blue */
+            --primary: #0F172A;
+            --primary-light: #1E293B;
+            --primary-lighter: #334155;
+            /* Accent - Vibrant Cyan */
+            --accent: #06B6D4;
+            --accent-light: #22D3EE;
+            --accent-dark: #0891B2;
+            /* Secondary - Purple */
+            --secondary: #8B5CF6;
+            --secondary-light: #A78BFA;
+            --secondary-dark: #7C3AED;
+            /* Success - Emerald */
+            --success: #10B981;
+            --success-light: #34D399;
+            --success-dark: #059669;
+            /* Warning - Amber */
+            --warning: #F59E0B;
+            --warning-light: #FBBF24;
+            --warning-dark: #D97706;
+            /* Danger - Rose */
+            --danger: #EF4444;
+            --danger-light: #F87171;
+            --danger-dark: #DC2626;
+            /* Neutrals - Slate */
+            --gray-50: #F8FAFC;
+            --gray-100: #F1F5F9;
+            --gray-200: #E2E8F0;
+            --gray-300: #CBD5E1;
+            --gray-400: #94A3B8;
+            --gray-500: #64748B;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1E293B;
+            --gray-900: #0F172A;
+            /* Spacing */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            /* Border Radius */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ========================================
+           GLOBAL STYLES
+           ======================================== */
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-900);
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           PROFESSIONAL HEADER
+           ======================================== */
+
+        .storage-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            box-shadow: var(--shadow-lg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+            .storage-header .navbar {
+                padding: var(--space-md) 0;
+            }
+
+        /* Sidebar Toggle */
+        .sidebar-toggle {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-lg);
+            color: white;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+            .sidebar-toggle::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(135deg, var(--accent), var(--accent-light));
+                opacity: 0;
+                transition: opacity var(--transition-base);
+            }
+
+            .sidebar-toggle:hover::before {
+                opacity: 1;
+            }
+
+            .sidebar-toggle i {
+                font-size: 1.5rem;
+                position: relative;
+                z-index: 1;
+            }
+
+            .sidebar-toggle:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 16px rgba(6, 182, 212, 0.3);
+            }
+
+        /* Brand */
+        .storage-brand {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            text-decoration: none;
+        }
+
+        .brand-logo {
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: var(--radius-xl);
+            color: white;
+            font-size: 1.75rem;
+            box-shadow: 0 8px 24px rgba(6, 182, 212, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+            .brand-logo::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+                animation: shimmer 3s infinite;
+            }
+
+        @@keyframes shimmer {
+            0%
+
+        {
+            transform: translateX(-100%) translateY(-100%) rotate(45deg);
+        }
+
+        100% {
+            transform: translateX(100%) translateY(100%) rotate(45deg);
+        }
+
+        }
+
+        .brand-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-tagline {
+            font-size: 0.8125rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+        }
+
+        /* Header Navigation */
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .nav-item-icon {
+            position: relative;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-lg);
+            color: white;
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+            .nav-item-icon:hover {
+                background: rgba(255, 255, 255, 0.2);
+                transform: translateY(-2px);
+            }
+
+            .nav-item-icon i {
+                font-size: 1.125rem;
+            }
+
+        /* Notification Badge */
+        .badge-notification {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            min-width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.375rem;
+            background: linear-gradient(135deg, var(--danger), var(--danger-light));
+            border: 2px solid var(--primary);
+            border-radius: 999px;
+            font-size: 0.6875rem;
+            font-weight: 700;
+            color: white;
+            animation: bounce 2s infinite;
+        }
+
+        @@keyframes bounce {
+            0%, 100%
+
+        {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.1);
+        }
+
+        }
+
+        /* Profile Button */
+        .profile-btn {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: 0.375rem 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-xl);
+            color: white;
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+            .profile-btn:hover {
+                background: rgba(255, 255, 255, 0.2);
+            }
+
+        .profile-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            object-fit: cover;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .profile-name {
+            font-size: 0.875rem;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .profile-role {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* ========================================
+           PROFESSIONAL SIDEBAR
+           ======================================== */
+
+        .storage-sidebar {
+            width: 280px;
+            background: white;
+            box-shadow: var(--shadow-xl);
+            border-right: 1px solid var(--gray-200);
+        }
+
+        .sidebar-header {
+            padding: var(--space-xl);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+            .sidebar-header::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                right: -50%;
+                width: 200%;
+                height: 200%;
+                background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            }
+
+        .sidebar-user {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            position: relative;
+            z-index: 1;
+        }
+
+        .sidebar-user-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.4);
+        }
+
+        .sidebar-user-info {
+            flex: 1;
+        }
+
+        .sidebar-user-name {
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.25rem;
+        }
+
+        .sidebar-user-email {
+            font-size: 0.8125rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .sidebar-user-status {
+            width: 12px;
+            height: 12px;
+            background: var(--success);
+            border: 3px solid white;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            animation: pulse-status 2s infinite;
+        }
+
+        @@keyframes pulse-status {
+            0%, 100%
+
+        {
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+        }
+
+        50% {
+            box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+        }
+
+        }
+
+        /* Sidebar Navigation */
+        .sidebar-nav {
+            padding: var(--space-lg);
+        }
+
+        .nav-section {
+            margin-bottom: var(--space-xl);
+        }
+
+        .nav-section-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-md);
+            padding: 0 var(--space-md);
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: var(--space-md) var(--space-md);
+            border-radius: var(--radius-lg);
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all var(--transition-base);
+            position: relative;
+            margin-bottom: var(--space-xs);
+        }
+
+            .nav-link::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 4px;
+                height: 0;
+                background: linear-gradient(180deg, var(--accent), var(--accent-light));
+                border-radius: 0 4px 4px 0;
+                transition: height var(--transition-base);
+            }
+
+            .nav-link:hover {
+                background: var(--gray-100);
+                color: var(--primary);
+                transform: translateX(4px);
+            }
+
+                .nav-link:hover::before {
+                    height: 60%;
+                }
+
+            .nav-link.active {
+                background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+                color: white;
+                box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+            }
+
+                .nav-link.active::before {
+                    height: 100%;
+                    background: white;
+                }
+
+                .nav-link.active .nav-icon {
+                    background: rgba(255, 255, 255, 0.2);
+                    color: white;
+                }
+
+        .nav-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gray-100);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-base);
+        }
+
+            .nav-icon i {
+                font-size: 1.125rem;
+            }
+
+        .nav-text {
+            flex: 1;
+        }
+
+        .nav-badge {
+            padding: 0.25rem 0.625rem;
+            background: var(--danger);
+            color: white;
+            font-size: 0.6875rem;
+            font-weight: 700;
+            border-radius: 999px;
+        }
+
+        .nav-arrow {
+            font-size: 0.875rem;
+            transition: transform var(--transition-base);
+        }
+
+        .nav-link[aria-expanded="true"] .nav-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Submenu */
+        .nav-submenu {
+            list-style: none;
+            padding: var(--space-sm) 0 var(--space-sm) 3.5rem;
+            margin: 0;
+        }
+
+        .nav-submenu-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            color: var(--gray-600);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all var(--transition-base);
+        }
+
+            .nav-submenu-link:hover {
+                background: var(--gray-100);
+                color: var(--accent);
+                transform: translateX(4px);
+            }
+
+            .nav-submenu-link.active {
+                background: rgba(6, 182, 212, 0.1);
+                color: var(--accent);
+                font-weight: 600;
+            }
+
+            .nav-submenu-link i {
+                font-size: 0.5rem;
+            }
+
+        /* Storage Stats Card */
+        .storage-stats-card {
+            margin: var(--space-lg);
+            padding: var(--space-xl);
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+            border-radius: var(--radius-xl);
+            color: white;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+            .storage-stats-card::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                right: -20%;
+                width: 150%;
+                height: 150%;
+                background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            }
+
+        .storage-icon {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-xl);
+            margin-bottom: var(--space-md);
+            position: relative;
+            z-index: 1;
+        }
+
+            .storage-icon i {
+                font-size: 1.75rem;
+            }
+
+        .storage-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .storage-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
+            position: relative;
+            z-index: 1;
+        }
+
+        .storage-label {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .storage-progress {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 999px;
+            overflow: hidden;
+            margin-top: var(--space-md);
+            position: relative;
+            z-index: 1;
+        }
+
+        .storage-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, white, rgba(255, 255, 255, 0.8));
+            border-radius: 999px;
+            transition: width var(--transition-slow);
+            position: relative;
+            overflow: hidden;
+        }
+
+            .storage-progress-bar::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+                animation: shimmer-progress 2s infinite;
+            }
+
+        @@keyframes shimmer-progress {
+            0%
+
+        {
+            transform: translateX(-100%);
+        }
+
+        100% {
+            transform: translateX(100%);
+        }
+
+        }
+
+        /* ========================================
+           PROFESSIONAL DROPDOWNS
+           ======================================== */
+
+        .professional-dropdown {
+            min-width: 320px;
+            background: white;
+            border: none;
+            box-shadow: var(--shadow-2xl);
+            border-radius: var(--radius-xl);
+            padding: var(--space-sm);
+            margin-top: var(--space-md);
+            animation: slideDown var(--transition-base);
+        }
+
+        @@keyframes slideDown {
+            from
+
+        {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        }
+
+        .dropdown-header-pro {
+            padding: var(--space-lg);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: var(--radius-lg);
+            color: white;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+            .dropdown-header-pro i {
+                font-size: 1.125rem;
+            }
+
+        .dropdown-item-pro {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: var(--space-md);
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            color: var(--gray-700);
+            transition: all var(--transition-base);
+            margin-bottom: var(--space-xs);
+        }
+
+            .dropdown-item-pro:hover {
+                background: var(--gray-100);
+                transform: translateX(4px);
+            }
+
+        .dropdown-item-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-md);
+            flex-shrink: 0;
+        }
+
+            .dropdown-item-icon.primary {
+                background: rgba(6, 182, 212, 0.1);
+                color: var(--accent);
+            }
+
+            .dropdown-item-icon.success {
+                background: rgba(16, 185, 129, 0.1);
+                color: var(--success);
+            }
+
+            .dropdown-item-icon.warning {
+                background: rgba(245, 158, 11, 0.1);
+                color: var(--warning);
+            }
+
+            .dropdown-item-icon.danger {
+                background: rgba(239, 68, 68, 0.1);
+                color: var(--danger);
+            }
+
+        .dropdown-item-content {
+            flex: 1;
+        }
+
+        .dropdown-item-title {
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.125rem;
+        }
+
+        .dropdown-item-text {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        .dropdown-footer-pro {
+            padding: var(--space-md);
+            text-align: center;
+            border-top: 1px solid var(--gray-200);
+            margin-top: var(--space-sm);
+        }
+
+        .dropdown-footer-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all var(--transition-base);
+        }
+
+            .dropdown-footer-link:hover {
+                color: var(--accent-dark);
+            }
+
+        /* ========================================
+           MAIN CONTENT AREA
+           ======================================== */
+
+        .main-content-pro {
+            background: var(--gray-50);
+            min-height: calc(100vh - 80px);
+            padding: var(--space-2xl);
+        }
+
+        /* Page Header */
+        .page-header-pro {
+            margin-bottom: var(--space-2xl);
+        }
+
+        .page-title-pro {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: var(--space-sm);
+        }
+
+        .page-subtitle-pro {
+            font-size: 1rem;
+            color: var(--gray-600);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-xl);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+            .stat-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 4px;
+                background: linear-gradient(90deg, var(--accent), var(--accent-light));
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform var(--transition-base);
+            }
+
+            .stat-card:hover {
+                transform: translateY(-4px);
+                box-shadow: var(--shadow-xl);
+            }
+
+                .stat-card:hover::before {
+                    transform: scaleX(1);
+                }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--space-lg);
+        }
+
+        .stat-icon-wrapper {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-xl);
+            font-size: 1.5rem;
+        }
+
+            .stat-icon-wrapper.primary {
+                background: linear-gradient(135deg, var(--accent), var(--accent-light));
+                color: white;
+                box-shadow: 0 8px 16px rgba(6, 182, 212, 0.3);
+            }
+
+            .stat-icon-wrapper.success {
+                background: linear-gradient(135deg, var(--success), var(--success-light));
+                color: white;
+                box-shadow: 0 8px 16px rgba(16, 185, 129, 0.3);
+            }
+
+            .stat-icon-wrapper.warning {
+                background: linear-gradient(135deg, var(--warning), var(--warning-light));
+                color: white;
+                box-shadow: 0 8px 16px rgba(245, 158, 11, 0.3);
+            }
+
+            .stat-icon-wrapper.danger {
+                background: linear-gradient(135deg, var(--danger), var(--danger-light));
+                color: white;
+                box-shadow: 0 8px 16px rgba(239, 68, 68, 0.3);
+            }
+
+        .stat-trend {
+            padding: 0.375rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+            .stat-trend.up {
+                background: rgba(16, 185, 129, 0.1);
+                color: var(--success);
+            }
+
+            .stat-trend.down {
+                background: rgba(239, 68, 68, 0.1);
+                color: var(--danger);
+            }
+
+        .stat-value {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: var(--space-xs);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+
+        /* ========================================
+           PROFESSIONAL FOOTER
+           ======================================== */
+
+        .footer-pro {
+            background: white;
+            border-top: 1px solid var(--gray-200);
+            padding: var(--space-xl) 0;
+            margin-top: auto;
+        }
+
+        .footer-content-pro {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .footer-text-pro {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+        }
+
+        .footer-links-pro {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+        }
+
+        .footer-link-pro {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color var(--transition-base);
+        }
+
+            .footer-link-pro:hover {
+                color: var(--accent);
+            }
+
+        /* ========================================
+           RESPONSIVE DESIGN
+           ======================================== */
+
+        @@media (max-width: 768px) {
+            .brand-tagline, .profile-info
+
+        {
+            display: none;
+        }
+
+        .storage-sidebar {
+            width: 100%;
+        }
+
+        .main-content-pro {
+            padding: var(--space-lg);
+        }
+
+        .stats-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .footer-content-pro {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- Header -->
-    <header id="header" class="bg-white border-bottom border-light-subtle sticky-top bsb-tpl-header-sticky">
-        <nav class="navbar navbar-expand-md bsb-navbar-3 bsb-tpl-navbar-sticky" data-bsb-sticky-target="#header">
-            <div class="container">
-                <ul class="navbar-nav">
-                    <li class="nav-item me-3">
-                        <a class="nav-link" href="#!" data-bs-toggle="offcanvas" data-bs-target="#bsbSidebar1" aria-controls="bsbSidebar1">
-                            <i class="bi-filter-left fs-3 lh-1"></i>
-                        </a>
-                    </li>
-                </ul>
-                <a class="navbar-brand" href="index.html">
-                    <img src="~/layoutAssets/assets/img/branding/it-logo.jpg" class="bsb-tpl-logo" alt="It AssetsLogo Logo">
-                </a>
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#bsbNavbar" aria-controls="bsbNavbar" aria-label="Toggle Navigation">
-                    <i class="bi bi-three-dots"></i>
+    <!-- Professional Header -->
+    <header class="storage-header sticky-top">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid px-4">
+
+                <!-- Sidebar Toggle -->
+                <button class="sidebar-toggle" data-bs-toggle="offcanvas" data-bs-target="#storageSidebar" aria-label="Toggle Sidebar">
+                    <i class="bi bi-list"></i>
                 </button>
-                <div class="collapse navbar-collapse" id="bsbNavbar">
-                    <ul class="navbar-nav bsb-dropdown-menu-responsive ms-auto align-items-center">
+
+                <!-- Brand -->
+                <a class="storage-brand" href="index.html">
+                    <div class="brand-logo">
+                        <i class="bi bi-hdd-stack"></i>
+                    </div>
+                    <div class="brand-info">
+                        <div class="brand-name">IT Assets</div>
+                        <div class="brand-tagline">Storage Management</div>
+                    </div>
+                </a>
+
+                <!-- Mobile Toggle -->
+                <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <i class="bi bi-three-dots-vertical"></i>
+                </button>
+
+                <!-- Header Navigation -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto header-nav">
+
+                        <!-- Search -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle bsb-dropdown-toggle-caret-disable" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <span class="position-relative">
+                            <a class="nav-item-icon" href="#" role="button" data-bs-toggle="dropdown">
+                                <i class="bi bi-search"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end professional-dropdown">
+                                <div class="dropdown-header-pro">
                                     <i class="bi bi-search"></i>
-                                </span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-md-end bsb-dropdown-animation bsb-fadeIn">
-                                <form class="row g-1 px-3 py-2 align-items-center">
-                                    <div class="col-8">
-                                        <label class="visually-hidden" for="inputSearchNavbar">Search</label>
-                                        <input type="text" class="form-control" id="inputSearchNavbar">
+                                    Quick Search
+                                </div>
+                                <div class="px-3 py-2">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search devices, storage...">
+                                        <button class="btn btn-primary" type="button">
+                                            <i class="bi bi-search"></i>
+                                        </button>
                                     </div>
-                                    <div class="col-4">
-                                        <button type="submit" class="btn btn-primary">Search</button>
-                                    </div>
-                                </form>
+                                </div>
                             </div>
                         </li>
+
+                        <!-- Language -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle bsb-dropdown-toggle-caret-disable" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <span class="position-relative">
+                            <a class="nav-item-icon" href="#" role="button" data-bs-toggle="dropdown">
+                                <i class="bi bi-globe"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end professional-dropdown">
+                                <div class="dropdown-header-pro">
                                     <i class="bi bi-globe"></i>
-                                </span>
+                                    Multilingual
+                                </div>
+                                <a href="#" class="dropdown-item-pro">
+                                    <div class="dropdown-item-icon primary">
+                                        <img src="~/layoutAssets/assets/img/translation/flag-img-1.svg" width="24" alt="Arabic">
+                                    </div>
+                                    <div class="dropdown-item-content">
+                                        <div class="dropdown-item-title">Arabic</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item-pro">
+                                    <div class="dropdown-item-icon success">
+                                        <img src="~/layoutAssets/assets/img/translation/flag-img-3.svg" width="24" alt="English">
+                                    </div>
+                                    <div class="dropdown-item-content">
+                                        <div class="dropdown-item-title">English</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+
+                        <!-- Messages -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-item-icon" href="#" role="button" data-bs-toggle="dropdown">
+                                <i class="bi bi-chat-dots"></i>
+                                <span class="badge-notification">9</span>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-md-end bsb-dropdown-sm bsb-dropdown-animation bsb-fadeIn">
-                                <div>
-                                    <h6 class="dropdown-header fs-7 text-center">Multilingual</h6>
+                            <div class="dropdown-menu dropdown-menu-end professional-dropdown">
+                                <div class="dropdown-header-pro">
+                                    <i class="bi bi-chat-dots"></i>
+                                    9 New Messages
                                 </div>
-                                <div>
-                                    <hr class="dropdown-divider mb-0">
-                                </div>
-                                <div class="list-group list-group-flush">
-                                    <a href="#!" class="list-group-item list-group-item-action" aria-current="true">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <img src="~/layoutAssets/assets/img/translation/flag-img-1.svg" class="img-fluid rounded-pill" alt="Arabic">
-                                            </div>
-                                            <div class="col-10">
-                                                <div class="ps-3">
-                                                    <div class="fs-7">Arabic</div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                <a href="#" class="dropdown-item-pro">
+                                    <img src="~/layoutAssets/assets/img/chat/chat-img-1.jpg" class="rounded-circle" width="40" height="40" alt="User">
+                                    <div class="dropdown-item-content">
+                                        <div class="dropdown-item-title">Luna John</div>
+                                        <div class="dropdown-item-text">Need help with storage allocation</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item-pro">
+                                    <img src="~/layoutAssets/assets/img/chat/chat-img-2.jpg" class="rounded-circle" width="40" height="40" alt="User">
+                                    <div class="dropdown-item-content">
+                                        <div class="dropdown-item-title">Mark Smith</div>
+                                        <div class="dropdown-item-text">Server backup status?</div>
+                                    </div>
+                                </a>
+                                <div class="dropdown-footer-pro">
+                                    <a href="#" class="dropdown-footer-link">
+                                        View All Messages
+                                        <i class="bi bi-arrow-right ms-1"></i>
                                     </a>
-                                    <a href="#!" class="list-group-item list-group-item-action" aria-current="true">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <img src="~/layoutAssets/assets/img/translation/flag-img-2.svg" class="img-fluid rounded-pill" alt="Chinese">
-                                            </div>
-                                            <div class="col-10">
-                                                <div class="ps-3">
-                                                    <div class="fs-7">Chinese</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#!" class="list-group-item list-group-item-action active" aria-current="true">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <img src="~/layoutAssets/assets/img/translation/flag-img-3.svg" class="img-fluid rounded-pill" alt="English">
-                                            </div>
-                                            <div class="col-10">
-                                                <div class="ps-3">
-                                                    <div class="fs-7">English</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#!" class="list-group-item list-group-item-action" aria-current="true">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <img src="~/layoutAssets/assets/img/translation/flag-img-4.svg" class="img-fluid rounded-pill" alt="French">
-                                            </div>
-                                            <div class="col-10">
-                                                <div class="ps-3">
-                                                    <div class="fs-7">French</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div>
-                                    <hr class="dropdown-divider mt-0">
-                                </div>
-                                <div>
-                                    <a class="dropdown-item fs-7 text-center" href="#!">See All Languages</a>
                                 </div>
                             </div>
                         </li>
+
+                        <!-- Notifications -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle bsb-dropdown-toggle-caret-disable" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <span class="position-relative pt-1">
-                                    <i class="bi bi-chat-left"></i>
-                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-accent">
-                                        9
-                                        <span class="visually-hidden">New Chats</span>
-                                    </span>
-                                </span>
+                            <a class="nav-item-icon" href="#" role="button" data-bs-toggle="dropdown">
+                                <i class="bi bi-bell"></i>
+                                <span class="badge-notification">12</span>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-md-end bsb-dropdown-animation bsb-fadeIn">
-                                <div>
-                                    <h6 class="dropdown-header fs-7 text-center">9 New Messages</h6>
-                                </div>
-                                <div>
-                                    <hr class="dropdown-divider mb-0">
-                                </div>
-                                <div class="list-group list-group-flush">
-                                    <a href="#!" class="list-group-item list-group-item-action" aria-current="true">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <img src="~/layoutAssets/assets/img/chat/chat-img-1.jpg" class="img-fluid rounded-circle" alt="Luna John">
-                                            </div>
-                                            <div class="col-10">
-                                                <div class="ps-3">
-                                                    <div class="text-dark">Luna John</div>
-                                                    <div class="text-secondary mt-1 fs-7">Hello, I'm having trouble with my account.</div>
-                                                    <div class="text-secondary mt-1 fs-7">15m ago</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#!" class="list-group-item list-group-item-action">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <img src="~/layoutAssets/assets/img/chat/chat-img-2.jpg" class="img-fluid rounded-circle" alt="Mark Smith">
-                                            </div>
-                                            <div class="col-10">
-                                                <div class="ps-3">
-                                                    <div class="text-dark">Mark Smith</div>
-                                                    <div class="text-secondary mt-1 fs-7">Hi, I'm not able to change my password.</div>
-                                                    <div class="text-secondary mt-1 fs-7">23m ago</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div>
-                                    <hr class="dropdown-divider mt-0">
-                                </div>
-                                <div>
-                                    <a class="dropdown-item fs-7 text-center" href="#!">See All Messages</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle bsb-dropdown-toggle-caret-disable" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <span class="position-relative pt-1">
+                            <div class="dropdown-menu dropdown-menu-end professional-dropdown">
+                                <div class="dropdown-header-pro">
                                     <i class="bi bi-bell"></i>
-                                    <span class="p-1 bg-accent border border-light rounded-circle position-absolute top-0 start-100 translate-middle">
-                                        <span class="visually-hidden">New Notifications</span>
-                                    </span>
-                                </span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-md-end bsb-dropdown-animation bsb-fadeIn">
-                                <li>
-                                    <h6 class="dropdown-header fs-7 text-center">18 Notifications</h6>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li>
-                                    <a class="dropdown-item d-flex align-items-center" href="#!">
-                                        <span>
-                                            <i class="bi bi-envelope-fill me-2"></i>
-                                            <span class="fs-7">New Messages</span>
-                                        </span>
-                                        <span class="fs-7 ms-auto text-secondary">5 mins</span>
+                                    Notifications
+                                </div>
+                                <a href="#" class="dropdown-item-pro">
+                                    <div class="dropdown-item-icon primary">
+                                        <i class="bi bi-hdd"></i>
+                                    </div>
+                                    <div class="dropdown-item-content">
+                                        <div class="dropdown-item-title">Storage Alert</div>
+                                        <div class="dropdown-item-text">Server A is 85% full</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item-pro">
+                                    <div class="dropdown-item-icon success">
+                                        <i class="bi bi-check-circle"></i>
+                                    </div>
+                                    <div class="dropdown-item-content">
+                                        <div class="dropdown-item-title">Backup Complete</div>
+                                        <div class="dropdown-item-text">Daily backup finished successfully</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item-pro">
+                                    <div class="dropdown-item-icon warning">
+                                        <i class="bi bi-exclamation-triangle"></i>
+                                    </div>
+                                    <div class="dropdown-item-content">
+                                        <div class="dropdown-item-title">Maintenance Due</div>
+                                        <div class="dropdown-item-text">15 devices need maintenance</div>
+                                    </div>
+                                </a>
+                                <div class="dropdown-footer-pro">
+                                    <a href="#" class="dropdown-footer-link">
+                                        View All Notifications
+                                        <i class="bi bi-arrow-right ms-1"></i>
                                     </a>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li>
-                                    <a class="dropdown-item d-flex align-items-center" href="#!">
-                                        <span>
-                                            <i class="bi bi-person-fill me-2"></i>
-                                            <span class="fs-7">Friend Requests</span>
-                                        </span>
-                                        <span class="fs-7 ms-auto text-secondary">17 hours</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li>
-                                    <a class="dropdown-item d-flex align-items-center" href="#!">
-                                        <span>
-                                            <i class="bi bi-file-earmark-fill me-2"></i>
-                                            <span class="fs-7">New Reports</span>
-                                        </span>
-                                        <span class="fs-7 ms-auto text-secondary">3 days</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item fs-7 text-center" href="#!">See All Notifications</a></li>
-                            </ul>
+                                </div>
+                            </div>
                         </li>
+
+                        <!-- Profile -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle bsb-dropdown-toggle-caret-disable" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="~/layoutAssets/assets/img/profile/profile-img-1.jpg" width="35" height="35" class="img-fluid rounded-circle" alt="Ethan Leo">
+                            <a class="profile-btn" href="#" role="button" data-bs-toggle="dropdown">
+                                <img src="~/layoutAssets/assets/img/profile/profile-img-1.jpg" class="profile-avatar" alt="Admin">
+                                <div class="profile-info">
+                                    <div class="profile-name">Ethan Leo</div>
+                                    <div class="profile-role">Administrator</div>
+                                </div>
+                                <i class="bi bi-chevron-down ms-2"></i>
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-md-end bsb-dropdown-animation bsb-fadeIn">
-                                <li>
-                                    <h6 class="dropdown-header fs-7 text-center">Welcome, Ethan Leo</h6>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li>
-                                    <a href="pages-profile.html" class="dropdown-item" aria-current="true">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-3">
-                                                <img src="~/layoutAssets/assets/img/profile/profile-img-1.jpg" width="55" height="55" class="img-fluid rounded-circle" alt="Ethan Leo">
-                                            </div>
-                                            <div class="col-9">
-                                                <div class="ps-3">
-                                                    <div class="text-secondary mt-1 fs-7">Premium Account</div>
-                                                    <div class="text-secondary mt-1 fs-7">leo@example.com</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="pages-profile.html">
-                                        <span>
-                                            <i class="bi bi-person-fill me-2"></i>
-                                            <span class="fs-7">View Profile</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#!">
-                                        <span>
-                                            <i class="bi bi-bell-fill me-2"></i>
-                                            <span class="fs-7">Notifications</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="pages-profile.html">
-                                        <span>
-                                            <i class="bi bi-gear-fill me-2"></i>
-                                            <span class="fs-7">Settings & Privacy</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="pages-faqs.html">
-                                        <span>
-                                            <i class="bi bi-question-circle-fill me-2"></i>
-                                            <span class="fs-7">Help Center</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li>
-                                    <a class="dropdown-item text-center" href="auth-logout.html">
-                                        <span>
-                                            <span class="fs-7">Log Out</span>
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
+                            <div class="dropdown-menu dropdown-menu-end professional-dropdown">
+                                <div class="dropdown-header-pro">
+                                    <i class="bi bi-person-circle"></i>
+                                    Account Settings
+                                </div>
+                                <a href="#" class="dropdown-item-pro">
+                                    <div class="dropdown-item-icon primary">
+                                        <i class="bi bi-person"></i>
+                                    </div>
+                                    <div class="dropdown-item-content">
+                                        <div class="dropdown-item-title">My Profile</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item-pro">
+                                    <div class="dropdown-item-icon success">
+                                        <i class="bi bi-gear"></i>
+                                    </div>
+                                    <div class="dropdown-item-content">
+                                        <div class="dropdown-item-title">Settings</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item-pro">
+                                    <div class="dropdown-item-icon warning">
+                                        <i class="bi bi-question-circle"></i>
+                                    </div>
+                                    <div class="dropdown-item-content">
+                                        <div class="dropdown-item-title">Help Center</div>
+                                    </div>
+                                </a>
+                                <hr class="my-2">
+                                <a href="#" class="dropdown-item-pro">
+                                    <div class="dropdown-item-icon danger">
+                                        <i class="bi bi-box-arrow-right"></i>
+                                    </div>
+                                    <div class="dropdown-item-content">
+                                        <div class="dropdown-item-title">Log Out</div>
+                                    </div>
+                                </a>
+                            </div>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <section class="py-3 py-md-4 py-xl-5 bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1 class="h4">IT Assets Dashboard</h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb m-0 fs-7">
-                            <li class="breadcrumb-item">
-                                <a class="link-primary text-decoration-none" asp-action="Index" asp-controller="Home">Home</a>
-                            </li>
-                            <li class="breadcrumb-item active" aria-current="page"> <a class="link-primary text-decoration-none" asp-action="Index" asp-controller="Brand">Models</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"> <a class="link-primary text-decoration-none" asp-action="Index" asp-controller="Category">Categories</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"> <a class="link-primary text-decoration-none" asp-action="Index" asp-controller="Office">Deparments</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"> <a class="link-primary text-decoration-none" asp-action="Index" asp-controller="Supplier">Suppliers</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"> <a class="link-primary text-decoration-none" asp-action="Index" asp-controller="Employee">Employees</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"> <a class="link-primary text-decoration-none" asp-action="Index" asp-controller="Device">Devices</a></li>
 
-                        </ol>
-                    </nav>
+    <!-- Professional Sidebar -->
+    <aside class="storage-sidebar offcanvas offcanvas-start" tabindex="-1" id="storageSidebar">
+
+        <!-- Sidebar Header with User -->
+        <div class="sidebar-header">
+            <div class="sidebar-user">
+                <div style="position: relative;">
+                    <img src="~/layoutAssets/assets/img/profile/profile-img-1.jpg" class="sidebar-user-avatar" alt="Admin">
+                    <span class="sidebar-user-status"></span>
+                </div>
+                <div class="sidebar-user-info">
+                    <div class="sidebar-user-name">Ethan Leo</div>
+                    <div class="sidebar-user-email">admin@itassets.com</div>
+                </div>
+            </div>
+            <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="offcanvas"></button>
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <div class="sidebar-nav">
+
+            <!-- Dashboard Section -->
+            <div class="nav-section">
+                <div class="nav-section-title">Main</div>
+                <a href="index.html" class="nav-link active">
+                    <div class="nav-icon">
+                        <i class="bi bi-grid-fill"></i>
+                    </div>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+            </div>
+
+            <!-- Device Management -->
+            <div class="nav-section">
+                <div class="nav-section-title">Contents</div>
+                <a href="#" class="nav-link" data-bs-toggle="collapse" data-bs-target="#deviceMenu" aria-expanded="false">
+                    <div class="nav-icon">
+                        <i class="bi bi-menu-button-wide-fill"></i>
+                    </div>
+                    <span class="nav-text">Device</span>
+                    <i class="bi bi-chevron-down nav-arrow"></i>
+                </a>
+                <div class="collapse" id="deviceMenu">
+                    <ul class="nav-submenu">
+                        <li>
+                            <a asp-action="Index" asp-controller="Category" class="nav-submenu-link">
+                                <i class="bi bi-circle-fill"></i>
+                                Categories
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-action="Index" asp-controller="Brand" class="nav-submenu-link">
+                                <i class="bi bi-circle-fill"></i>
+                                Models
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-action="Index" asp-controller="Supplier" class="nav-submenu-link">
+                                <i class="bi bi-circle-fill"></i>
+                                Suppliers
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-action="Index" asp-controller="Device" class="nav-submenu-link">
+                                <i class="bi bi-circle-fill"></i>
+                                Devices
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Device Requests -->
+                <a href="#" class="nav-link" data-bs-toggle="collapse" data-bs-target="#requestMenu" aria-expanded="false">
+                    <div class="nav-icon">
+                        <i class="bi bi-ui-radios"></i>
+                    </div>
+                    <span class="nav-text">Device Requests</span>
+                    <i class="bi bi-chevron-down nav-arrow"></i>
+                </a>
+                <div class="collapse" id="requestMenu">
+                    <ul class="nav-submenu">
+                        <li>
+                            <a asp-action="Index" asp-controller="Request" class="nav-submenu-link">
+                                <i class="bi bi-circle-fill"></i>
+                                Requests
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Device Assignment -->
+                <a href="#" class="nav-link" data-bs-toggle="collapse" data-bs-target="#assignmentMenu" aria-expanded="false">
+                    <div class="nav-icon">
+                        <i class="bi bi-flower2"></i>
+                    </div>
+                    <span class="nav-text">Device Assignment</span>
+                    <i class="bi bi-chevron-down nav-arrow"></i>
+                </a>
+                <div class="collapse" id="assignmentMenu">
+                    <ul class="nav-submenu">
+                        <li>
+                            <a asp-action="Index" asp-controller="DeviceAssign" class="nav-submenu-link">
+                                <i class="bi bi-circle-fill"></i>
+                                Employee Assignment
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-action="Index" asp-controller="OfficeDesign" class="nav-submenu-link">
+                                <i class="bi bi-circle-fill"></i>
+                                Office Assignment
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-action="Index" asp-controller="Transfer" class="nav-submenu-link">
+                                <i class="bi bi-circle-fill"></i>
+                                Device Transfer
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Device Maintenance -->
+                <a href="#" class="nav-link" data-bs-toggle="collapse" data-bs-target="#maintenanceMenu" aria-expanded="false">
+                    <div class="nav-icon">
+                        <i class="bi bi-layout-text-window-reverse"></i>
+                    </div>
+                    <span class="nav-text">Device Maintenance</span>
+                    <i class="bi bi-chevron-down nav-arrow"></i>
+                </a>
+                <div class="collapse" id="maintenanceMenu">
+                    <ul class="nav-submenu">
+                        <li>
+                            <a asp-action="Index" asp-controller="DeviceMaintainance" class="nav-submenu-link">
+                                <i class="bi bi-circle-fill"></i>
+                                Maintenance Schedule
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </section>
-   
-    <!-- Main -->
-    <main id="main" role="main" class="pb-3">
-      
-            @RenderBody()
-    
 
-      
-       
-
-    </main>
-
-    <!-- Aside -->
-    <aside class="bsb-sidebar-1 offcanvas offcanvas-start" tabindex="-1" id="bsbSidebar1" aria-labelledby="bsbSidebarLabel1">
-        <div class="offcanvas-header">
-            <a class="sidebar-brand" href="index.html">
-                <img src="~/layoutAssets/assets/img/branding/it-logo.jpg" id="bsbSidebarLabel1" class="bsb-tpl-logo" alt="BootstrapBrain Logo">
-            </a>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body pt-0">
-            <hr class="sidebar-divider mb-3">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link p-3 bg-light rounded active" data-bs-toggle="collapse" href="#dashboardExamples" role="button" aria-expanded="true" aria-controls="dashboardExamples">
-                        <div class="nav-link-icon text-primary">
-                            <i class="bi bi-grid"></i>
-                        </div>
-                        <span class="nav-link-text fw-bold">Dashboards</span>
-                    </a>
-                    <div class="collapse show" id="dashboardExamples">
-                        <ul class="nav flex-column ms-4">
-                            <li class="nav-item">
-                                <a class="nav-link link-primary active" aria-current="page" href="index.html">
-                                    <div class="nav-link-icon text-primary-emphasis">
-                                        <i class="bi bi-arrow-right-short"></i>
-                                    </div>
-                                    <span class="nav-link-text">Home</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item mt-3">
-                    <h6 class="py-1 text-secondary text-uppercase fs-7">Contents</h6>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link p-3" data-bs-toggle="collapse" href="#componentExamples" role="button" aria-expanded="false" aria-controls="componentExamples">
-                        <div class="nav-link-icon text-primary">
-                            <i class="bi bi-menu-button-wide-fill"></i>
-                        </div>
-                        <span class="nav-link-text fw-bold">Device</span>
-                    </a>
-                    <div class="collapse" id="componentExamples">
-                        <ul class="nav flex-column ms-4">
-                            <li class="nav-item">
-                                <a class="nav-link link-secondary" aria-current="page" asp-action="Index" asp-controller="Category">
-                                    <div class="nav-link-icon text-primary-emphasis">
-                                        <i class="bi bi-arrow-right-short"></i>
-                                    </div>
-                                    <span class="nav-link-text">Categories</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link link-secondary" aria-current="page" asp-action="Index" asp-controller="Brand">
-                                    <div class="nav-link-icon text-primary-emphasis">
-                                        <i class="bi bi-arrow-right-short"></i>
-                                    </div>
-                                    <span class="nav-link-text">Models</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link link-secondary" aria-current="page" asp-action="Index" asp-controller="Supplier">
-                                    <div class="nav-link-icon text-primary-emphasis">
-                                        <i class="bi bi-arrow-right-short"></i>
-                                    </div>
-                                    <span class="nav-link-text">Supplier</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link link-secondary" aria-current="page" asp-action="Index" asp-controller="Device">
-                                    <div class="nav-link-icon text-primary-emphasis">
-                                        <i class="bi bi-arrow-right-short"></i>
-                                    </div>
-                                    <span class="nav-link-text">Devices</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link p-3" data-bs-toggle="collapse" href="#formExamples" role="button" aria-expanded="false" aria-controls="formExamples">
-                        <div class="nav-link-icon text-primary">
-                            <i class="bi bi-ui-radios"></i>
-                        </div>
-                        <span class="nav-link-text fw-bold">Device Requests</span>
-                    </a>
-                    <div class="collapse" id="formExamples">
-                        <ul class="nav flex-column ms-4">
-                            <li class="nav-item">
-                                <a class="nav-link link-secondary" aria-current="page" asp-action="Index" asp-controller="Request">
-                                    <div class="nav-link-icon text-primary-emphasis">
-                                        <i class="bi bi-arrow-right-short"></i>
-                                    </div>
-                                    <span class="nav-link-text">Requests</span>
-                                </a>
-                            </li>
-                          
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link p-3" data-bs-toggle="collapse" href="#iconExamples" role="button" aria-expanded="false" aria-controls="iconExamples">
-                        <div class="nav-link-icon text-primary">
-                            <i class="bi bi-flower2"></i>
-                        </div>
-                        <span class="nav-link-text fw-bold">Device Assignment</span>
-                    </a>
-                    <div class="collapse" id="iconExamples">
-                        <ul class="nav flex-column ms-4">
-                            <li class="nav-item">
-                                <a class="nav-link link-secondary" aria-current="page" asp-action="Index" asp-controller="DeviceAssign">
-                                    <div class="nav-link-icon text-primary-emphasis">
-                                        <i class="bi bi-arrow-right-short"></i>
-                                    </div>
-                                    <span class="nav-link-text">Employee Assignment</span>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link link-secondary" aria-current="page" asp-action="Index" asp-controller="OfficeDesign">
-                                    <div class="nav-link-icon text-primary-emphasis">
-                                        <i class="bi bi-arrow-right-short"></i>
-                                    </div>
-                                    <span class="nav-link-text">Office Assignment</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link link-secondary" aria-current="page" asp-action="Index" asp-controller="Transfer">
-                                    <div class="nav-link-icon text-primary-emphasis">
-                                        <i class="bi bi-arrow-right-short"></i>
-                                    </div>
-                                    <span class="nav-link-text">Device Transfer</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link p-3" data-bs-toggle="collapse" href="#tableExamples" role="button" aria-expanded="false" aria-controls="tableExamples">
-                        <div class="nav-link-icon text-primary">
-                            <i class="bi bi-layout-text-window-reverse"></i>
-                        </div>
-                        <span class="nav-link-text fw-bold">Device Maintainance Schedule</span>
-                    </a>
-                    <div class="collapse" id="tableExamples">
-                        <ul class="nav flex-column ms-4">
-                            <li class="nav-item">
-                                <a class="nav-link link-secondary" aria-current="page" asp-action="Index" asp-controller="DeviceMaintainance">
-                                    <div class="nav-link-icon text-primary-emphasis">
-                                        <i class="bi bi-arrow-right-short"></i>
-                                    </div>
-                                    <span class="nav-link-text">Maintainance Schedule</span>
-                                </a>
-                            </li>
-                    
-                        </ul>
-                    </div>
-                </li>
-               
-            </ul>
-            <hr class="sidebar-divider my-4">
-            <div class="bg-light rounded-3 position-relative px-4 pt-5 pb-4 mt-7">
-                <div class="bsb-w-80 bsb-h-80 d-flex align-items-center justify-content-center text-bg-primary border border-5 border-white rounded-circle position-absolute top-0 start-50 translate-middle">
-                    <i class="bi bi-rocket-takeoff lh-1 fs-3"></i>
-                </div>
-                <div class="text-center">
-                    <h3 class="h5">IT Asstes Dashboard</h3>
-                   
-                </div>
+        <!-- Storage Stats Card -->
+        <div class="storage-stats-card">
+            <div class="storage-icon">
+                <i class="bi bi-hdd"></i>
+            </div>
+            <div class="storage-title">Total Storage</div>
+            <div class="storage-value">2.4 TB</div>
+            <div class="storage-label">of 5 TB used</div>
+            <div class="storage-progress">
+                <div class="storage-progress-bar" style="width: 48%"></div>
             </div>
         </div>
     </aside>
 
-    <!-- Footer -->
-    <footer class="footer py-3 border-top border-light-subtle bg-light fixed-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col text-center">
-                    <div class="py-2">
-                      
-                        <a class="link-secondary text-decoration-none">
-                            IT Assets Management
-                        </a>
-                       
+    <!-- Main Content -->
+    <main class="main-content-pro">
+        <div class="container-fluid">
+
+            <!-- Breadcrumb Navigation -->
+            <nav aria-label="breadcrumb" class="mb-4">
+                <ol class="breadcrumb m-0 fs-7">
+                    <li class="breadcrumb-item">
+                        <a class="link-primary text-decoration-none" asp-action="Index" asp-controller="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a class="link-primary text-decoration-none" asp-action="Index" asp-controller="Brand">Models</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a class="link-primary text-decoration-none" asp-action="Index" asp-controller="Category">Categories</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a class="link-primary text-decoration-none" asp-action="Index" asp-controller="Office">Departments</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a class="link-primary text-decoration-none" asp-action="Index" asp-controller="Supplier">Suppliers</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a class="link-primary text-decoration-none" asp-action="Index" asp-controller="Employee">Employees</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a class="link-primary text-decoration-none" asp-action="Index" asp-controller="Device">Devices</a>
+                    </li>
+                </ol>
+            </nav>
+
+            <!-- Page Header -->
+            <div class="page-header-pro">
+                <h1 class="page-title-pro">Storage Dashboard</h1>
+                <p class="page-subtitle-pro">Monitor and manage your IT asset storage infrastructure</p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+
+                <!-- Total Devices -->
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon-wrapper primary">
+                            <i class="bi bi-laptop"></i>
+                        </div>
+                        <div class="stat-trend up">
+                            <i class="bi bi-arrow-up"></i>
+                            12.5%
+                        </div>
                     </div>
+                    <div class="stat-value">1,247</div>
+                    <div class="stat-label">Total Devices</div>
+                </div>
+
+                <!-- Active Assignments -->
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon-wrapper success">
+                            <i class="bi bi-person-check"></i>
+                        </div>
+                        <div class="stat-trend up">
+                            <i class="bi bi-arrow-up"></i>
+                            8.2%
+                        </div>
+                    </div>
+                    <div class="stat-value">892</div>
+                    <div class="stat-label">Active Assignments</div>
+                </div>
+
+                <!-- Pending Requests -->
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon-wrapper warning">
+                            <i class="bi bi-clock-history"></i>
+                        </div>
+                        <div class="stat-trend down">
+                            <i class="bi bi-arrow-down"></i>
+                            3.1%
+                        </div>
+                    </div>
+                    <div class="stat-value">24</div>
+                    <div class="stat-label">Pending Requests</div>
+                </div>
+
+                <!-- Maintenance Due -->
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon-wrapper danger">
+                            <i class="bi bi-tools"></i>
+                        </div>
+                        <div class="stat-trend up">
+                            <i class="bi bi-arrow-up"></i>
+                            5.7%
+                        </div>
+                    </div>
+                    <div class="stat-value">15</div>
+                    <div class="stat-label">Maintenance Due</div>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            @RenderBody()
+        </div>
+    </main>
+
+    <!-- Professional Footer -->
+    <footer class="footer-pro">
+        <div class="container-fluid px-4">
+            <div class="footer-content-pro">
+                <div class="footer-text-pro">
+                    © 2025 IT Assets Storage Management. All rights reserved.
+                </div>
+                <div class="footer-links-pro">
+                    <a href="#" class="footer-link-pro">Privacy Policy</a>
+                    <a href="#" class="footer-link-pro">Terms of Service</a>
+                    <a href="#" class="footer-link-pro">Support</a>
+                    <a href="#" class="footer-link-pro">Documentation</a>
                 </div>
             </div>
         </div>
     </footer>
 
-
-
-    <!-- ✅ Load jQuery once -->
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    <!-- ✅ Toastr -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
         $(document).ready(function () {
@@ -579,15 +1534,12 @@
         });
     </script>
 
-    <!-- ✅ Bootstrap & other libs -->
     <script src="https://unpkg.com/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdn.jsdelivr.net/npm/jsvectormap"></script>
     <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world-merc.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@@fullcalendar/bootstrap5@6.1.9/index.global.min.js"></script>
-
-    <!-- ✅ Your custom scripts -->
     <script src="~/layoutAssets/assets/controller/console-bsb.js"></script>
     <script src="~/layoutAssets/assets/controller/chart-1.js"></script>
     <script src="~/layoutAssets/assets/controller/chart-3.js"></script>
@@ -595,12 +1547,10 @@
     <script src="~/layoutAssets/assets/controller/map-2.js"></script>
     <script src="~/layoutAssets/assets/controller/calendar-1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
-
-    <!-- ✅ Select2 (only once, after jQuery) -->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-    <!-- ✅ Place section scripts LAST so your view code runs after libs -->
     @RenderSection("Scripts", required: false)
 </body>
 
 </html>
+

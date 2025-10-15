@@ -21,7 +21,7 @@ namespace ItAssetsFront.Services.AuthService
             };
 
             var content = new StringContent(JsonConvert.SerializeObject(loginData), Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync("http://localhost:41335/api/Auth/login", content);
+            var response = await _httpClient.PostAsync("http://shusha.minya.gov.eg:85/api/Auth/login", content);
 
             string json = await response.Content.ReadAsStringAsync();
 

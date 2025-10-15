@@ -212,7 +212,20 @@ namespace ItAssetsFront.Controllers
         }
 
 
-      
+        [HttpGet]
+        public async Task<IActionResult> ExportDevicesToExcel()
+        {
+            var excelBytes = await _ser.ExportDevicesToExcelAsync();
+
+            if (excelBytes == null)
+                return NotFound("No devices found.");
+
+            return File(
+                excelBytes,
+                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                "Devices.xlsx"
+            );
+        }
 
 
     }

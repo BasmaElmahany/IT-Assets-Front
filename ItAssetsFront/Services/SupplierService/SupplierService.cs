@@ -6,7 +6,7 @@ namespace ItAssetsFront.Services.SupplierService
     public class SupplierService
     {
         private readonly HttpClient _httpClient;
-        private readonly string _baseUrl = "http://localhost:41335/api/Supplier";
+        private readonly string _baseUrl = "http://shusha.minya.gov.eg:85/api/Supplier";
 
         public SupplierService(HttpClient httpClient)
         {

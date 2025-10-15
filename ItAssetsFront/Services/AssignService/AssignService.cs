@@ -9,8 +9,8 @@ namespace ItAssetsFront.Services.AssignService
     public class AssignService
     {
         private readonly HttpClient _httpClient;
-        private readonly string _baseUrl = "http://localhost:41335/api/EmployeeDeviceAssign";
-        private readonly string _baseUrl2 = "http://localhost:41335/api/DeviceTransfer";
+        private readonly string _baseUrl = "http://shusha.minya.gov.eg:85/api/EmployeeDeviceAssign";
+        private readonly string _baseUrl2 = "http://shusha.minya.gov.eg:85/api/DeviceTransfer";
         public AssignService(HttpClient httpClient)
         {
             _httpClient = httpClient;
@@ -71,7 +71,7 @@ namespace ItAssetsFront.Services.AssignService
 
             return null;
         }
-        public async Task<DeviceTransfer?> transferDeviceAsync(DeviceTransfer model)
+        public async Task<Models.AssignDevice.DeviceTransfer?> transferDeviceAsync(Models.AssignDevice.DeviceTransfer model)
         {
             var Payload = new
             {
@@ -84,7 +84,7 @@ namespace ItAssetsFront.Services.AssignService
 
             if (response.IsSuccessStatusCode)
             {
-                var result = await response.Content.ReadFromJsonAsync<ApiResponse<DeviceTransfer>>();
+                var result = await response.Content.ReadFromJsonAsync<ApiResponse<Models.AssignDevice.DeviceTransfer>>();
                 return result?.data;
             }
 

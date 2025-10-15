@@ -1,12 +1,8 @@
 ﻿using ItAssetsFront.Models.AssignDevice;
 using ItAssetsFront.Services.AssignService;
-using ItAssetsFront.Services.BrandService;
-using ItAssetsFront.Services.CategoryService;
 using ItAssetsFront.Services.DeviceService;
 using ItAssetsFront.Services.EmployeeService;
-using ItAssetsFront.Services.SupplierService;
 using Microsoft.AspNetCore.Mvc;
-using System.Reflection;
 using X.PagedList.Extensions;
 
 namespace ItAssetsFront.Controllers

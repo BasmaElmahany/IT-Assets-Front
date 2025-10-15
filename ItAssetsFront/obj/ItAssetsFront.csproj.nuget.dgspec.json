@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ItAssetsFront\\ItAssetsFront\\ItAssetsFront.csproj": {}
+    "D:\\projects\\ItAssetsFront\\ItAssetsFront\\ItAssetsFront.csproj": {}
   },
   "projects": {
-    "D:\\ItAssetsFront\\ItAssetsFront\\ItAssetsFront.csproj": {
+    "D:\\projects\\ItAssetsFront\\ItAssetsFront\\ItAssetsFront.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ItAssetsFront\\ItAssetsFront\\ItAssetsFront.csproj",
+        "projectUniqueName": "D:\\projects\\ItAssetsFront\\ItAssetsFront\\ItAssetsFront.csproj",
         "projectName": "ItAssetsFront",
-        "projectPath": "D:\\ItAssetsFront\\ItAssetsFront\\ItAssetsFront.csproj",
+        "projectPath": "D:\\projects\\ItAssetsFront\\ItAssetsFront\\ItAssetsFront.csproj",
         "packagesPath": "C:\\Users\\basma.khalaf\\.nuget\\packages\\",
-        "outputPath": "D:\\ItAssetsFront\\ItAssetsFront\\obj\\",
+        "outputPath": "D:\\projects\\ItAssetsFront\\ItAssetsFront\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -51,6 +51,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "EPPlus": {
+              "target": "Package",
+              "version": "[7.6.0, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[8.0.7, )"

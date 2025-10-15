@@ -1,0 +1,260 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<ItAssetsFront.Models.DeviceModels.DeviceTransfer>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+
+<style>
+    /* ===== Filter Card ===== */
+    .filter-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 1rem 1.5rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 3px 8px rgba(0,0,0,.05);
+    }
+
+        .filter-card label {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .filter-card .form-control {
+            border-radius: 8px;
+            box-shadow: none;
+        }
+
+    /* ===== Table ===== */
+    .custom-table thead {
+        background: linear-gradient(45deg, #4e73df, #1cc88a);
+        color: white;
+        font-size: 0.95rem;
+        position: sticky;
+        top: 0;
+        z-index: 2;
+    }
+
+    .custom-table tbody tr:hover {
+        background-color: #f0f8ff !important;
+        transition: background 0.3s;
+    }
+
+    .custom-table th, .custom-table td {
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    /* ===== Pagination ===== */
+    .pagination {
+        margin-top: 1rem;
+        gap: 0.3rem;
+    }
+
+        .pagination .page-link {
+            border-radius: 50% !important;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 24px;
+            font-weight: 600;
+        }
+
+            .pagination .page-link:hover {
+                background: linear-gradient(135deg, #4e73df, #1cc88a);
+                color: #fff !important;
+            }
+
+        .pagination .active .page-link {
+            background: linear-gradient(135deg, #1cc88a, #4e73df);
+            color: #fff !important;
+            border: none;
+        }
+
+    /* ===== Modals ===== */
+    .modal-content {
+        border-radius: 16px;
+        box-shadow: 0 5px 15px rgba(0,0,0,.2);
+    }
+
+    .modal-body span {
+        word-break: break-word; /* Break long words */
+        white-space: normal; /* Allow wrapping */
+    }
+</style>
+
+<section class="pb-4 bg-light">
+    <div class="container">
+        <div class="row gy-3">
+            <div class="col-12">
+                <div class="card shadow-lg border-0 rounded-3 overflow-hidden">
+
+                    <!-- Header -->
+                    <div class="card-header text-white d-flex justify-content-between align-items-center py-3 px-4 shadow-sm"
+                         style="background: linear-gradient(135deg, #4e73df, #1cc88a);">
+                        <h5 class="mb-0 fw-bold">
+                            <i class="bi bi-laptop me-2"></i> Tranferred Devices
+                        </h5>
+                        <a asp-action="ExportToExcel" class="btn btn-success">
+                            <i class="bi bi-file-earmark-excel"></i> Export to Excel
+                        </a>
+                    </div>
+
+                    <!-- Filters -->
+                    <div class="filter-card">
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <label>Search</label>
+                                <input type="text" id="deviceSearchInput" class="form-control"
+                                       placeholder="🔍 Search by device or employee..."
+                                       value="@ViewBag.Search" onkeyup="applyFilters()" />
+                            </div>
+                            <div class="col-md-3">
+                                <label>Status</label>
+                                <select id="statusFilter" class="form-control" onchange="filterDevices()">
+                                    <option value="">-- All --</option>
+                                    <option value="Active">Active</option>
+                                    <option value="Inactive">Inactive</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label>Category</label>
+                                @Html.DropDownList(
+                                         "categoryId", // name of the input (must match your action param)
+                                         new SelectList(ViewBag.Categories, "id", "name", ViewBag.SelectedCategory),
+                                         "-- All Categories --",
+                                         new { @class = "form-control category-filter", onchange = "applyFilters()" }
+                                         )
+                            </div>
+
+                            <div class="col-md-3">
+                                <label>Brand</label>
+                                @Html.DropDownList(
+                                         "brandId",
+                                         new SelectList(ViewBag.Brands, "id", "name", ViewBag.SelectedBrand),
+                                         "-- All Brands --",
+                                         new { @class = "form-control brand-filter", onchange = "applyFilters()" }
+                                         )
+                            </div>
+
+                            
+                        </div>
+                    </div>
+
+                    <!-- Table -->
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover table-bordered custom-table text-nowrap align-middle mb-0" id="devicesTable">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Device</th>
+                                        <th>Categroy</th>
+                                        <th>brand</th>
+                                        <th>Old Employee</th>
+                                        <th>New Employee</th>
+                                        <th>Date</th>
+                                
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model != null && Model.Any())
+                                    {
+                                        int index = (Model.PageNumber - 1) * Model.PageSize + 1;
+                                        foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@index</td>
+                                                <td class="device-name fw-semibold">
+                                                    <i class="bi bi-cpu text-primary me-1"></i> @item.device?.name
+                                                </td>
+                                                <td class="device-name fw-semibold">
+                                                    @item.device?.category.name
+                                                </td>
+                                                <td class="device-name fw-semibold">
+                                                   @item.device?.brand.name
+                                                </td>
+                                                <td><i class="bi bi-person-circle text-secondary me-1"></i> @item.emp1?.name</td>
+                                                <td><i class="bi bi-person-circle text-secondary me-1"></i> @item.emp2?.name</td>
+
+                                                <td>@item.dateOnly.ToString("yyyy-MM-dd")</td>
+                                              
+                                               
+                                            </tr>
+                                            index++;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <tr>
+                                            <td colspan="9" class="text-center text-muted py-4">
+                                                <i class="bi bi-info-circle fs-3 d-block mb-2"></i>
+                                                No assigned devices found.
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="d-flex justify-content-center mt-3">
+                        @Html.PagedListPager(
+                                 Model,
+                                 page => Url.Action("Index", new { page }),
+                                 new PagedListRenderOptions
+                        {
+                            LiElementClasses = new[] { "page-item" },
+                            PageClasses = new[] { "page-link rounded-pill shadow-sm border-0" },
+                            UlElementClasses = new[] { "pagination pagination-sm" },
+                            DisplayLinkToFirstPage = PagedListDisplayMode.Always,
+                            DisplayLinkToLastPage = PagedListDisplayMode.Always,
+                            DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+                            DisplayLinkToNextPage = PagedListDisplayMode.Always
+                        }
+                                 )
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts {
+    <script>
+        function filterDevices() {
+            const search = document.getElementById("deviceSearchInput").value.toLowerCase();
+            
+            const rows = document.querySelectorAll("#devicesTable tbody tr");
+
+            rows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                const matchSearch = !search || text.includes(search);
+               
+
+                row.style.display = (matchSearch ) ? "" : "none";
+            });
+        }
+                function applyFilters() {
+            const categoryId = document.getElementById("categoryId").value;
+            const brandId = document.getElementById("brandId").value;
+            const search = document.getElementById("deviceSearchInput").value;
+
+            let url = '@Url.Action("Index", "Transfer")' + '?';
+
+            if (categoryId) url += 'categoryId=' + categoryId + '&';
+            if (brandId) url += 'brandId=' + brandId + '&';
+            if (search) url += 'search=' + encodeURIComponent(search) + '&';
+
+            window.location.href = url;
+        }
+
+    </script>
+}
+
+

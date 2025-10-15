@@ -6,7 +6,7 @@ namespace ItAssetsFront.Services.DeviceMaintainanceService
     public class MaintainanceRequest
     {
         private readonly HttpClient _httpClient;
-        private readonly string _baseUrl = "http://localhost:41335/api/DeviceMaintainanceSchedule";
+        private readonly string _baseUrl = "http://shusha.minya.gov.eg:85/api/DeviceMaintainanceSchedule";
 
         public MaintainanceRequest(HttpClient httpClient)
         {
